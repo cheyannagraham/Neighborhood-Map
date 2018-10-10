@@ -3,7 +3,7 @@ import React from 'react';
 class Map extends React.Component {
     render() {
         return (
-            <div>Map</div>
+            <div> Map </div>
         )        
     }
 }
