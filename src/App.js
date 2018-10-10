@@ -5,11 +5,19 @@ import ListView from './Components/ListView'
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = 
+    {
+      markers : '732 stonebridge way, pleasant hill, ca'
+    }
+  }
+
   render() {
     return (
       <div>
-        <Map />
-        <ListView />
+        <Map markers = {this.state.markers} />
+        <ListView markers = {this.state.markers} />
       </div>
     );
   }
