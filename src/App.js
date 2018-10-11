@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Map from './Components/Map'
+import Marker from './Components/Markers'
 import ListView from './Components/ListView'
 // import * from 
 
@@ -9,35 +9,37 @@ class App extends Component {
   
   constructor(props) {
     super(props);
-    this.state = 
-    {
-      markers : '732 stonebridge way, pleasant hill, ca'
+    this.state = {
+      markers : 
+      [
+        {title: 'Park Ave Penthouse', location: {lat: 40.7713024, lng: -73.9632393}},
+        {title: 'Chelsea Loft', location: {lat: 40.7444883, lng: -73.9949465}},
+        {title: 'Union Square Open Floor Plan', location: {lat: 40.7347062, lng: -73.9895759}}
+      ]
     }
-  }
-
+  } 
+  
   componentDidMount() {
-    this.getMap();
+    this.showMarkers();
   }
 
-  getMap() {
-    // let map = new google.maps.Map(
-    //   document.createElement('div'),
-    //   {
-    //     center:
-    //     {
-    //         lat:41.159577,
-    //         lng:-74.255406
-    //     },
-    //     zoom:9
-    //   }
-    // )
+  showMarkers = () => {
+    this.state.markers.map(marker => 
+      new window.google.maps.Marker(
+        {
+          position : marker.location,
+          map : this.props.map,
+          title : marker.title
+        }
+      )
+    )
   }
+
 
   render() {
     return (
       <div>
-        <Map markers = {this.state.markers} />
-        <ListView markers = {this.state.markers} />
+        App.js
       </div>
     );
   }

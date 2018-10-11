@@ -6,7 +6,6 @@ class ListView extends React.Component {
         return (
             <div>
                 ListView
-                {this.props.markers}
             </div>
         )
     }
