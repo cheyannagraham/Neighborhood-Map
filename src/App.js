@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Marker from './Components/Markers'
 import ListView from './Components/ListView'
 // import * from 
 
@@ -39,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        App.js
+        <ListView listItems = {this.state.markers} />
       </div>
     );
   }
