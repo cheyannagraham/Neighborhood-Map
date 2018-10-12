@@ -6,28 +6,13 @@ import * as serviceWorker from './serviceWorker';
 
 
 window.initMap = function() {
-    let map,mapError;
+    let mapError;
 
-    //Check if library loaded
-    if(window.google.maps)
-    {
-        map = new window.google.maps.Map(
-        document.querySelector('#map'),
-        {
-            center : {
-                lat:41.263849,
-                lng:-74.382206
-            },
-            zoom : 11
-        })
-
-
-
-    } else {
+    if(!window.google.maps){
         mapError = "Error, Google Maps Not Loaded";
     }
 
-    ReactDOM.render(<App map = {map} mapError = {mapError}/>, document.getElementById('root'));
+    ReactDOM.render(<App mapError = {mapError}/>, document.getElementById('root'));
 
 }
 
