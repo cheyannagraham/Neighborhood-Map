@@ -3,7 +3,7 @@ import React from 'react';
 class ListView extends React.Component {
 
     render() {
-        return (console.log(this.props),
+        return (
             <ol>
                 {this.props.listItems.map(item => (
                     <li key = {item.location.lat + item.location.lng}>
