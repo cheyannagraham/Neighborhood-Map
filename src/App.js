@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import ListView from './Components/ListView'
-// import * from 
 
 
 class App extends Component {
@@ -13,7 +12,8 @@ class App extends Component {
       [
         {title: 'Park Ave Penthouse', location: {lat: 40.7713024, lng: -73.9632393}},
         {title: 'Chelsea Loft', location: {lat: 40.7444883, lng: -73.9949465}},
-        {title: 'Union Square Open Floor Plan', location: {lat: 40.7347062, lng: -73.9895759}}
+        {title: 'Union Square Open Floor Plan', location: {lat: 40.7347062, lng: -73.9895759}},
+        // {title: 'Home', location: {lat: 37.943490, lng: -122.073000}}
       ]
     }
   } 
@@ -23,17 +23,28 @@ class App extends Component {
   }
 
   showMarkers = () => {
-    this.state.markers.map(marker => 
-      new window.google.maps.Marker(
+    let bounds = new window.google.maps.LatLngBounds();
+
+    this.state.markers.map(marker => {
+      bounds.extend(marker.location);
+
+      return new window.google.maps.Marker(
         {
           position : marker.location,
           map : this.props.map,
           title : marker.title
         }
       )
-    )
+    })
+
+    this.fitBounds(bounds);
   }
 
+  fitBounds = (bounds) => {
+    this.props.map.fitBounds(bounds);
+    // this.props.map.panToBounds(bounds);
+  }
+  
 
   render() {
     return (

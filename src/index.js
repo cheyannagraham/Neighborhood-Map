@@ -21,9 +21,11 @@ window.initMap = function() {
             zoom : 11
         })
 
+
+
     } else {
         mapError = "Error, Google Maps Not Loaded";
-    } 
+    }
 
     ReactDOM.render(<App map = {map} mapError = {mapError}/>, document.getElementById('root'));
 
