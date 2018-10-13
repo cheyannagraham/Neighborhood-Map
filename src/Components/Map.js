@@ -47,15 +47,12 @@ class Map extends React.Component{
 
 
     makeMarkers = () => {
-      let bounds = new window.google.maps.LatLngBounds();
   
       let markers = this.state.locationData.map(marker => {
-        bounds.extend(marker.location);
   
         let m = new window.google.maps.Marker(
           {
             position : marker.location,
-            map : this.state.map,
             title : marker.title
           }
         )
@@ -66,14 +63,27 @@ class Map extends React.Component{
         return m;
       })
 
-      this.setState({markers : markers});
+      this.setState({markers : markers, displayedMarkers : markers});
+      this.showMarkers();
+
+    }
+
+    showMarkers = () => {
+      let bounds = new window.google.maps.LatLngBounds();
+
+      this.state.displayedMarkers.forEach(marker => {
+        bounds.extend(marker.position);
+        marker.setMap(this.state.map);
+      })
+
       this.state.map.fitBounds(bounds);
 
     }
 
     handleClick = (marker) => {
       console.log(marker);
-      this.setState({markerClicked : marker})
+      this.setState({markerClicked : marker});
+
       // start bounce
       marker.setAnimation(window.google.maps.Animation.BOUNCE);
       // stop bounce
