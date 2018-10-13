@@ -4,23 +4,24 @@ class ListView extends React.Component {
 
     render() {
         return (
-            this.props.listItems &&
-            
+            this.props.markers && 
             <ol>
-                {this.props.listItems.map(item => {
+                {this.props.markers.map(marker => {
                     let className = '';
                     
-                    this.props.markerClicked && item.title === this.props.markerClicked.title ?
+                    this.props.markerClicked && marker.title === this.props.markerClicked.title ?
                     className = 'clicked' : className = '';
 
                     return (
-                        <li  key = {item.location.lat + item.location.lng}>
-                            <a className = {className} href='#'> {item.title} </a>
+                        <li  key = {marker.title}>
+                            <a className = {className} href='#' onClick = {() => {this.props.handleClick(marker)}}> {marker.title} </a>
                         </li>
                     )
                     
                 })}
-            </ol>
+            </ol> || ''          
+
+
         )
     }
 }

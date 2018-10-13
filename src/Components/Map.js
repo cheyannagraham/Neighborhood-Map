@@ -88,7 +88,7 @@ class Map extends React.Component{
                 {this.props.mapError && <div>{this.props.MapError}</div> }
                 
                 <div>
-                    <ListView markerClicked = {this.state.markerClicked} listItems = {this.state.locationData} />
+                    <ListView markerClicked = {this.state.markerClicked} markers = {this.state.markers} handleClick = {this.handleClick} />
                 </div>
             </div>
 
