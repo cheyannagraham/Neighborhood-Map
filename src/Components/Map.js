@@ -63,17 +63,17 @@ class Map extends React.Component{
         return m;
       })
 
-      this.setState({markers : markers, displayedMarkers : markers});
-      this.showMarkers();
+      this.setState({markers : markers});
+      this.showMarkers(markers);
 
     }
 
     showMarkers = (markers) => {
-      markers && this.setState({displayedMarkers : markers})
+      this.setState({showMarkers : markers})
       
       let bounds = new window.google.maps.LatLngBounds();
 
-      this.state.displayedMarkers.forEach(marker => {
+      markers.forEach(marker => {
         bounds.extend(marker.position);
         marker.setMap(this.state.map);
       })
@@ -82,8 +82,15 @@ class Map extends React.Component{
 
     }
 
+
+
+    findResults = (search) => {
+      let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
+      this.showMarkers(markers);
+    }
+
+    
     handleClick = (marker) => {
-      console.log(marker);
       this.setState({markerClicked : marker});
 
       // start bounce
@@ -91,10 +98,6 @@ class Map extends React.Component{
       // stop bounce
       marker.setAnimation(window.google.maps.Animation.null);
 
-    }
-
-    findResults = (search) => {
-      console.log(search)
     }
     
 
@@ -105,9 +108,8 @@ class Map extends React.Component{
                 
                 <div>
                     <ListView 
-                    showMarkers = {this.showMarkers} 
                     markerClicked = {this.state.markerClicked} 
-                    markers = {this.state.markers} 
+                    markers = {this.state.showMarkers || this.state.markers} 
                     handleClick = {this.handleClick}
                     findResults = {this.findResults} />
                 </div>

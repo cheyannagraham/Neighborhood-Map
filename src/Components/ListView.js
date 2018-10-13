@@ -11,7 +11,7 @@ class ListView extends React.Component {
                 value = {this.searchField} 
                 onChange = { (e) => {this.props.findResults(e.target.value)}} />
 
-                {this.props.markers && 
+                {this.props.markers && this.props.markers.length > 0 ? 
                 
                 <ol>
                     {this.props.markers.map(marker => {
@@ -31,7 +31,9 @@ class ListView extends React.Component {
                             </li>
                         )                        
                     })}
-                </ol> || ''   
+                </ol> :
+
+                <p>No Results</p>
 
            }</div>
         )
