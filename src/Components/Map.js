@@ -34,11 +34,10 @@ class Map extends React.Component{
                 zoom : 11
             });
 
-            //this event will fire when the map is idle or 
-            // finished and then load the markers
-            map.addListener('idle',this.makeMarkers);
+            //this event will fire when the tiles for them 
+            // map finish loading finished and then load the markers
+            window.google.maps.event.addListenerOnce(map,'tilesloaded',this.makeMarkers)
             this.setState({map : map})
-            this.makeMarkers();
 
         }
 
@@ -50,7 +49,6 @@ class Map extends React.Component{
     
         let markers = this.state.locationData.map(marker => {
           bounds.extend(marker.location);
-          console.log(this.state.map)
     
           return new window.google.maps.Marker(
             {
@@ -62,14 +60,13 @@ class Map extends React.Component{
         })
 
         this.setState({markers : markers});
-        // console.log(this.state)
+        this.state.map.fitBounds(bounds);
 
-        // this.state.map.fitBounds(bounds);
       }
     
 
     render() {
-        return (console.log(this.state.map),
+        return (
             <div>
                 {this.props.mapError && <div>{this.props.MapError}</div> }
                 
