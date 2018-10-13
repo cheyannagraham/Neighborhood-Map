@@ -72,7 +72,11 @@ class Map extends React.Component{
     }
 
     handleClick = (marker) => {
-      console.log(marker.title);
+      console.log(marker);
+      // start bounce
+      marker.setAnimation(window.google.maps.Animation.BOUNCE);
+      // stop bounce
+      marker.setAnimation(window.google.maps.Animation.null);
 
     }
     
