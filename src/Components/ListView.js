@@ -3,14 +3,23 @@ import React from 'react';
 class ListView extends React.Component {
 
     render() {
-        return (console.log(this.props),
+        return (
             this.props.listItems &&
+            
             <ol>
-                {this.props.listItems.map(item => (
-                    <li key = {item.location.lat + item.location.lng}>
-                        <a href='#'> {item.title} </a>
-                    </li>
-                 ))}
+                {this.props.listItems.map(item => {
+                    let className = '';
+                    
+                    this.props.markerClicked && item.title === this.props.markerClicked.title ?
+                    className = 'clicked' : className = '';
+
+                    return (
+                        <li  key = {item.location.lat + item.location.lng}>
+                            <a className = {className} href='#'> {item.title} </a>
+                        </li>
+                    )
+                    
+                })}
             </ol>
         )
     }

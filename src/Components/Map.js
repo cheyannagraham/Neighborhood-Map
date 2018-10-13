@@ -73,6 +73,7 @@ class Map extends React.Component{
 
     handleClick = (marker) => {
       console.log(marker);
+      this.setState({markerClicked : marker})
       // start bounce
       marker.setAnimation(window.google.maps.Animation.BOUNCE);
       // stop bounce
@@ -87,7 +88,7 @@ class Map extends React.Component{
                 {this.props.mapError && <div>{this.props.MapError}</div> }
                 
                 <div>
-                    <ListView listItems = {this.state.locationData} />
+                    <ListView markerClicked = {this.state.markerClicked} listItems = {this.state.locationData} />
                 </div>
             </div>
 
@@ -97,6 +98,7 @@ class Map extends React.Component{
 }
 
 export default Map
+//highlight marker in list on click
     
 
    

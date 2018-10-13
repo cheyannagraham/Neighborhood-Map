@@ -1,11 +1,15 @@
-#map,#root {
-  height : 100%;
-  width : 50%;
-}
-
 html, body {
   height : 100%;
   width : 100%;
   display : flex;
   flex-wrap : wrap;
+}
+
+#map,#root {
+  height : 100%;
+  width : 50%;
+}
+
+.clicked {
+  background:yellow;
 }
