@@ -68,7 +68,9 @@ class Map extends React.Component{
 
     }
 
-    showMarkers = () => {
+    showMarkers = (markers) => {
+      markers && this.setState({displayedMarkers : markers})
+      
       let bounds = new window.google.maps.LatLngBounds();
 
       this.state.displayedMarkers.forEach(marker => {
@@ -90,6 +92,10 @@ class Map extends React.Component{
       marker.setAnimation(window.google.maps.Animation.null);
 
     }
+
+    findResults = (search) => {
+      console.log(search)
+    }
     
 
     render() {
@@ -98,7 +104,12 @@ class Map extends React.Component{
                 {this.props.mapError && <div>{this.props.MapError}</div> }
                 
                 <div>
-                    <ListView markerClicked = {this.state.markerClicked} markers = {this.state.markers} handleClick = {this.handleClick} />
+                    <ListView 
+                    showMarkers = {this.showMarkers} 
+                    markerClicked = {this.state.markerClicked} 
+                    markers = {this.state.markers} 
+                    handleClick = {this.handleClick}
+                    findResults = {this.findResults} />
                 </div>
             </div>
 
