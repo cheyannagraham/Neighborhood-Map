@@ -46,25 +46,35 @@ class Map extends React.Component{
     }
 
 
-      makeMarkers = () => {
-        let bounds = new window.google.maps.LatLngBounds();
-    
-        let markers = this.state.locationData.map(marker => {
-          bounds.extend(marker.location);
-    
-          return new window.google.maps.Marker(
-            {
-              position : marker.location,
-              map : this.state.map,
-              title : marker.title
-            }
-          )
+    makeMarkers = () => {
+      let bounds = new window.google.maps.LatLngBounds();
+  
+      let markers = this.state.locationData.map(marker => {
+        bounds.extend(marker.location);
+  
+        let m = new window.google.maps.Marker(
+          {
+            position : marker.location,
+            map : this.state.map,
+            title : marker.title
+          }
+        )
+        m.addListener('click', () => {
+          this.handleClick(m);
         })
 
-        this.setState({markers : markers});
-        this.state.map.fitBounds(bounds);
+        return m;
+      })
 
-      }
+      this.setState({markers : markers});
+      this.state.map.fitBounds(bounds);
+
+    }
+
+    handleClick = (marker) => {
+      console.log(marker.title);
+
+    }
     
 
     render() {
