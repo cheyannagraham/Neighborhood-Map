@@ -13,3 +13,8 @@ html, body {
 .clicked {
   background:yellow;
 }
+
+#marker-content {
+  width : 100px;
+  height : 100px;
+}

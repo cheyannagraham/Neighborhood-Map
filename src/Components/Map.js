@@ -38,9 +38,11 @@ class Map extends React.Component{
 
       //this event will fire when the tiles for them 
       // map finish loading finished and then load the markers
-      window.google.maps.event.addListenerOnce(map,'tilesloaded',this.makeMarkers)
-      this.setState({map : map})
+      window.google.maps.event.addListenerOnce(map,'tilesloaded',this.makeMarkers);
+      
+      let infoWindow = new window.google.maps.InfoWindow();
 
+      this.setState({map : map, infoWindow : infoWindow})
     }
 
   }
@@ -110,6 +112,10 @@ class Map extends React.Component{
     // stop bounce
     marker.setAnimation(window.google.maps.Animation.null);
 
+    // display info window
+    this.state.infoWindow.setContent(`<div id = "marker-content" >${marker.title}</div>`);
+    this.state.infoWindow.open(this.state.map,marker);
+
   }
   
 
@@ -133,7 +139,9 @@ class Map extends React.Component{
 }
 
 export default Map
-//hide markers not shown
+//get 3rd Party API
+//style
+//fix warning
     
 
    
