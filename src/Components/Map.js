@@ -33,7 +33,7 @@ class Map extends React.Component{
                     lat:41.263849,
                     lng:-74.382206
                 },
-                zoom : 11
+                zoom : 12
             });
 
             //this event will fire when the tiles for them 
@@ -69,6 +69,7 @@ class Map extends React.Component{
     }
 
     showMarkers = (markers) => {
+      this.hideMarkers();
       this.setState({showMarkers : markers})
       
       let bounds = new window.google.maps.LatLngBounds();
@@ -79,7 +80,14 @@ class Map extends React.Component{
       })
 
       this.state.map.fitBounds(bounds);
+      this.state.map.setZoom(12)
 
+    }
+
+    hideMarkers = () => {
+      this.state.markers.forEach(marker => {
+        marker.setMap(null);
+      })
     }
 
 
@@ -121,7 +129,7 @@ class Map extends React.Component{
 }
 
 export default Map
-//highlight marker in list on click
+//hide markers not shown
     
 
    
