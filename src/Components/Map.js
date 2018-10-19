@@ -80,6 +80,7 @@ class Map extends React.Component{
   }
 
   showMarkers = (markers) => {
+    this.hideMarkers();
 
     this.setState({showMarkers : markers})
     
