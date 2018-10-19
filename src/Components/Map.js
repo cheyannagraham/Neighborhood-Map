@@ -1,5 +1,6 @@
    import React from 'react';
    import ListView from './ListView'
+   import Search from './Search'
 
 
 class Map extends React.Component{
@@ -131,6 +132,7 @@ class Map extends React.Component{
                   handleClick = {this.handleClick}
                   findResults = {this.findResults} />
               </div>
+              <Search />
           </div>
 
       );

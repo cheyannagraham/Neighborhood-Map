@@ -6,7 +6,7 @@ class ListView extends React.Component {
     render() {
         return (
             <div>
-                <input 
+                Filter Results <input 
                 type='text' 
                 value = {this.searchField} 
                 onChange = { (e) => {this.props.findResults(e.target.value)}} />
