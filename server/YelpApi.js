@@ -20,7 +20,9 @@ app.post('/', (req, res) => {
     location: req.body.location
   }).then(response => {
     //   console.log(response);
-    res.send(response.jsonBody.businesses[0].name);
+    // res.send(response.jsonBody.businesses[0].name);
+    // res.send(typeof response.statusCode)
+    if(response.statusCode === 200) res.send(response.jsonBody.businesses.filter((bus,index) => index < 5));
 
   }).catch(e => {
     res.send('api',e);
