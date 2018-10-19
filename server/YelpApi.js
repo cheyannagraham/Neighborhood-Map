@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.post('/', (req, res) => {
     console.log(req.body)
     request({
-        url : 'https://api.yelp.com/v3/businesses/search?term=coffee&location=california',
+        url : `https://api.yelp.com/v3/businesses/search?term=${req.body.keyword}&location=${req.body.location}`,
         method: 'GET',
         'auth' : {
             'bearer' : '3Yd189W5j3gAG3VCG6L1mDurEi8fwJ340aLNzNR-gjfn__bvCPmFH3UOkuEr5Tq_Z0svny-KQcCfQL_eXWDzK327bfEOzX8g67Bgtuol8HTVPbbbBf5ebqMlksvGW3Yx'
