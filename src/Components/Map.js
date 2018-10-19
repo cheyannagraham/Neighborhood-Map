@@ -48,6 +48,13 @@ class Map extends React.Component{
 
   }
 
+  getMarkers = (data) => {
+    this.setState({locationData : data});
+    console.log(this.state.locationData,'ld')
+    this.makeMarkers();
+
+  }
+
 
   makeMarkers = () => {
 
@@ -85,8 +92,11 @@ class Map extends React.Component{
 
     if(markers.length > 0) {
 
+      // this.state.map.panToBounds(bounds);
       this.state.map.fitBounds(bounds);
-      this.state.map.setZoom(12)
+      // this.state.map.setZoom(12);
+
+
     }
 
   }
@@ -132,7 +142,7 @@ class Map extends React.Component{
                   handleClick = {this.handleClick}
                   findResults = {this.findResults} />
               </div>
-              <Search />
+              <Search getMarkers = {this.getMarkers} />
           </div>
 
       );

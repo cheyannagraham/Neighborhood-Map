@@ -17,7 +17,8 @@ app.post('/', (req, res) => {
 
   client.search({
     term: req.body.keyword,
-    location: req.body.location
+    location: req.body.location,
+    radius: 16093
   }).then(response => {
     //   console.log(response);
     // res.send(response.jsonBody.businesses[0].name);
