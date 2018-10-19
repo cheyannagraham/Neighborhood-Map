@@ -60,18 +60,18 @@ class Map extends React.Component{
 
     let markers = this.state.locationData.map(marker => {
 
-      let m = new window.google.maps.Marker(
+      let mark = new window.google.maps.Marker(
         {
           position : marker.location,
           title : marker.title,
           id: marker.id
         }
       )
-      m.addListener('click', () => {
-        this.handleClick(m);
+      mark.addListener('click', () => {
+        this.handleClick(mark);
       })
 
-      return m;
+      return mark;
     })
 
     this.setState({markers : markers});
@@ -96,7 +96,6 @@ class Map extends React.Component{
       this.state.map.fitBounds(bounds);
       // this.state.map.setZoom(12);
     }
-
   }
 
   hideMarkers = () => {
@@ -104,8 +103,7 @@ class Map extends React.Component{
       marker.setMap(null);
     })
   }
-
-
+  
 
   findResults = (search) => {
     let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
