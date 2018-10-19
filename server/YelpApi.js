@@ -15,15 +15,15 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.post('/', (req, res) => {
 
-
   client.search({
-    term:req.body.search,
-    location: 'al'
+    term: req.body.keyword,
+    location: req.body.location
   }).then(response => {
+    //   console.log(response);
     res.send(response.jsonBody.businesses[0].name);
 
   }).catch(e => {
-    console.log(e);
+    res.send('api',e);
   });
 
 }) 
