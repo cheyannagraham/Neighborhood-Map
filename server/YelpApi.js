@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 
 
 app.post('/', (req, res) => {
-    // res.send(req.body)
     console.log(req.body)
     request({
         url : 'https://api.yelp.com/v3/businesses/search?term=coffee&location=california',
@@ -25,7 +24,30 @@ app.post('/', (req, res) => {
         }
     },
     (error,response,body) => {
-        console.log(response.statusCode)
+        error && res.send(error);
+
+        console.log(response.statusCode);
+
+        let places = JSON.parse(body).businesses
+        .filter((bus,index) => index < 5 );
+
+
+        // .map(place => ({
+        //     id : place.id,
+        //     addresss : place.location.display_address.join(' '),
+        //     title : place.name,
+        //     location : {
+        //         lat : place.coordinates.latitude,
+        //         lng : place.coordinates.longitude
+        //         }
+        //     })
+        // );
+
+        // console.log(places)
+
+        res.send(places)
+
+
 
     });
 
