@@ -80,7 +80,7 @@ class Map extends React.Component{
 
   showMarkers = (markers) => {
 
-    this.hideMarkers();
+    // this.hideMarkers();
     this.setState({showMarkers : markers})
     
     let bounds = new window.google.maps.LatLngBounds();

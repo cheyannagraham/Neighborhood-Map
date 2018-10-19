@@ -19,19 +19,30 @@ class Search extends React.Component {
        .then(resp => resp.text())
        .then(resp => {
         //    console.log(JSON.parse(resp))
-        let markers = JSON.parse(resp).map(bus =>
-            ({
-                id :bus.id,
-                location: {
-                    lat : bus.coordinates.latitude,
-                    lng : bus.coordinates.longitude
-                },
-                address: bus.location.display_address.join(' '),
-                title: bus.name
-            })
-        )
+        console.log('search response',resp)
 
-        this.props.getMarkers(markers)
+            if(resp){
+
+                let markers = JSON.parse(resp).map(bus =>
+                    ({
+                        id :bus.id,
+                        location: {
+                            lat : bus.coordinates.latitude,
+                            lng : bus.coordinates.longitude
+                        },
+                        address: bus.location.display_address.join(' '),
+                        title: bus.name
+                    })
+                )
+        
+                this.props.getMarkers(markers)
+                
+            } 
+
+            else {
+                console.log('no response')
+            }
+
         });
 
     }

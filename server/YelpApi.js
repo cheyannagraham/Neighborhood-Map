@@ -28,24 +28,17 @@ app.post('/', (req, res) => {
 
         console.log(response.statusCode);
 
-        let places = JSON.parse(body).businesses
-        .filter((bus,index) => index < 5 );
+        
+
+        JSON.parse(body).businesses ? 
+        res.send(JSON.parse(body).businesses.filter((bus,index) => index < 5 )) : 
+        res.send('');   
 
 
-        // .map(place => ({
-        //     id : place.id,
-        //     addresss : place.location.display_address.join(' '),
-        //     title : place.name,
-        //     location : {
-        //         lat : place.coordinates.latitude,
-        //         lng : place.coordinates.longitude
-        //         }
-        //     })
-        // );
 
-        // console.log(places)
+        // console.log(results)
 
-        res.send(places)
+        // res.send(results)
 
 
 
@@ -68,6 +61,16 @@ app.listen(3002)
 
 
 
+        // .map(place => ({
+        //     id : place.id,
+        //     addresss : place.location.display_address.join(' '),
+        //     title : place.name,
+        //     location : {
+        //         lat : place.coordinates.latitude,
+        //         lng : place.coordinates.longitude
+        //         }
+        //     })
+        // );
 
 
 
