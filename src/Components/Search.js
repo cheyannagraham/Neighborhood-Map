@@ -4,8 +4,6 @@ class Search extends React.Component {
 
     handleChange = (input,field) => {
        this.setState({[field] : input})
-       console.log(input,field,this.state);
-    //    console.log()
        
        fetch('http://localhost:3002',
        {
@@ -21,7 +19,6 @@ class Search extends React.Component {
        })
        .then(resp => resp.text())
        .then(resp => {
-        //    console.log(JSON.parse(resp))
 
             if(resp){
 
@@ -37,10 +34,7 @@ class Search extends React.Component {
                     })
                 )        
                 this.props.getMarkers(markers)                
-            } 
-            else {
-                console.log('no response')
-            }
+            }             
         });
     }
 

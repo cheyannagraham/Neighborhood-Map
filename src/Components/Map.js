@@ -91,12 +91,9 @@ class Map extends React.Component{
     })
 
     if(markers.length > 0) {
-
       // this.state.map.panToBounds(bounds);
       this.state.map.fitBounds(bounds);
       // this.state.map.setZoom(12);
-
-
     }
 
   }
@@ -111,6 +108,7 @@ class Map extends React.Component{
 
   findResults = (search) => {
     let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
+    console.log('FindResults',markers);
     this.showMarkers(markers);
   }
 
