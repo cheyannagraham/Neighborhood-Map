@@ -94,7 +94,7 @@ class Map extends React.Component{
 
       // this.state.map.panToBounds(bounds);
       this.state.map.fitBounds(bounds);
-      this.state.map.setZoom(12);
+      // this.state.map.setZoom(12);
 
 
     }

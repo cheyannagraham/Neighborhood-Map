@@ -4,6 +4,8 @@ class Search extends React.Component {
 
     handleChange = (input,field) => {
        this.setState({[field] : input})
+       console.log(input,field,this.state);
+    //    console.log()
        
        fetch('http://localhost:3002',
        {
@@ -12,8 +14,9 @@ class Search extends React.Component {
                'content-type' : 'application/json'
            },
            body : JSON.stringify({
-               keyword: (this.state && this.state.keyword) || 'coffee',
-               location: (this.state && this.state.location) || 'ca'
+               keyword: field === 'keyword' ? input : (this.state && this.state.keyword) || 
+               'coffee',
+               location: field === 'location' ? input : (this.state && this.state.location )|| 'walnut creek,ca'
            })
        })
        .then(resp => resp.text())
@@ -32,18 +35,13 @@ class Search extends React.Component {
                         address: bus.location.display_address.join(' '),
                         title: bus.name
                     })
-                )
-        
-                this.props.getMarkers(markers)
-                
+                )        
+                this.props.getMarkers(markers)                
             } 
-
             else {
                 console.log('no response')
             }
-
         });
-
     }
 
 
