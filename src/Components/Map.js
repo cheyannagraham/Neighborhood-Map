@@ -85,6 +85,7 @@ class Map extends React.Component{
     this.setState({showMarkers : markers})
     
     let bounds = new window.google.maps.LatLngBounds();
+    console.log('SHOW MARKERS()',markers.length)
 
     markers.forEach(marker => {
       bounds.extend(marker.position);
@@ -94,7 +95,8 @@ class Map extends React.Component{
     if(markers.length > 0) {
       // this.state.map.panToBounds(bounds);
       this.state.map.fitBounds(bounds);
-      // this.state.map.setZoom(12);
+      
+      markers.length === 1 && this.state.map.setZoom(12);
     }
   }
 
