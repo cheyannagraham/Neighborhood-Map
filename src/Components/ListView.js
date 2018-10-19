@@ -22,7 +22,7 @@ class ListView extends React.Component {
 
                         return (
                             <li  
-                            key = {marker.title}>
+                            key = {marker.id || marker.title}>
                                 <a className = {className}
                                 href='#' 
                                 onClick = {() => {this.props.handleClick(marker)}}>

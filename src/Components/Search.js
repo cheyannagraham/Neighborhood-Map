@@ -19,7 +19,6 @@ class Search extends React.Component {
        .then(resp => resp.text())
        .then(resp => {
         //    console.log(JSON.parse(resp))
-        console.log('search response',resp)
 
             if(resp){
 

@@ -63,7 +63,8 @@ class Map extends React.Component{
       let m = new window.google.maps.Marker(
         {
           position : marker.location,
-          title : marker.title
+          title : marker.title,
+          id: marker.id
         }
       )
       m.addListener('click', () => {
@@ -80,7 +81,6 @@ class Map extends React.Component{
 
   showMarkers = (markers) => {
 
-    // this.hideMarkers();
     this.setState({showMarkers : markers})
     
     let bounds = new window.google.maps.LatLngBounds();
