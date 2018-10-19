@@ -85,7 +85,6 @@ class Map extends React.Component{
     this.setState({showMarkers : markers})
     
     let bounds = new window.google.maps.LatLngBounds();
-    console.log('SHOW MARKERS()',markers.length)
 
     markers.forEach(marker => {
       bounds.extend(marker.position);
@@ -109,7 +108,6 @@ class Map extends React.Component{
 
   findResults = (search) => {
     let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
-    console.log('FindResults',markers);
     this.showMarkers(markers);
   }
 
