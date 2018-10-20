@@ -9,15 +9,15 @@ class Map extends React.Component{
     super(props);
 
     this.state = {
-      locationData : 
-      [
-        {title: 'Park Ave Penthouse', position: {lat: 40.7713024, lng: -73.9632393}},
-        {title: 'Chelsea Loft', position: {lat: 40.7444883, lng: -73.9949465}},
-        {title: 'Union Square Open Floor Plan', position: {lat: 40.7347062, lng: -73.9895759}},
-        {title: 'East Village Hip Studio', position: {lat: 40.7281777, lng: -73.984377}},
-        {title: 'TriBeCa Artsy Bachelor Pad', position: {lat: 40.7195264, lng: -74.0089934}},
-        {title: 'Chinatown Homey Space', position: {lat: 40.7180628, lng: -73.9961237}}
-      ]
+      // locationData : 
+      // [
+      //   {title: 'Park Ave Penthouse', position: {lat: 40.7713024, lng: -73.9632393}},
+      //   {title: 'Chelsea Loft', position: {lat: 40.7444883, lng: -73.9949465}},
+      //   {title: 'Union Square Open Floor Plan', position: {lat: 40.7347062, lng: -73.9895759}},
+      //   {title: 'East Village Hip Studio', position: {lat: 40.7281777, lng: -73.984377}},
+      //   {title: 'TriBeCa Artsy Bachelor Pad', position: {lat: 40.7195264, lng: -74.0089934}},
+      //   {title: 'Chinatown Homey Space', position: {lat: 40.7180628, lng: -73.9961237}}
+      // ]
     }
   } 
 
@@ -62,10 +62,12 @@ class Map extends React.Component{
       this.setState({map : map, infoWindow : infoWindow})
     }
 
+    this.getData('chicken','Al');
+
   }
 
   getMarkers = (data) => {
-    this.hideMarkers();
+    // this.hideMarkers();
     this.setState({locationData : data});
     this.makeMarkers();
 
@@ -73,7 +75,7 @@ class Map extends React.Component{
 
 
   makeMarkers = () => {
-
+    this.hideMarkers();
 
     let markers = this.state.locationData.map(marker => {
 
@@ -111,7 +113,7 @@ class Map extends React.Component{
   }
 
   hideMarkers = () => {
-    this.state.markers.forEach(marker => {
+    (this.state.markers || []).forEach(marker => {
       marker.setMap(null);
     })
   }
