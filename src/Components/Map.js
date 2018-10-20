@@ -120,11 +120,11 @@ class Map extends React.Component{
     // display info window
     let display = (`
       <div id = "marker-content" >
-        <ul>
-          <li><image src = '${marker.avatar}' alt = '${marker.title} image'></li>
+        <ul id="info-window-list">
           <li><h3>${marker.title}</h3></li>
-          <li>${marker.rating}${marker.review_count}</li>
-          <li>${marker.price}</li>        
+          <li><image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'></li>
+          <li>Rating: ${marker.rating} (${marker.reviewCount})</li>
+          <li>Price: ${marker.price}</li>        
         </ul>
       </div>`)
 
