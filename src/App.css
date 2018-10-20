@@ -24,9 +24,18 @@ ul {
   margin : 0;
 }
 
-#info-window-list {
+#info-window-list,#module-list {
   list-style-type : none;
 
+}
+
+#module-list {
+  padding : 10px;
+  font-size:small;
+}
+
+#module-list li {
+  padding: 2px;
 }
 
 .avatar {

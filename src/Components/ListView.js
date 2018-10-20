@@ -23,9 +23,9 @@ class ListView extends React.Component {
                             display = 
                             <div>
                                 <ol id='module-list'>
-                                    <li>Address: {marker.address}</li>
-                                    <li>Phone: {marker.phone}</li>
-                                    <li>Website: {marker.website}</li>
+                                    <li>{marker.address}</li>
+                                    <li>{marker.phone}</li>
+                                    <li><a href={marker.website}>Visit</a></li>
                                 </ol>
                             </div>
                         } 
