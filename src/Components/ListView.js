@@ -22,6 +22,8 @@ class ListView extends React.Component {
                             className = 'clicked';
                             display = 
                             <div>
+                                <div id='street-view'></div>
+
                                 <ol id='module-list'>
                                     <li>{marker.address}</li>
                                     <li>{marker.phone}</li>
