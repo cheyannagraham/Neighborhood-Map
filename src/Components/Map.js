@@ -163,6 +163,8 @@ class Map extends React.Component{
 }
 
 export default Map
+//service worker
+//routing
 //populate info window with all data 
 //style
 //fix warning
