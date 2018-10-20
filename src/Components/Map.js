@@ -7,18 +7,7 @@ class Map extends React.Component{
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      // locationData : 
-      // [
-      //   {title: 'Park Ave Penthouse', position: {lat: 40.7713024, lng: -73.9632393}},
-      //   {title: 'Chelsea Loft', position: {lat: 40.7444883, lng: -73.9949465}},
-      //   {title: 'Union Square Open Floor Plan', position: {lat: 40.7347062, lng: -73.9895759}},
-      //   {title: 'East Village Hip Studio', position: {lat: 40.7281777, lng: -73.984377}},
-      //   {title: 'TriBeCa Artsy Bachelor Pad', position: {lat: 40.7195264, lng: -74.0089934}},
-      //   {title: 'Chinatown Homey Space', position: {lat: 40.7180628, lng: -73.9961237}}
-      // ]
-    }
+    this.state = {}
   } 
 
   getData = (keyword,location) => {
@@ -35,8 +24,7 @@ class Map extends React.Component{
     })
     .then(resp => resp.json())
     .then(resp => this.getMarkers(resp));
-  }
-  
+  }  
 
   componentDidMount(){
 
@@ -67,12 +55,9 @@ class Map extends React.Component{
   }
 
   getMarkers = (data) => {
-    // this.hideMarkers();
     this.setState({locationData : data});
     this.makeMarkers();
-
   }
-
 
   makeMarkers = () => {
     this.hideMarkers();
@@ -93,8 +78,8 @@ class Map extends React.Component{
   }
 
   showMarkers = (markers) => {
-    this.hideMarkers();
-
+    //for filter results
+    this.hideMarkers()
     this.setState({showMarkers : markers})
     
     let bounds = new window.google.maps.LatLngBounds();
@@ -105,9 +90,7 @@ class Map extends React.Component{
     })
 
     if(markers.length > 0) {
-      // this.state.map.panToBounds(bounds);
-      this.state.map.fitBounds(bounds);
-      
+      this.state.map.fitBounds(bounds);      
       markers.length === 1 && this.state.map.setZoom(12);
     }
   }
@@ -116,8 +99,7 @@ class Map extends React.Component{
     (this.state.markers || []).forEach(marker => {
       marker.setMap(null);
     })
-  }
-  
+  }  
 
   findResults = (search) => {
     let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
@@ -125,26 +107,21 @@ class Map extends React.Component{
   }
 
   getStreetView = () => {
-    console.log(document.getElementById('street-view'))
-
-    let streetView = new window.google.maps.StreetViewPanorama(document.getElementById('street-view'),{
+    return new window.google.maps.StreetViewPanorama(document.getElementById('street-view'),{
       position : this.state.markerClicked.position,
       pov : {
         heading : 34,
         pitch : 10
       }
     });
-    // this.state.map.setStreetView(streetView);
   }
 
   
   handleClick = (marker) => {
-    // console.log(marker);
     this.setState({markerClicked : marker});
 
-    // start bounce
+    //animation
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
-    // stop bounce
     marker.setAnimation(window.google.maps.Animation.null);
 
     // display info window
@@ -165,24 +142,22 @@ class Map extends React.Component{
   
 
   render() {
-      return (
-          <div>
-              {this.props.mapError && <div>{this.props.MapError}</div> }
-              
-              <div>
-                  <ListView 
-                  markerClicked = {this.state.markerClicked} 
-                  markers = {this.state.showMarkers || this.state.markers} 
-                  handleClick = {this.handleClick}
-                  findResults = {this.findResults} 
-                  getStreetView = {this.getStreetView} />
-              </div>
+    return (
+      <div>
+        {this.props.mapError && <div>{this.props.MapError}</div> }
+        
+        <ListView 
+        markerClicked = {this.state.markerClicked} 
+        markers = {this.state.showMarkers || this.state.markers} 
+        handleClick = {this.handleClick}
+        findResults = {this.findResults} 
+        getStreetView = {this.getStreetView} />
 
-              <Search 
-              getData = {this.getData} />
-          </div>
+        <Search 
+        getData = {this.getData} />
+      </div>
 
-      );
+    );
     }
         
 }
