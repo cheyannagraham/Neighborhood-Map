@@ -65,7 +65,6 @@ class Map extends React.Component{
       mark.addListener('click', () => {
         this.handleClick(mark);
       })
-      console.log('MARK',mark)
 
       return mark;
     })
@@ -107,9 +106,22 @@ class Map extends React.Component{
     this.showMarkers(markers);
   }
 
+  getStreetView = () => {
+    console.log(document.getElementById('street-view'))
+
+    let streetView = new window.google.maps.StreetViewPanorama(document.getElementById('street-view'),{
+      position : this.state.markerClicked.position,
+      pov : {
+        heading : 34,
+        pitch : 10
+      }
+    });
+    // this.state.map.setStreetView(streetView);
+  }
+
   
   handleClick = (marker) => {
-    console.log(marker);
+    // console.log(marker);
     this.setState({markerClicked : marker});
 
     // start bounce
@@ -144,8 +156,10 @@ class Map extends React.Component{
                   markerClicked = {this.state.markerClicked} 
                   markers = {this.state.showMarkers || this.state.markers} 
                   handleClick = {this.handleClick}
-                  findResults = {this.findResults} />
+                  findResults = {this.findResults} 
+                  getStreetView = {this.getStreetView} />
               </div>
+
               <Search getMarkers = {this.getMarkers} />
           </div>
 

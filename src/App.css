@@ -42,3 +42,8 @@ ul {
   width : 20vw;
   height : 25vh;
 }
+
+#street-view {
+  height: 200px;
+  width: 200px
+}

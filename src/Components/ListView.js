@@ -2,6 +2,12 @@ import React from 'react';
 
 class ListView extends React.Component {
 
+    componentDidUpdate = () => {
+        document.querySelector('#street-view') && this.props.getStreetView();
+        
+
+    }
+
 
     render() {
         return (
@@ -22,9 +28,10 @@ class ListView extends React.Component {
                             className = 'clicked';
                             display = 
                             <div>
-                                <div id='street-view'></div>
+                                {/* <div id='street-view'></div> */}
 
                                 <ol id='module-list'>
+                                    <li id='street-view'></li>
                                     <li>{marker.address}</li>
                                     <li>{marker.phone}</li>
                                     <li><a href={marker.website}>Visit</a></li>
