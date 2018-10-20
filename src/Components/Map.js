@@ -19,7 +19,23 @@ class Map extends React.Component{
         {title: 'Chinatown Homey Space', position: {lat: 40.7180628, lng: -73.9961237}}
       ]
     }
-    } 
+  } 
+
+  getData = (keyword,location) => {
+    fetch('http://localhost:3002',
+    {
+      method: 'POST',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body : JSON.stringify({
+        keyword: keyword,
+        location: location
+      })
+    })
+    .then(resp => resp.json())
+    .then(resp => this.getMarkers(resp));
+  }
   
 
   componentDidMount(){
@@ -160,7 +176,8 @@ class Map extends React.Component{
                   getStreetView = {this.getStreetView} />
               </div>
 
-              <Search getMarkers = {this.getMarkers} />
+              <Search 
+              getData = {this.getData} />
           </div>
 
       );
