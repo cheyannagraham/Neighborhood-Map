@@ -11,12 +11,12 @@ class Map extends React.Component{
     this.state = {
       locationData : 
       [
-        {title: 'Park Ave Penthouse', location: {lat: 40.7713024, lng: -73.9632393}},
-        {title: 'Chelsea Loft', location: {lat: 40.7444883, lng: -73.9949465}},
-        {title: 'Union Square Open Floor Plan', location: {lat: 40.7347062, lng: -73.9895759}},
-        {title: 'East Village Hip Studio', location: {lat: 40.7281777, lng: -73.984377}},
-        {title: 'TriBeCa Artsy Bachelor Pad', location: {lat: 40.7195264, lng: -74.0089934}},
-        {title: 'Chinatown Homey Space', location: {lat: 40.7180628, lng: -73.9961237}}
+        {title: 'Park Ave Penthouse', position: {lat: 40.7713024, lng: -73.9632393}},
+        {title: 'Chelsea Loft', position: {lat: 40.7444883, lng: -73.9949465}},
+        {title: 'Union Square Open Floor Plan', position: {lat: 40.7347062, lng: -73.9895759}},
+        {title: 'East Village Hip Studio', position: {lat: 40.7281777, lng: -73.984377}},
+        {title: 'TriBeCa Artsy Bachelor Pad', position: {lat: 40.7195264, lng: -74.0089934}},
+        {title: 'Chinatown Homey Space', position: {lat: 40.7180628, lng: -73.9961237}}
       ]
     }
     } 
@@ -58,18 +58,14 @@ class Map extends React.Component{
 
   makeMarkers = () => {
 
+
     let markers = this.state.locationData.map(marker => {
 
-      let mark = new window.google.maps.Marker(
-        {
-          position : marker.location,
-          title : marker.title,
-          id: marker.id
-        }
-      )
+      let mark = new window.google.maps.Marker(marker)
       mark.addListener('click', () => {
         this.handleClick(mark);
       })
+      console.log('MARK',mark)
 
       return mark;
     })
@@ -113,6 +109,7 @@ class Map extends React.Component{
 
   
   handleClick = (marker) => {
+    console.log(marker);
     this.setState({markerClicked : marker});
 
     // start bounce
@@ -121,7 +118,17 @@ class Map extends React.Component{
     marker.setAnimation(window.google.maps.Animation.null);
 
     // display info window
-    this.state.infoWindow.setContent(`<div id = "marker-content" >${marker.title}</div>`);
+    let display = (`
+      <div id = "marker-content" >
+        <ul>
+          <li><image src = '${marker.avatar}' alt = '${marker.title} image'></li>
+          <li><h3>${marker.title}</h3></li>
+          <li>${marker.rating}${marker.review_count}</li>
+          <li>${marker.price}</li>        
+        </ul>
+      </div>`)
+
+    this.state.infoWindow.setContent(display);
     this.state.infoWindow.open(this.state.map,marker);
 
   }
@@ -148,7 +155,7 @@ class Map extends React.Component{
 }
 
 export default Map
-//get 3rd Party API
+//populate info window with all data 
 //style
 //fix warning
     

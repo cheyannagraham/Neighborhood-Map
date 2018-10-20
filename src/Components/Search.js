@@ -24,13 +24,20 @@ class Search extends React.Component {
 
                 let markers = JSON.parse(resp).map(bus =>
                     ({
-                        id :bus.id,
-                        location: {
+                        id : bus.id,
+                        position : {
                             lat : bus.coordinates.latitude,
                             lng : bus.coordinates.longitude
                         },
-                        address: bus.location.display_address.join(' '),
-                        title: bus.name
+                        address : bus.location.display_address.join(' '),
+                        title : bus.name,
+                        rating : bus.rating,
+                        price : bus.price,
+                        reviewCount : bus.review_count,
+                        avatar : bus.image_url,
+                        phone : bus.display_phone,
+                        website : bus.url
+
                     })
                 )        
                 this.props.getMarkers(markers)                
