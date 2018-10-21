@@ -9,22 +9,7 @@ class Map extends React.Component{
     super(props);
     this.state = {}
   } 
-
-  getData = (keyword,location) => {
-    fetch('http://localhost:3002',
-    {
-      method: 'POST',
-      headers: {
-        'content-type' : 'application/json'
-      },
-      body : JSON.stringify({
-        keyword: keyword,
-        location: location
-      })
-    })
-    .then(resp => resp.json())
-    .then(resp => this.getMarkers(resp));
-  }  
+  
 
   componentDidMount(){
 
@@ -50,8 +35,24 @@ class Map extends React.Component{
       this.setState({map : map, infoWindow : infoWindow})
     }
 
-    this.getData('chicken','Al');
+    this.getData('coffee','NY');
 
+  }
+
+  getData = (keyword='',location='') => {
+    fetch('http://localhost:3002',
+    {
+      method: 'POST',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body : JSON.stringify({
+        keyword: keyword,
+        location: location
+      })
+    })
+    .then(resp => resp.json())
+    .then(resp => this.getMarkers(resp));
   }
 
   getMarkers = (data) => {
