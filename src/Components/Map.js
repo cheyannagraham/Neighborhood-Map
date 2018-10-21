@@ -62,7 +62,7 @@ class Map extends React.Component{
   makeMarkers = () => {
     this.hideMarkers();
 
-    let markers = this.state.locationData.map(marker => {
+    let markers = (this.state.locationData || []).map(marker => {
 
       let mark = new window.google.maps.Marker(marker)
       mark.addListener('click', () => {
@@ -163,11 +163,8 @@ class Map extends React.Component{
 }
 
 export default Map
-//service worker
-//routing
-//populate info window with all data 
+
 //style
-//fix warning
     
 
    
