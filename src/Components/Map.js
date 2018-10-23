@@ -125,7 +125,10 @@ class Map extends React.Component{
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
     marker.setAnimation(window.google.maps.Animation.null);
 
-    // display info window
+    this.fillInfoWindow(marker)
+  }
+
+  fillInfoWindow = (marker) => {
     //FIX undefined values
     let display = (`
       <div id = "marker-content" >
@@ -140,6 +143,7 @@ class Map extends React.Component{
 
     this.state.infoWindow.setContent(display);
     this.state.infoWindow.open(this.state.map,marker);
+
 
   }
   
