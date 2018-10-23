@@ -2,31 +2,37 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const request = require('request');
+const fetch = require('node-fetch');
 
 const app = express();
+const KEY =	'3Yd189W5j3gAG3VCG6L1mDurEi8fwJ340aLNzNR-gjfn__bvCPmFH3UOkuEr5Tq_Z0svny-KQcCfQL_eXWDzK327bfEOzX8g67Bgtuol8HTVPbbbBf5ebqMlksvGW3Yx';
+ 
 
 app.use(cors());
 app.use(bodyParser.json());
 
 
 app.post('/', (req, res) => {
-	console.log(req.body)
-	request({
+	let markers;
+
+	request	({
 		url : `https://api.yelp.com/v3/businesses/search?term=${req.body.keyword}&location=${req.body.location}&radius=20000`,
 		method: 'GET',
 		'auth' : {
-			'bearer' : '3Yd189W5j3gAG3VCG6L1mDurEi8fwJ340aLNzNR-gjfn__bvCPmFH3UOkuEr5Tq_Z0svny-KQcCfQL_eXWDzK327bfEOzX8g67Bgtuol8HTVPbbbBf5ebqMlksvGW3Yx'
+			'bearer' : KEY
 		}
 	},
 	(error,response,body) => {
 		error && res.send(error);
 		console.log(response.statusCode);   
 
-		let results = JSON.parse(body).businesses ? 
+		let businessesFound = JSON.parse(body).businesses ? 
 		JSON.parse(body).businesses.filter((bus,index) => index < 5 ) : 
 		[];
+
 				
-		let markers = results.map(bus =>
+		markers = businessesFound.map(bus => 
+
 			({
 				id : bus.id,
 				position : {
@@ -41,11 +47,67 @@ app.post('/', (req, res) => {
 				avatar : bus.image_url,
 				phone : bus.display_phone,
 				website : bus.url
-			})
+			})		
 		)
-		res.send(markers)
-	}); 
+		getBusinessInfo(markers)
+		.then(resp => {
+			console.log('resp',resp)
+		})
+	});
+
+
 }) 
+
+const getBusinessInfo = (businesses) => {
+
+	//get businesses photos & hours
+	return Promise.all(businesses.map(bus => {
+
+	// let markers = businesses.map(business => {
+		return fetch(`https://api.yelp.com/v3/businesses/${bus.id}`,
+		{
+			method : 'GET',
+			headers : {
+				Authorization : `bearer ${KEY}`
+
+			}
+
+		})
+		.then(result => result.json())
+
+		// })
+		// .then(resp => resp.json())
+		// // (error,response,body) => {
+		// // 	if(error) return (error);
+		// // 	let results = JSON.parse(body);
+		// 	// console.log(typeof results)
+		// 	// console.log(typeof body)
+		// .then(resp => {
+		// 	bus.hours = resp.hours;
+		// 	bus.photos = resp.photos;
+		// 	console.log('resp.photos',resp.photos);
+		// 	return bus;
+
+		// })
+		// .catch(error => {
+		// 	return error
+		// })
+
+	}))
+	.then(resp => resp)
+	.catch(error => error)
+
+
+
+		// }); 
+
+	// })
+
+	// console.log('bus',businesses[0]);
+	// return businesses
+
+
+}
 
 
 app.listen(3002);
