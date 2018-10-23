@@ -166,6 +166,7 @@ class Map extends React.Component{
 export default Map
 
 //style
+// replace streetview w photos & hours
     
 
    

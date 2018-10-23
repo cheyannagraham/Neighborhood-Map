@@ -10,8 +10,7 @@ const OPTIONS = {
 	headers : {
 		Authorization : `bearer ${KEY}`
 	}
-}
- 
+} 
 
 app.use(cors());
 app.use(bodyParser.json());
