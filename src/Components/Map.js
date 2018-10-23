@@ -132,7 +132,7 @@ class Map extends React.Component{
           <li><h3>${marker.title}</h3></li>
           <li><image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'></li>
           <li>Rating: ${marker.rating} (${marker.reviewCount})</li>
-          <li>Price: ${marker.price}</li>        
+          <li>Price: ${marker.price || ''}</li>        
         </ul>
       </div>`)
 

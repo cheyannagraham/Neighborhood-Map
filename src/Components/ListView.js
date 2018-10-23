@@ -22,8 +22,8 @@ class ListView extends React.Component {
     <div>
       <ol id='module-list'>
         <li>
-          <div id='business-photo-container'>
-            {marker.photos.map(photo => 
+          <div>
+            {(marker.photos || []).map(photo => 
               (<img  className='business-photo' src={photo} alt={marker.title} />))}            
           </div>
 
