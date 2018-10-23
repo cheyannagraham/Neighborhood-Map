@@ -31,7 +31,6 @@ html, body {
 }
 
 #module-list {
-  /* padding : 10px; */
   font-size:small;
   width: 100%;
 }
@@ -45,15 +44,12 @@ html, body {
   height : 25vh;
 }
 
-#business-photo-container {
-  display: flex;
-  flex-wrap: wrap;
-  /* width: 100%; */
-  /* justify-content: center; */
-}
-
 .business-photo {
   height: 15vw;
   width: 15vw;
   padding: 5px;
+}
+
+#open-status {
+  font-weight: bold;
 }

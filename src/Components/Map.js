@@ -126,13 +126,15 @@ class Map extends React.Component{
     marker.setAnimation(window.google.maps.Animation.null);
 
     // display info window
+    //FIX undefined values
     let display = (`
       <div id = "marker-content" >
         <ul id="info-window-list">
           <li><h3>${marker.title}</h3></li>
           <li><image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'></li>
           <li>Rating: ${marker.rating} (${marker.reviewCount})</li>
-          <li>Price: ${marker.price || ''}</li>        
+          <li>Price: ${marker.price || ''}</li> 
+          <li id='open-status'>${marker.hours[0].is_open_now ? 'Open now' : 'Closed'} </li>       
         </ul>
       </div>`)
 

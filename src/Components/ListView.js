@@ -18,6 +18,7 @@ class ListView extends React.Component {
   }
 
   modDisplay = (marker) => {
+    console.log(Object.keys(marker.hours[0]))
     return (
     <div>
       <ol id='module-list'>
@@ -30,6 +31,7 @@ class ListView extends React.Component {
         </li>
         <li>{marker.address}</li>
         <li>{marker.phone}</li>
+        {/* <li>{marker.hours}</li> */}
         <li><a href={marker.website}>Visit</a></li>
       </ol>
     </div>
