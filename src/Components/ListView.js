@@ -18,14 +18,13 @@ class ListView extends React.Component {
   }
 
   modDisplay = (marker) => {
-    console.log(Object.keys(marker.hours[0]))
     return (
     <div>
       <ol id='module-list'>
         <li>
           <div>
             {(marker.photos || []).map(photo => 
-              (<img  className='business-photo' src={photo} alt={marker.title} />))}            
+              (<img  key={photo} className='business-photo' src={photo} alt={marker.title} />))}            
           </div>
 
         </li>
