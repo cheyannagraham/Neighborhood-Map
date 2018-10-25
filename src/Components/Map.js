@@ -16,6 +16,9 @@ class Map extends React.Component{
     //Check if library loaded
     if(window.google.maps)
     {
+      const div = document.createElement('div');
+      div.id = 'map';
+      document.getElementById('root').appendChild(div)
       let map = new window.google.maps.Map(
       document.querySelector('#map'),
       {
