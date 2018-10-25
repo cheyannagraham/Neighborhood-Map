@@ -21,23 +21,44 @@ html, body {
 } */
 
 #content-section {
-  margin: 20px;
+  /* margin: 5px; */
+
 }
 
 #list-view-container {
-  /* padding: 10px 0 10px 0; */
+  padding: 10px;
+  background-color: turquoise;
+
 }
 
+#list-view-list li {
+  padding: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+#list-view-list li:hover {
+  text-decoration: underline;
+  /* font-weight: bold; */
+}
 #filter-results-container {
-  padding-bottom: 20px;
+  padding: 10px;
+/*   width: 100%; */
+  background-color: yellow;
 }
 
 #search-container {
-  /* padding-bottom: 20px 0 20px 0; */
+  padding: 10px;
+  background-color: gray;
+
 }
 
 .clicked {
   background:yellow;
+}
+
+.label {
+  padding: 10px;
 }
 
 
@@ -48,12 +69,6 @@ ul,ol {
 #module-list {
   font-size:small;
   width: 100%;
-  /* padding: 20px 0 20px 0; */
-
-}
-
-#module-list li {
-  /* padding: 0px; */
 }
 
 .avatar {
@@ -61,7 +76,6 @@ ul,ol {
   height : 20vw;
   max-width: 250px;
   max-height: 250px;
-
 }
 
 .business-photo {
@@ -73,3 +87,5 @@ ul,ol {
 #open-status {
   font-weight: bold;
 }
+
+/* add media queries, fix wierd color in module on click */
