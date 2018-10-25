@@ -12,7 +12,7 @@ html, body {
 
 #app-header {
   padding: 10px;
-  color: gray;
+  /* color: gray; */
   background: yellow;
   width: 100%;
 }
@@ -41,6 +41,14 @@ html, body {
   padding: 5px;
 /*   width: 100%; */
   cursor: pointer;
+}
+
+.marker-list-item {
+  border-bottom: .5px solid black;
+}
+
+.marker-list-item:last-child {
+  border: none;
 }
 
 #list-view-list li:hover {

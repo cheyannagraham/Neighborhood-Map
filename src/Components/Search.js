@@ -20,7 +20,7 @@ class Search extends React.Component {
       
     return ( 
       <div id='search-container'>
-        <h3>Search</h3>
+        <h2>Search</h2>
         
         <label className='label'>Keyword</label>
         <input defaultValue='Coffee' type='text' onChange = {(e) => this.handleChange(e.target.value,'keyword')} />
