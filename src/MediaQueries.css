@@ -1,0 +1,6 @@
+@media screen and (min-width:400px) {
+    #content-section {
+/*         max-width: 400px; */
+        margin: auto;
+    }
+}
