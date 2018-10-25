@@ -7,9 +7,7 @@ class App extends Component {
   
   render() {
     return (
-      <div>
         <Map mapError = {this.props.mapError} />
-      </div>
     );
   }
 }

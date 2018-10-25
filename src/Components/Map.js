@@ -18,7 +18,8 @@ class Map extends React.Component{
     {
       const div = document.createElement('div');
       div.id = 'map';
-      document.getElementById('root').appendChild(div)
+      document.getElementById('root').prepend(div);
+      
       let map = new window.google.maps.Map(
       document.querySelector('#map'),
       {
@@ -123,7 +124,6 @@ class Map extends React.Component{
   
   handleClick = (marker) => {
     this.setState({markerClicked : marker});
-    console.log('handleClick',marker.id)
 
     //animation
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
@@ -154,7 +154,7 @@ class Map extends React.Component{
 
   render() {
     return (
-      <div>
+      <div id='results-section'>
         {this.props.mapError && <div>{this.props.MapError}</div> }
         
         <ListView 
