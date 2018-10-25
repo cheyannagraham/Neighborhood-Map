@@ -21,22 +21,20 @@ html, body {
 } */
 
 #content-section {
-  padding: 10px;
+  margin: 20px;
 }
 
 #list-view-container {
-  padding: 10px;
+  /* padding: 10px 0 10px 0; */
 }
 
 #filter-results-container {
-  padding: 10px 0 10px 0;
+  padding-bottom: 20px;
 }
 
 #search-container {
-
+  /* padding-bottom: 20px 0 20px 0; */
 }
-
-
 
 .clicked {
   background:yellow;
@@ -50,10 +48,12 @@ ul,ol {
 #module-list {
   font-size:small;
   width: 100%;
+  /* padding: 20px 0 20px 0; */
+
 }
 
 #module-list li {
-  /* padding: 2px; */
+  /* padding: 0px; */
 }
 
 .avatar {

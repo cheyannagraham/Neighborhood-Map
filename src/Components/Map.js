@@ -1,6 +1,7 @@
    import React from 'react';
    import ListView from './ListView'
    import Search from './Search'
+   import Filter from './Filter'
 
 
 class Map extends React.Component{
@@ -107,6 +108,7 @@ class Map extends React.Component{
   }  
 
   findResults = (search) => {
+    console.log('fr',search)
     let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
     this.showMarkers(markers);
   }
@@ -156,6 +158,9 @@ class Map extends React.Component{
     return (
       <div id='content-section'>
         {this.props.mapError && <div>{this.props.MapError}</div> }
+
+        <Filter findResults = {this.findResults} />
+
         
         <ListView 
         markerClicked = {this.state.markerClicked} 
