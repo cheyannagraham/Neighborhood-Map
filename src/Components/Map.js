@@ -159,7 +159,7 @@ class Map extends React.Component{
       <div id='content-section'>
         {this.props.mapError && <div>{this.props.MapError}</div> }
 
-        <Filter findResults = {this.findResults} />
+        
 
         
         <ListView 
@@ -168,6 +168,8 @@ class Map extends React.Component{
         handleClick = {this.handleClick}
         findResults = {this.findResults} 
         getStreetView = {this.getStreetView} />
+
+        <Filter findResults = {this.findResults} />
 
         <Search 
         getData = {this.getData} />

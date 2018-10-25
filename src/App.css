@@ -33,14 +33,13 @@ html, body {
 }
 
 #list-view-container {
-  padding: 10px;
   background-color: turquoise;
-
+  padding: 10px;
 }
 
 #list-view-list li {
   padding: 5px;
-  width: 100%;
+/*   width: 100%; */
   cursor: pointer;
 }
 
@@ -61,7 +60,7 @@ html, body {
 }
 
 .clicked {
-  /* background:yellow; */
+  background: white;
 }
 
 .label {
@@ -75,7 +74,7 @@ ul,ol {
 
 #module-list {
   font-size:small;
-  width: 100%;
+/*   width: 100%; */
 }
 
 .avatar {

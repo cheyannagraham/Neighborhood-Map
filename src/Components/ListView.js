@@ -32,39 +32,45 @@ class ListView extends React.Component {
 
   makeList = () => {
     return (
-      <ol id='list-view-list'>
-        {this.props.markers.map(marker => {
-          let className = '';
-          let display = '';
 
-          //toggle clicked class if marker clicked
-          if(this.props.markerClicked && marker.id === this.props.markerClicked.id) {            
-            className = 'clicked';							
-            display = this.modDisplay(marker);
-          }
+        
+        <ol id='list-view-list'>
+          {this.props.markers.map(marker => {
+            let className = '';
+            let display = '';
 
-          return (
-            <li                    
-              role='button' key = {marker.id}                
-              className = {className}
-              onClick = {() => {this.props.handleClick(marker)}} >
-                {marker.title}
-                {display}              
-            </li>
-          )                                  
-        })}
-      </ol>
+            //toggle clicked class if marker clicked
+            if(this.props.markerClicked && marker.id === this.props.markerClicked.id) {            
+              className = 'clicked';							
+              display = this.modDisplay(marker);
+            }
+
+            return (
+              <li                    
+                role='button' key = {marker.id}                
+                className = {className}
+                onClick = {() => {this.props.handleClick(marker)}} >
+                  {marker.title}
+                  {display}              
+              </li>
+            )                                  
+          })}
+        </ol>
+
+      
     ) 
   }
   
 	render() {
 		return (
-			<div id='list-view-container'>       				
+      <div id='list-view-container'>
+        <h2>Markers</h2>
 
         {this.props.markers && this.props.markers.length > 0 
         ? this.makeList() : <p>No Results</p>}
+      </div>
 
-			</div>
+
 		)
 	}
 }
