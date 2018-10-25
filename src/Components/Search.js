@@ -20,8 +20,8 @@ class Search extends React.Component {
       
     return ( 
       <div id='search-container'>
-        Keyword <input defaultValue='Coffee' type='text' onChange = {(e) => this.handleChange(e.target.value,'keyword')} />
-        Location <input defaultValue='NY'type='text' onChange = {(e) => this.handleChange(e.target.value,'location')} /> 
+        <h4>Keyword</h4> <input defaultValue='Coffee' type='text' onChange = {(e) => this.handleChange(e.target.value,'keyword')} />
+        <h4>Location</h4> <input defaultValue='NY'type='text' onChange = {(e) => this.handleChange(e.target.value,'location')} /> 
       </div>
         
     )

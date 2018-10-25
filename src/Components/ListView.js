@@ -71,7 +71,7 @@ class ListView extends React.Component {
 	render() {
 		return (
 			<div id='list-view-container'>
-        Filter Results {this.filter()}        				
+        <div id='filter-results-container'><h3>Filter Results</h3>{this.filter()}</div>        				
 
         {this.props.markers && this.props.markers.length > 0 
         ? this.makeList() : <p>No Results</p>}

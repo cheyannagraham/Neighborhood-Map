@@ -10,19 +10,41 @@ html, body {
   flex-wrap : wrap;
 }
 
-#map,#root {
+#root,#map {
   height : 100%;
   width : 100%;
 }
+
+/* #map {
+  height: 0%;
+  width: 100%;
+} */
+
+#content-section {
+  padding: 10px;
+}
+
+#list-view-container {
+  padding: 10px;
+}
+
+#filter-results-container {
+  padding: 10px 0 10px 0;
+}
+
+#search-container {
+
+}
+
+
 
 .clicked {
   background:yellow;
 }
 
 
-#info-window-list,#module-list {
+ul,ol {
   list-style-type : none;
-
 }
 
 #module-list {
@@ -31,7 +53,7 @@ html, body {
 }
 
 #module-list li {
-  padding: 2px;
+  /* padding: 2px; */
 }
 
 .avatar {

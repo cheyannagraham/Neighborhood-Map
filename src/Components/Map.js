@@ -154,7 +154,7 @@ class Map extends React.Component{
 
   render() {
     return (
-      <div id='results-section'>
+      <div id='content-section'>
         {this.props.mapError && <div>{this.props.MapError}</div> }
         
         <ListView 
