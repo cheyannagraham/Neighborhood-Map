@@ -45,7 +45,7 @@ class ListView extends React.Component {
           let display = '';
 
           //toggle clicked class if marker clicked
-          if(this.props.markerClicked && marker.title === this.props.markerClicked.title) {            
+          if(this.props.markerClicked && marker.id === this.props.markerClicked.id) {            
             className = 'clicked';							
             display = this.modDisplay(marker);
           }

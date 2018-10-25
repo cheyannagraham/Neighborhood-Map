@@ -120,6 +120,7 @@ class Map extends React.Component{
   
   handleClick = (marker) => {
     this.setState({markerClicked : marker});
+    console.log('handleClick',marker.id)
 
     //animation
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
@@ -137,7 +138,7 @@ class Map extends React.Component{
           <li><image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'></li>
           <li>Rating: ${marker.rating} (${marker.reviewCount})</li>
           <li>Price: ${marker.price || ''}</li> 
-          <li id='open-status'>${marker.hours[0].is_open_now ? 'Open now' : 'Closed'} </li>       
+          <li id='open-status'>${marker.hours && marker.hours[0].is_open_now ? 'Open now' : 'Closed'} </li>       
         </ul>
       </div>`)
 
@@ -173,6 +174,7 @@ export default Map
 
 //style
 // replace streetview w photos & hours
+//fix bug on targets
     
 
    
