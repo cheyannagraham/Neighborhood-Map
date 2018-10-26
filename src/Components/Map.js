@@ -19,7 +19,7 @@ class Map extends React.Component{
     {
       const div = document.createElement('div');
       div.id = 'map';
-      document.getElementById('root').prepend(div);
+      document.getElementById('root').append(div);
       
       let map = new window.google.maps.Map(
       document.querySelector('#map'),
