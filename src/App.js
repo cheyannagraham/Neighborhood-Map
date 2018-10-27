@@ -3,7 +3,7 @@ import './App.css';
 import './MediaQueries.css';
 import Map from './Components/Map';
 import Header from './Components/Header';
-// import Menu from './Components/Menu';
+import Menu from './Components/Menu';
 
 
 
@@ -15,6 +15,7 @@ class App extends Component {
   }
 
   updateState = data => {
+    this.setState(data)
 
   }
   
@@ -26,13 +27,17 @@ class App extends Component {
   }
   
   render() {
-    return ( 
+    return ( console.log(this.state,'stateapp'),
         <div id='app'>
           <Header navClick = {this.handleNavClick} />
           
-          <Map mapError = {this.props.mapError} navHidden = {this.state.hidden} updateAppState = {this.updateState} />
+          <Map 
+          mapError = {this.props.mapError} 
+          navHidden = {this.state.hidden} 
+          updateAppState = {this.updateState} 
+          businessData = {this.state.data} />
           
-          <Menu />
+          <Menu updateAppState = {this.updateState} />
 
         </div>
       

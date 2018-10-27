@@ -6,7 +6,12 @@ class Search extends React.Component {
     this.state = {keyword: 'Coffee', location : 'NY'}
   }
 
+  componentDidMount(){
+    this.getData('coffee','NY');
+  }
+
   getData = (keyword='',location='') => {
+    console.log(this.props,'search')
     fetch('http://localhost:3002',
     {
       method: 'POST',
@@ -20,7 +25,7 @@ class Search extends React.Component {
     })
     .then(resp => resp.json())
     //send data to app to send to map
-    .then(resp => this.props.getMarkers(resp));
+    .then(resp => this.props.updateAppState({data: resp}));
   }
 
 

@@ -1,7 +1,7 @@
    import React from 'react';
-   import ListView from './ListView'
-   import Search from './Search'
-   import Filter from './Filter'
+  //  import ListView from './ListView'
+  //  import Search from './Search'
+  //  import Filter from './Filter'
 
 
 class Map extends React.Component{
@@ -39,35 +39,40 @@ class Map extends React.Component{
       this.setState({map : map, infoWindow : infoWindow})
     }
 
-    this.getData('coffee','NY');
+    
 
   }
 
-  getData = (keyword='',location='') => {
-    fetch('http://localhost:3002',
-    {
-      method: 'POST',
-      headers: {
-        'content-type' : 'application/json'
-      },
-      body : JSON.stringify({
-        keyword: keyword,
-        location: location
-      })
-    })
-    .then(resp => resp.json())
-    .then(resp => this.getMarkers(resp));
-  }
-
-  getMarkers = (data) => {
-    this.setState({locationData : data});
+  componentDidUpdate(){
     this.makeMarkers();
   }
+
+  // getData = (keyword='',location='') => {
+  //   fetch('http://localhost:3002',
+  //   {
+  //     method: 'POST',
+  //     headers: {
+  //       'content-type' : 'application/json'
+  //     },
+  //     body : JSON.stringify({
+  //       keyword: keyword,
+  //       location: location
+  //     })
+  //   })
+  //   .then(resp => resp.json())
+  //   .then(resp => this.getMarkers(resp));
+  // }
+
+  // getMarkers = (data) => {
+    
+  //   this.setState({locationData : data});
+  //   this.makeMarkers();
+  // }
 
   makeMarkers = () => {
     this.hideMarkers();
 
-    let markers = (this.state.locationData || []).map(marker => {
+    let markers = (this.props.businessData || []).map(marker => {
 
       let mark = new window.google.maps.Marker(marker)
       mark.addListener('click', () => {
@@ -77,7 +82,7 @@ class Map extends React.Component{
       return mark;
     })
 
-    this.setState({markers : markers});
+    // this.setState({markers : markers});
     this.showMarkers(markers);
 
   }
@@ -85,7 +90,7 @@ class Map extends React.Component{
   showMarkers = (markers) => {
     //for filter results
     this.hideMarkers()
-    this.setState({showMarkers : markers})
+    // this.setState({showMarkers : markers})
     
     let bounds = new window.google.maps.LatLngBounds();
 
@@ -158,16 +163,16 @@ class Map extends React.Component{
       <div id='content-section'>
         {this.props.mapError && <div>{this.props.MapError}</div> }
 
-        <Search 
-        getData = {this.getData} />
+        {/* <Search 
+        getData = {this.getData} /> */}
 
-        <Filter filterResults = {this.filterResults} />  
+        {/* <Filter filterResults = {this.filterResults} />  
         
         <ListView 
         markerClicked = {this.state.markerClicked} 
         markers = {this.state.showMarkers || this.state.markers} 
         handleClick = {this.handleClick}
-        getStreetView = {this.getStreetView} />
+        getStreetView = {this.getStreetView} /> */}
         
       </div>
 

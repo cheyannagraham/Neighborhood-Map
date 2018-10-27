@@ -5,10 +5,11 @@ import ListView from './ListView.js'
 
 
 function Menu(props) {
+    // console.log(props)
     return (
         <div id='side-bar'>
 
-            <Search />
+            <Search updateAppState = {props.updateAppState} />
 
             <Filter />
 
