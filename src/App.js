@@ -15,7 +15,25 @@ class App extends Component {
   }
 
   updateState = data => {
-    this.setState(data)
+    this.makeMarkers(data);
+
+  }
+
+  makeMarkers = (data) => {
+    // this.hideMarkers();
+
+    let markers = (data.businessData || []).map(marker => {
+
+      let mark = new window.google.maps.Marker(marker)
+      mark.addListener('click', () => {
+        this.handleClick(mark);
+      })
+
+      return mark;
+    })
+
+    // this.props.updateAppState({markers : markers});
+    this.setState({markers: markers});
 
   }
   
@@ -35,9 +53,12 @@ class App extends Component {
           mapError = {this.props.mapError} 
           navHidden = {this.state.hidden} 
           updateAppState = {this.updateState} 
-          businessData = {this.state.data} />
+          businessData = {this.state.data} 
+          markers = {this.state.markers} />
           
-          <Menu updateAppState = {this.updateState} />
+          <Menu 
+          updateAppState = {this.updateState} 
+          markers = {this.state.markers} />
 
         </div>
       

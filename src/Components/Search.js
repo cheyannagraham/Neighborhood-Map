@@ -25,7 +25,7 @@ class Search extends React.Component {
     })
     .then(resp => resp.json())
     //send data to app to send to map
-    .then(resp => this.props.updateAppState({data: resp}));
+    .then(resp => this.props.updateAppState({businessData: resp}));
   }
 
 

@@ -37,15 +37,13 @@ class Map extends React.Component{
       let infoWindow = new window.google.maps.InfoWindow();
 
       this.setState({map : map, infoWindow : infoWindow})
-    }
-
-    
+    }    
 
   }
 
-  componentDidUpdate(){
-    this.makeMarkers();
-  }
+  // componentDidUpdate(){
+  //   this.makeMarkers();
+  // }
 
   // getData = (keyword='',location='') => {
   //   fetch('http://localhost:3002',
@@ -69,32 +67,18 @@ class Map extends React.Component{
   //   this.makeMarkers();
   // }
 
-  makeMarkers = () => {
-    this.hideMarkers();
 
-    let markers = (this.props.businessData || []).map(marker => {
 
-      let mark = new window.google.maps.Marker(marker)
-      mark.addListener('click', () => {
-        this.handleClick(mark);
-      })
-
-      return mark;
-    })
-
-    // this.setState({markers : markers});
-    this.showMarkers(markers);
-
-  }
-
-  showMarkers = (markers) => {
+  showMarkers = () => {
     //for filter results
     this.hideMarkers()
     // this.setState({showMarkers : markers})
+
+    let markers = this.props.markers || [];
     
     let bounds = new window.google.maps.LatLngBounds();
 
-    markers.forEach(marker => {
+    (markers).forEach(marker => {
       bounds.extend(marker.position);
       marker.setMap(this.state.map);
     })
@@ -106,7 +90,7 @@ class Map extends React.Component{
   }
 
   hideMarkers = () => {
-    (this.state.markers || []).forEach(marker => {
+    (this.props.markers || []).forEach(marker => {
       marker.setMap(null);
     })
   }  
@@ -159,23 +143,12 @@ class Map extends React.Component{
   
 
   render() {
-    return ( console.log(this.props.navHidden),
-      <div id='content-section'>
-        {this.props.mapError && <div>{this.props.MapError}</div> }
-
-        {/* <Search 
-        getData = {this.getData} /> */}
-
-        {/* <Filter filterResults = {this.filterResults} />  
-        
-        <ListView 
-        markerClicked = {this.state.markerClicked} 
-        markers = {this.state.showMarkers || this.state.markers} 
-        handleClick = {this.handleClick}
-        getStreetView = {this.getStreetView} /> */}
-        
-      </div>
-
+    return ( 
+        this.props.mapError ?
+         <div>{this.props.MapError}</div> :
+         <div>
+           {this.showMarkers()}
+         </div>
     );
     }
         
@@ -188,6 +161,22 @@ export default Map
 //fix bug on targets
 //hide and showmarkers exported to outer component
 //access click event from map
+
+
+      //{/* <div id='content-section'> */}
+
+        //{/* <Search 
+      //getData = {this.getData} /> */}
+
+      {/* <Filter filterResults = {this.filterResults} />  
+      
+      <ListView 
+      markerClicked = {this.state.markerClicked} 
+      markers = {this.state.showMarkers || this.state.markers} 
+      handleClick = {this.handleClick}
+      getStreetView = {this.getStreetView} /> */}
+      
+    {/* </div> */}
     
 
    

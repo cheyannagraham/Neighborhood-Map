@@ -13,7 +13,7 @@ function Menu(props) {
 
             <Filter />
 
-            <ListView />
+            <ListView markers = {props.markers} />
 
         </div>
 
