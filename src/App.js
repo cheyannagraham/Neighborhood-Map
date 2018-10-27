@@ -46,6 +46,7 @@ class App extends Component {
   }
 
   handleClick = (marker) => {
+    // this.setState({markerClicked: marker})
     this.animateMarker.current.handleClick(marker);
   }
   
@@ -60,13 +61,13 @@ class App extends Component {
           updateAppState = {this.updateState} 
           businessData = {this.state.data} 
           markers = {this.state.markers} 
-          //markerClicked = {this.state.markerClicked} 
           ref = {this.animateMarker} />
           
           <Menu 
           updateAppState = {this.updateState} 
           markers = {this.state.markers} 
-          markerClicked = {this.state.markerClicked} />
+          markerClicked = {this.state.markerClicked} 
+          handleClick = {this.handleClick} />
 
         </div>
       

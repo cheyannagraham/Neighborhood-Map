@@ -31,7 +31,7 @@ class ListView extends React.Component {
   }
 
   handleClick = (marker) => {
-    this.props.updateAppState({markerClicked:marker})
+    this.props.handleClick(marker);
 
   }
 

@@ -17,7 +17,8 @@ function Menu(props) {
             <ListView 
             markers = {props.markers} 
             updateAppState = {props.updateAppState} 
-            markerClicked = {props.markerClicked} />
+            markerClicked = {props.markerClicked} 
+            handleClick = {props.handleClick} />
 
         </div>
 
