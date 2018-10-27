@@ -9,8 +9,7 @@ class Map extends React.Component{
   constructor(props) {
     super(props);
     this.state = {}
-  } 
-  
+  }   
 
   componentDidMount(){
 
@@ -107,7 +106,7 @@ class Map extends React.Component{
     })
   }  
 
-  findResults = (search) => {
+  filterResults = (search) => {
     console.log('fr',search)
     let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
     this.showMarkers(markers);
@@ -155,20 +154,19 @@ class Map extends React.Component{
   
 
   render() {
-    return (
+    return ( console.log(this.props.navHidden),
       <div id='content-section'>
         {this.props.mapError && <div>{this.props.MapError}</div> }
 
         <Search 
         getData = {this.getData} />
 
-        <Filter findResults = {this.findResults} />  
+        <Filter filterResults = {this.filterResults} />  
         
         <ListView 
         markerClicked = {this.state.markerClicked} 
         markers = {this.state.showMarkers || this.state.markers} 
         handleClick = {this.handleClick}
-        findResults = {this.findResults} 
         getStreetView = {this.getStreetView} />
         
       </div>
@@ -183,6 +181,8 @@ export default Map
 //style
 // replace streetview w photos & hours
 //fix bug on targets
+//hide and showmarkers exported to outer component
+//access click event from map
     
 
    

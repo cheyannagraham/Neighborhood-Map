@@ -8,7 +8,7 @@ function Filter(props) {
             <h2>Filter Results</h2>
             <input 
                 type='text' 
-                onChange = { (e) => {props.findResults(e.target.value)}} />
+                onChange = { (e) => {props.filterResults(e.target.value)}} />
         </div> 
     )
 }
