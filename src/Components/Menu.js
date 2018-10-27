@@ -1,0 +1,22 @@
+import React from 'react'
+import Search from './Search.js'
+import Filter from './Filter.js'
+import ListView from './ListView.js'
+
+
+function Menu(props) {
+    return (
+        <div id='side-bar'>
+
+            <Search />
+
+            <Filter />
+
+            <ListView />
+
+        </div>
+
+    )
+}
+
+export default Menu

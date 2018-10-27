@@ -32,7 +32,7 @@ class App extends Component {
           
           <Map mapError = {this.props.mapError} navHidden = {this.state.hidden} updateAppState = {this.updateState} />
           
-          {/* <Menu /> */}
+          <Menu />
 
         </div>
       

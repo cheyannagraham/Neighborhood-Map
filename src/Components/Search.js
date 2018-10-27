@@ -6,13 +6,31 @@ class Search extends React.Component {
     this.state = {keyword: 'Coffee', location : 'NY'}
   }
 
+  getData = (keyword='',location='') => {
+    fetch('http://localhost:3002',
+    {
+      method: 'POST',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body : JSON.stringify({
+        keyword: keyword,
+        location: location
+      })
+    })
+    .then(resp => resp.json())
+    //send data to app to send to map
+    .then(resp => this.props.getMarkers(resp));
+  }
+
+
   handleChange = (input,field) => {
     this.setState({[field] : input})
 
     let keyword = field === 'keyword' ? input : (this.state && this.state.keyword)
     let location = field === 'location' ? input : (this.state && this.state.location )
 
-    keyword && location && this.props.getData(keyword,location);      
+    keyword && location && this.getData(keyword,location);      
   } 
 
 
