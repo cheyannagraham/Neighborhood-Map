@@ -4,9 +4,9 @@ import React from 'react';
 
 class ListView extends React.Component {
 
-	componentDidUpdate = () => {
-		document.querySelector('#street-view') && this.props.getStreetView();		
-  }
+	// componentDidUpdate = () => {
+	// 	document.querySelector('#street-view') && this.props.getStreetView();		
+  // }
 
 
 
@@ -30,6 +30,11 @@ class ListView extends React.Component {
     )
   }
 
+  handleClick = (marker) => {
+    this.props.updateAppState({markerClicked:marker})
+
+  }
+
   makeList = () => {
     return (
         <ol id='list-view-list'>
@@ -47,7 +52,7 @@ class ListView extends React.Component {
               <li                    
                 role='button' key = {marker.id}                
                 className = {`marker-list-item ${className}`}
-                onClick = {() => {this.props.handleClick(marker)}} >
+                onClick = {() => {this.handleClick(marker)}} >
                   {marker.title}
                   {display}              
               </li>

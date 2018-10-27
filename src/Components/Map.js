@@ -113,13 +113,13 @@ class Map extends React.Component{
 
   
   handleClick = (marker) => {
-    this.setState({markerClicked : marker});
+    // this.setState({markerClicked : marker});
 
     //animation
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
     marker.setAnimation(window.google.maps.Animation.null);
 
-    this.fillInfoWindow(marker)
+    // this.fillInfoWindow(marker)
   }
 
   fillInfoWindow = (marker) => {

@@ -9,11 +9,15 @@ function Menu(props) {
     return (
         <div id='side-bar'>
 
-            <Search updateAppState = {props.updateAppState} />
+            <Search 
+            updateAppState = {props.updateAppState} />
 
             <Filter />
 
-            <ListView markers = {props.markers} />
+            <ListView 
+            markers = {props.markers} 
+            updateAppState = {props.updateAppState} 
+            markerClicked = {props.markerClicked} />
 
         </div>
 
