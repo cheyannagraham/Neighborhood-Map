@@ -22,6 +22,11 @@ class App extends Component {
     this.setState(data);
     //markerclicked {}, businessdatat {}, markers {}
   } 
+
+  filterResults = (search) => {
+    let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
+    this.showMarkers(markers);
+  }
   
 
   handleNavClick = () => {

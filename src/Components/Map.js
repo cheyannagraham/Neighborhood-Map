@@ -78,12 +78,7 @@ class Map extends React.Component{
     (this.props.markers || []).forEach(marker => {
       marker.setMap(null);
     })
-  }  
-
-  filterResults = (search) => {
-    let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
-    this.showMarkers(markers);
-  }
+  } 
 
   getStreetView = () => {
     return new window.google.maps.StreetViewPanorama(document.getElementById('street-view'),{
