@@ -68,7 +68,7 @@ class Map extends React.Component{
   // }
 
   makeMarkers = (businessData) => {
-    // this.hideMarkers();
+    this.hideMarkers();
 
     let markers = (businessData || []).map(marker => {
 
