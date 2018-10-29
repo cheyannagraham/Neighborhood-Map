@@ -11,7 +11,6 @@ class Search extends React.Component {
   }
 
   getData = (keyword='',location='') => {
-    console.log(this.props,'search')
     fetch('http://localhost:3002',
     {
       method: 'POST',

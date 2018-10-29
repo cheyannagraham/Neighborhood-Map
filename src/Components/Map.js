@@ -67,6 +67,25 @@ class Map extends React.Component{
   //   this.makeMarkers();
   // }
 
+  makeMarkers = (businessData) => {
+    // this.hideMarkers();
+
+    let markers = (businessData || []).map(marker => {
+
+      let mark = new window.google.maps.Marker(marker)
+      mark.addListener('click', () => {
+        this.handleClick(mark);
+      })
+
+      return mark;
+    })
+
+    // this.props.updateAppState({markers : markers});
+    this.props.updateAppState({markers: markers});
+    // this.showMarkers()
+
+  }
+
 
 
   showMarkers = () => {

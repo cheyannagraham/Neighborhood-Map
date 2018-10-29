@@ -12,31 +12,20 @@ class App extends Component {
     super(props);
     //set nav window to hidden on initial load
     this.state = {hidden: true};
-    this.animateMarker = React.createRef();
+    this.mapRef = React.createRef();
   }
 
   updateState = data => {
-    data.businessData && this.makeMarkers(data.businessData);
-    data.markerClicked && this.setState(data.markerClicked);
+    // data.businessData && this(data.businessData);
+    // data.markerClicked && this.setState(data.markerClicked);
+    // data.markers && 
+    data.businessData ?
+    this.mapRef.current.makeMarkers(data.businessData) :
+    this.setState(data);
+    //markerclicked {}, businessdatat {}, markers {}
   }
 
-  makeMarkers = (businessData) => {
-    // this.hideMarkers();
-
-    let markers = (businessData || []).map(marker => {
-
-      let mark = new window.google.maps.Marker(marker)
-      mark.addListener('click', () => {
-        this.handleClick(mark);
-      })
-
-      return mark;
-    })
-
-    // this.props.updateAppState({markers : markers});
-    this.setState({markers: markers});
-
-  }
+ 
   
 
   handleNavClick = () => {
@@ -47,11 +36,11 @@ class App extends Component {
 
   handleClick = (marker) => {
     // this.setState({markerClicked: marker})
-    this.animateMarker.current.handleClick(marker);
+    this.mapRef.current.handleClick(marker);
   }
   
   render() {
-    return ( console.log(this.state,'stateapp'),
+    return (
         <div id='app'>
           <Header navClick = {this.handleNavClick} />
           
@@ -59,9 +48,9 @@ class App extends Component {
           mapError = {this.props.mapError} 
           navHidden = {this.state.hidden} 
           updateAppState = {this.updateState} 
-          businessData = {this.state.data} 
+          //businessData = {this.state.businessData} 
           markers = {this.state.markers} 
-          ref = {this.animateMarker} />
+          ref = {this.mapRef} />
           
           <Menu 
           updateAppState = {this.updateState} 
