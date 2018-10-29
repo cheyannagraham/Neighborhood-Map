@@ -132,7 +132,10 @@ class Map extends React.Component{
 
   
   handleClick = (marker) => {
-    // this.setState({markerClicked : marker});
+    this.props.updateAppState({markerClicked : marker});
+  }
+
+  animate = marker => {
 
     //animation
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
