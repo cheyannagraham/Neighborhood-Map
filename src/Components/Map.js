@@ -40,33 +40,7 @@ class Map extends React.Component{
     }    
 
   }
-
-  // componentDidUpdate(){
-  //   this.makeMarkers();
-  // }
-
-  // getData = (keyword='',location='') => {
-  //   fetch('http://localhost:3002',
-  //   {
-  //     method: 'POST',
-  //     headers: {
-  //       'content-type' : 'application/json'
-  //     },
-  //     body : JSON.stringify({
-  //       keyword: keyword,
-  //       location: location
-  //     })
-  //   })
-  //   .then(resp => resp.json())
-  //   .then(resp => this.getMarkers(resp));
-  // }
-
-  // getMarkers = (data) => {
-    
-  //   this.setState({locationData : data});
-  //   this.makeMarkers();
-  // }
-
+  
   makeMarkers = (businessData) => {
     this.hideMarkers();
 
@@ -78,20 +52,13 @@ class Map extends React.Component{
       })
 
       return mark;
-    })
-
-    // this.props.updateAppState({markers : markers});
+    });
     this.props.updateAppState({markers: markers});
-    // this.showMarkers()
-
   }
-
-
 
   showMarkers = () => {
     //for filter results
     this.hideMarkers()
-    // this.setState({showMarkers : markers})
 
     let markers = this.props.markers || [];
     
@@ -115,7 +82,6 @@ class Map extends React.Component{
   }  
 
   filterResults = (search) => {
-    console.log('fr',search)
     let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
     this.showMarkers(markers);
   }
@@ -132,8 +98,6 @@ class Map extends React.Component{
 
   
   handleClick = (marker) => {
-    // this.props.showMarkerData({marker});
-    // this.animate(marker);
     this.props.handleClick(marker);
   }
 
@@ -143,7 +107,7 @@ class Map extends React.Component{
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
     marker.setAnimation(window.google.maps.Animation.null);
 
-    // this.fillInfoWindow(marker)
+    this.fillInfoWindow(marker)
   }
 
   fillInfoWindow = (marker) => {
@@ -161,8 +125,6 @@ class Map extends React.Component{
 
     this.state.infoWindow.setContent(display);
     this.state.infoWindow.open(this.state.map,marker);
-
-
   }
   
 
@@ -174,8 +136,7 @@ class Map extends React.Component{
            {this.showMarkers()}
          </div>
     );
-    }
-        
+  }        
 }
 
 export default Map
@@ -183,27 +144,3 @@ export default Map
 //style
 // replace streetview w photos & hours
 //fix bug on targets
-//hide and showmarkers exported to outer component
-//access click event from map
-
-
-      //{/* <div id='content-section'> */}
-
-        //{/* <Search 
-      //getData = {this.getData} /> */}
-
-      {/* <Filter filterResults = {this.filterResults} />  
-      
-      <ListView 
-      markerClicked = {this.state.markerClicked} 
-      markers = {this.state.showMarkers || this.state.markers} 
-      handleClick = {this.handleClick}
-      getStreetView = {this.getStreetView} /> */}
-      
-    {/* </div> */}
-    
-
-   
-   
-   
-   

@@ -17,17 +17,11 @@ class App extends Component {
   }
 
   updateState = data => {
-    // data.businessData && this(data.businessData);
-    // data.markerClicked && this.setState(data.markerClicked);
-    // data.markers && 
-    console.log('data')
     data.businessData ?
     this.mapRef.current.makeMarkers(data.businessData) :
     this.setState(data);
     //markerclicked {}, businessdatat {}, markers {}
-  }
-
- 
+  } 
   
 
   handleNavClick = () => {
@@ -37,16 +31,10 @@ class App extends Component {
   }
 
   handleClick = (marker) => {
-    // this.setState({markerClicked: marker})
     this.mapRef.current.animate(marker);
     this.menuRef.current.showMarkerData(marker);
 
   }
-
-  // showMarkerData = marker => {
-  //   this.menuRef.current.showMarkerData(marker);
-
-  // }
   
   render() {
     return (
@@ -58,8 +46,6 @@ class App extends Component {
           navHidden = {this.state.hidden} 
           updateAppState = {this.updateState}
           handleClick = {this.handleClick} 
-
-          //businessData = {this.state.businessData} 
           markers = {this.state.markers}
           showMarkerData = {this.showMarkerData} 
           ref = {this.mapRef} />

@@ -4,12 +4,6 @@ import React from 'react';
 
 class ListView extends React.Component {
 
-	// componentDidUpdate = () => {
-	// 	document.querySelector('#street-view') && this.props.getStreetView();		
-  // }
-
-
-
   modDisplay = (marker) => {
     return (
     <div>
@@ -30,35 +24,31 @@ class ListView extends React.Component {
     )
   }
 
-  // handleClick = (marker) => {
-  //   this.props.handleClick(marker);
-
-  // }
 
   makeList = () => {
     return (
-        <ol id='list-view-list'>
-          {(this.props.markers || []).map(marker => {
-            let className = '';
-            let display = '';
+      <ol id='list-view-list'>
+        {(this.props.markers || []).map(marker => {
+          let className = '';
+          let display = '';
 
-            //toggle clicked class if marker clicked
-            if(this.props.markerClicked && marker.id === this.props.markerClicked.id) {            
-              className = 'clicked';							
-              display = this.modDisplay(marker);
-            }
+          //toggle clicked class if marker clicked
+          if(this.props.markerClicked && marker.id === this.props.markerClicked.id) {            
+            className = 'clicked';							
+            display = this.modDisplay(marker);
+          }
 
-            return (
-              <li                    
-                role='button' key = {marker.id}                
-                className = {`marker-list-item ${className}`}
-                onClick = {() => {this.props.handleClick(marker)}} >
-                  {marker.title}
-                  {display}              
-              </li>
-            )                                  
-          })}
-        </ol>
+          return (
+            <li                    
+              role='button' key = {marker.id}                
+              className = {`marker-list-item ${className}`}
+              onClick = {() => {this.props.handleClick(marker)}} >
+                {marker.title}
+                {display}              
+            </li>
+          )                                  
+        })}
+      </ol>
 
       
     ) 
@@ -72,8 +62,6 @@ class ListView extends React.Component {
         {this.props.markers && this.props.markers.length > 0 
         ? this.makeList() : <p>No Results</p>}
       </div>
-
-
 		)
 	}
 }
