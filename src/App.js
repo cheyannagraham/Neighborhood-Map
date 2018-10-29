@@ -25,7 +25,8 @@ class App extends Component {
 
   filterResults = (search) => {
     let markers = (this.state.markers || []).filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
-    //this.showMarkers(markers);
+
+    this.mapRef.current.showMarkers(markers);
 
     this.menuRef.current.updateList(markers);
   }

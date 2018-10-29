@@ -55,11 +55,9 @@ class Map extends React.Component{
     this.props.updateAppState({markers: markers});
   }
 
-  showMarkers = () => {
+  showMarkers = (markers = this.props.markers || []) => {
     //for filter results
     this.hideMarkers()
-
-    let markers = this.props.markers || [];
     
     let bounds = new window.google.maps.LatLngBounds();
 
