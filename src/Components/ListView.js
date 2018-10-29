@@ -30,10 +30,10 @@ class ListView extends React.Component {
     )
   }
 
-  handleClick = (marker) => {
-    this.props.handleClick(marker);
+  // handleClick = (marker) => {
+  //   this.props.handleClick(marker);
 
-  }
+  // }
 
   makeList = () => {
     return (
@@ -52,7 +52,7 @@ class ListView extends React.Component {
               <li                    
                 role='button' key = {marker.id}                
                 className = {`marker-list-item ${className}`}
-                onClick = {() => {this.handleClick(marker)}} >
+                onClick = {() => {this.props.handleClick(marker)}} >
                   {marker.title}
                   {display}              
               </li>

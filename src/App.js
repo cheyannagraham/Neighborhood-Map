@@ -38,13 +38,15 @@ class App extends Component {
 
   handleClick = (marker) => {
     // this.setState({markerClicked: marker})
-    this.mapRef.current.handleClick(marker);
-  }
-
-  showMarkerData = marker => {
+    this.mapRef.current.animate(marker);
     this.menuRef.current.showMarkerData(marker);
 
   }
+
+  // showMarkerData = marker => {
+  //   this.menuRef.current.showMarkerData(marker);
+
+  // }
   
   render() {
     return (
@@ -54,9 +56,12 @@ class App extends Component {
           <Map 
           mapError = {this.props.mapError} 
           navHidden = {this.state.hidden} 
-          updateAppState = {this.updateState} 
+          updateAppState = {this.updateState}
+          handleClick = {this.handleClick} 
+
           //businessData = {this.state.businessData} 
-          markers = {this.state.markers} 
+          markers = {this.state.markers}
+          showMarkerData = {this.showMarkerData} 
           ref = {this.mapRef} />
           
           <Menu 
