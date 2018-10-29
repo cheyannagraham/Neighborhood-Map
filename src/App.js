@@ -25,9 +25,7 @@ class App extends Component {
   
 
   handleNavClick = () => {
-    this.state && this.state.hidden ? 
-    this.setState({hidden : false}) :
-    this.setState({hidden: true});
+    this.menuRef.current.toggleView();
   }
 
   handleClick = (marker) => {
@@ -42,7 +40,6 @@ class App extends Component {
           <Header navClick = {this.handleNavClick} />
           
           <Map 
-          //navHidden = {this.state.hidden} 
           mapError = {this.props.mapError} 
           updateAppState = {this.updateState}
           handleClick = {this.handleClick} 
@@ -51,7 +48,6 @@ class App extends Component {
           ref = {this.mapRef} />
           
           <Menu
-          navHidden = {this.state.hidden} 
           updateAppState = {this.updateState} 
           markers = {this.state.markers} 
           markerClicked = {this.state.markerClicked} 

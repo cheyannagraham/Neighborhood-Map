@@ -11,6 +11,14 @@ class Menu extends React.Component {
         this.setState({markerClicked : marker});
     }
 
+    toggleView = () => {
+        const sideMenu = document.getElementById('side-menu');
+        sideMenu.className.includes('hide-menu') ?
+        sideMenu.classList.remove('hide-menu') : 
+        sideMenu.classList.add('hide-menu');
+
+    }
+
     render() {
         return (
             <div id='side-menu' className = {this.props.navHidden ? 'hide-menu' : ''}>
