@@ -15,7 +15,7 @@ html, body {
   width : 100%;
 }
 
-#app, #map {
+#main, #app, #map {
   height: 100%;
 }
 

@@ -38,22 +38,28 @@ class App extends Component {
     return (
         <div id='app'>
           <Header navClick = {this.handleNavClick} />
+
+          <div id='main'>
+            <Map 
+            mapError = {this.props.mapError} 
+            updateAppState = {this.updateState}
+            handleClick = {this.handleClick} 
+            markers = {this.state.markers}
+            showMarkerData = {this.showMarkerData} 
+            ref = {this.mapRef} />
+            
+            <Menu
+            updateAppState = {this.updateState} 
+            markers = {this.state.markers} 
+            markerClicked = {this.state.markerClicked} 
+            handleClick = {this.handleClick} 
+            showMarkerData = {this.showMarkerData}
+            ref = {this.menuRef} />
+
+
+          </div>
           
-          <Map 
-          mapError = {this.props.mapError} 
-          updateAppState = {this.updateState}
-          handleClick = {this.handleClick} 
-          markers = {this.state.markers}
-          showMarkerData = {this.showMarkerData} 
-          ref = {this.mapRef} />
-          
-          <Menu
-          updateAppState = {this.updateState} 
-          markers = {this.state.markers} 
-          markerClicked = {this.state.markerClicked} 
-          handleClick = {this.handleClick} 
-          showMarkerData = {this.showMarkerData}
-          ref = {this.menuRef} />
+
 
         </div>
       
