@@ -12,20 +12,9 @@ class Menu extends React.Component {
     }
 
     updateState = (data) => {
-        console.log(data,'menu');
         this.setState(data)
     }
 
-    // filterList = results => {
-    //     //this.setState({markers:results})
-    //     //this.listViewRef.current.makeList(results);
-    //     // this.listViewRef.current.render('chey');
-    //     this.updateState(results)
-    // }
-
-    // showMarkerData = marker => {
-    //     this.setState({markerClicked : marker});
-    // }
 
     toggleView = () => {
         const sideMenu = document.getElementById('side-menu');

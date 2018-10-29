@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   updateState = data => {
-    console.log('app',data);
     
     data.businessData ?
     this.mapRef.current.makeMarkers(data.businessData) :
@@ -47,31 +46,26 @@ class App extends Component {
   
   render() {
     return (
-        <div id='app'>
-          <Header navClick = {this.handleNavClick} />
+      <div id='app'>
+        <Header navClick = {this.handleNavClick} />
 
-          <div id='main'>
-            <Map 
-            mapError = {this.props.mapError} 
-            updateAppState = {this.updateState}
-            handleClick = {this.handleClick} 
-            markers = {this.state.markers}
-            ref = {this.mapRef} />
-            
-            <Menu
-            updateAppState = {this.updateState} 
-            markers = {this.state.markers} 
-            markerClicked = {this.state.markerClicked} 
-            handleClick = {this.handleClick}
-            filterResults = {this.filterResults}
-            ref = {this.menuRef} />
-
-
-          </div>
+        <div id='main'>
+          <Map 
+          mapError = {this.props.mapError} 
+          updateAppState = {this.updateState}
+          handleClick = {this.handleClick} 
+          markers = {this.state.markers}
+          ref = {this.mapRef} />
           
+          <Menu
+          updateAppState = {this.updateState} 
+          handleClick = {this.handleClick}
+          filterResults = {this.filterResults}
+          ref = {this.menuRef} />
 
+        </div> 
 
-        </div>
+      </div>
       
     );
   }

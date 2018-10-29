@@ -57,7 +57,7 @@ class ListView extends React.Component {
   }
   
 	render() {
-		return (console.log(this.props),
+		return (
       <div id='list-view-container'>
         <h2>Markers</h2>
 
