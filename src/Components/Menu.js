@@ -6,12 +6,7 @@ import ListView from './ListView.js'
 
 class Menu extends React.Component {
 
-    // this function updates the marker clicked to be reflected in the list view. 
-    updateList = marker => {
-        console.log(marker)
-    }
-
-    showFilteredList = results => {
+    filterList = results => {
 
     }
 

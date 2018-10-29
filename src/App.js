@@ -28,7 +28,7 @@ class App extends Component {
 
     this.mapRef.current.showMarkers(markers);
 
-    this.menuRef.current.updateList(markers);
+    this.menuRef.current.filterList(markers);
   }
   
 
