@@ -13,7 +13,7 @@ class Menu extends React.Component {
 
     render() {
         return (
-            <div id='side-bar'>
+            <div id='side-menu' className = {this.props.navHidden ? 'hide-menu' : ''}>
     
                 <Search 
                 updateAppState = {this.props.updateAppState} />

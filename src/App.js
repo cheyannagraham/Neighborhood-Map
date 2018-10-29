@@ -43,14 +43,14 @@ class App extends Component {
           
           <Map 
           mapError = {this.props.mapError} 
-          navHidden = {this.state.hidden} 
           updateAppState = {this.updateState}
           handleClick = {this.handleClick} 
           markers = {this.state.markers}
           showMarkerData = {this.showMarkerData} 
           ref = {this.mapRef} />
           
-          <Menu 
+          <Menu
+          navHidden = {this.state.hidden} 
           updateAppState = {this.updateState} 
           markers = {this.state.markers} 
           markerClicked = {this.state.markerClicked} 

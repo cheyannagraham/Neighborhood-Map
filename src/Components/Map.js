@@ -1,7 +1,4 @@
    import React from 'react';
-  //  import ListView from './ListView'
-  //  import Search from './Search'
-  //  import Filter from './Filter'
 
 
 class Map extends React.Component{
