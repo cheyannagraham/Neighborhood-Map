@@ -4,25 +4,33 @@ import Filter from './Filter.js'
 import ListView from './ListView.js'
 
 
-function Menu(props) {
-    // console.log(props)
-    return (
-        <div id='side-bar'>
+class Menu extends React.Component {
+    showMarkerData = marker => {
+        this.setState({markerClicked : marker})
 
-            <Search 
-            updateAppState = {props.updateAppState} />
+    }
 
-            <Filter />
+    render() {
+        return (
+            <div id='side-bar'>
+    
+                <Search 
+                updateAppState = {this.props.updateAppState} />
+    
+                <Filter />
+    
+                <ListView 
+                markers = {this.props.markers} 
+                updateAppState = {this.props.updateAppState} 
+                markerClicked = {(this.state && this.state.markerClicked) || ''} 
+                handleClick = {this.props.handleClick} />
+    
+            </div>
+    
+        )
 
-            <ListView 
-            markers = {props.markers} 
-            updateAppState = {props.updateAppState} 
-            markerClicked = {props.markerClicked} 
-            handleClick = {props.handleClick} />
-
-        </div>
-
-    )
+    }
+    
 }
 
 export default Menu

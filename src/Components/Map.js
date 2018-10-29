@@ -132,7 +132,7 @@ class Map extends React.Component{
 
   
   handleClick = (marker) => {
-    this.props.updateAppState({markerClicked : marker});
+    // this.props.showMarkerData({marker});
     this.animate(marker);
   }
 

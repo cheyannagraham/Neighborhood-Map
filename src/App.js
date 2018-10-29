@@ -13,6 +13,7 @@ class App extends Component {
     //set nav window to hidden on initial load
     this.state = {hidden: true};
     this.mapRef = React.createRef();
+    this.menuRef = React.createRef();
   }
 
   updateState = data => {
@@ -39,6 +40,11 @@ class App extends Component {
     // this.setState({markerClicked: marker})
     this.mapRef.current.handleClick(marker);
   }
+
+  showMarkerData = marker => {
+    this.menuRef.current.showMarkerData(marker);
+
+  }
   
   render() {
     return (
@@ -57,7 +63,9 @@ class App extends Component {
           updateAppState = {this.updateState} 
           markers = {this.state.markers} 
           markerClicked = {this.state.markerClicked} 
-          handleClick = {this.handleClick} />
+          handleClick = {this.handleClick} 
+          showMarkerData = {this.showMarkerData}
+          ref = {this.menuRef} />
 
         </div>
       
