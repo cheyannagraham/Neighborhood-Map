@@ -6,8 +6,6 @@
 html, body {
   height : 100%;
   width : 100%;
-  display : flex;
-  flex-wrap : wrap;
 }
 
 #root {
@@ -15,16 +13,21 @@ html, body {
   width : 100%;
 }
 
-#main, #app, #map {
+#app, #map {
   height: 100%;
   width : 100%;
 }
+/* ------------------ Header -------------------- */
+
 
 #app-header {
-  padding: 10px;
   background: #288a8c;
   width: 100%;
-  height: 8%;
+  height: 10%;
+}
+
+#app-header h1 {
+  padding: 10px;
 }
 
 #nav-button {
@@ -38,24 +41,19 @@ html, body {
   cursor: pointer;
 }
 
+/* ------------------ Main Content --------------------------- */
+
 #main {
   width: 100%;
+  height: 90%;
   display: flex;
-
 }
 
 
 #side-menu {
-  /* margin: 5px; */
-  /* position: absolute; */
-  width: 50%;
-  max-width: 300px;
-  height: 100%;
-  /* top: 11%; */
-  /* overflow-y: auto;
-  background: white;
-  z-index : 1000;  */
-
+  width: 60%;
+  max-width: 350px;
+  overflow-y: scroll;
 }
 
 .hide-menu {
@@ -74,12 +72,11 @@ html, body {
   padding: 10px;
 }
 
-/* //////////// ListView //////////////////////////// */
+/* ---------- ListView --------------- */
 
 ul,ol {
   list-style-type : none;
 }
-
 
 #list-view-container {
   padding: 10px;
@@ -87,7 +84,6 @@ ul,ol {
 
 .marker-list-item {
   border-bottom: .5px solid black;
-  text-decoration: underline;
   padding: 5px;
   cursor: pointer;
 }
@@ -100,22 +96,22 @@ ul,ol {
   font-weight: bold;
 }
 
-
 #module-list {
   font-size:small;
 }
 
+.business-photo {
+  height: 10vw;
+  width: 10vw;
+  padding: 5px;
+}
+/* ---------MAP-------- */
+
 .avatar {
   width : 20vw;
   height : 20vw;
-  max-width: 250px;
-  max-height: 250px;
-}
-
-.business-photo {
-  height: 15vw;
-  width: 15vw;
-  padding: 5px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 #open-status {
@@ -123,7 +119,7 @@ ul,ol {
 }
 
 .shrink-map {
-  width: 50%;
+  width: 40%;
 }
 
 
