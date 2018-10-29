@@ -24,8 +24,8 @@ class App extends Component {
   } 
 
   filterResults = (search) => {
-    let markers = this.state.markers.filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
-    this.showMarkers(markers);
+    let markers = (this.state.markers || []).filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
+    //this.showMarkers(markers);
 
     this.menuRef.current.updateList(markers);
   }
@@ -37,7 +37,7 @@ class App extends Component {
 
   handleClick = (marker) => {
     this.mapRef.current.animate(marker);
-    this.menuRef.current.updateList(marker);
+    this.menuRef.current.showMarkerData(marker);
 
   }
   

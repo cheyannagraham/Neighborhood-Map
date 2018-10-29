@@ -8,8 +8,16 @@ class Menu extends React.Component {
 
     // this function updates the marker clicked to be reflected in the list view. 
     updateList = marker => {
-        console.log(typeof marker)
+        console.log(marker)
+    }
+
+    showFilteredList = results => {
+
+    }
+
+    showMarkerData = marker => {
         this.setState({markerClicked : marker});
+
     }
 
     toggleView = () => {
