@@ -8,6 +8,7 @@ class Menu extends React.Component {
 
     // this function updates the marker clicked to be reflected in the list view. 
     updateList = marker => {
+        console.log(typeof marker)
         this.setState({markerClicked : marker});
     }
 
@@ -26,7 +27,8 @@ class Menu extends React.Component {
                 <Search 
                 updateAppState = {this.props.updateAppState} />
     
-                <Filter />
+                <Filter 
+                filterResults = {this.props.filterResults} />
     
                 <ListView 
                 markers = {this.props.markers} 

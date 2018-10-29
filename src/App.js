@@ -58,7 +58,8 @@ class App extends Component {
             updateAppState = {this.updateState} 
             markers = {this.state.markers} 
             markerClicked = {this.state.markerClicked} 
-            handleClick = {this.handleClick} 
+            handleClick = {this.handleClick}
+            filterResults = {this.filterResults} 
             ref = {this.menuRef} />
 
 
