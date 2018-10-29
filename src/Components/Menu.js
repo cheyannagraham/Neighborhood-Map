@@ -7,7 +7,7 @@ import ListView from './ListView.js'
 class Menu extends React.Component {
 
     // this function updates the marker clicked to be reflected in the list view. 
-    showMarkerData = marker => {
+    updateList = marker => {
         this.setState({markerClicked : marker});
     }
 
