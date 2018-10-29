@@ -128,21 +128,19 @@ class Map extends React.Component{
 
   setWidth = () => {
     const map = document.getElementById('map');
-    this.props.navHidden ? map && map.classList.remove('shrink-map') : map.classList.add('shrink-map');
+    this.props.navHidden ? map && map.classList.remove('shrink-map') : map && map.classList.add('shrink-map');
   }
+
+  
   
 
   render() {
-    return ( 
+    return (
       <div>
-        {this.props.mapError ?
-         this.props.MapError :
-          this.showMarkers()
-        }
-          {/* {this.setWidth()} */}
-
+        {this.showMarkers()}
+        {this.setWidth()}
       </div>
-    );
+    )
   }        
 }
 

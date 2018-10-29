@@ -17,6 +17,7 @@ html, body {
 
 #main, #app, #map {
   height: 100%;
+  width : 100%;
 }
 
 #app-header {
@@ -37,17 +38,23 @@ html, body {
   cursor: pointer;
 }
 
+#main {
+  width: 100%;
+  display: flex;
+
+}
+
 
 #side-menu {
   /* margin: 5px; */
-  position: absolute;
+  /* position: absolute; */
   width: 50%;
   max-width: 300px;
   height: 100%;
-  top: 11%;
-  overflow-y: auto;
+  /* top: 11%; */
+  /* overflow-y: auto;
   background: white;
-  z-index : 1000;
+  z-index : 1000;  */
 
 }
 
@@ -78,13 +85,11 @@ ul,ol {
   padding: 10px;
 }
 
-
 .marker-list-item {
   border-bottom: .5px solid black;
   text-decoration: underline;
   padding: 5px;
-    cursor: pointer;
-
+  cursor: pointer;
 }
 
 .marker-list-item:last-child {
@@ -118,7 +123,7 @@ ul,ol {
 }
 
 .shrink-map {
-  width: 30%;
+  width: 50%;
 }
 
 
