@@ -26,6 +26,7 @@ class ListView extends React.Component {
 
 
   makeList = () => {
+
     return (
       <ol id='list-view-list'>
         {(this.props.markers || []).map(marker => {
@@ -39,6 +40,7 @@ class ListView extends React.Component {
           }
 
           return (
+
             <li                    
               role='button' key = {marker.id}                
               className = {`marker-list-item ${className}`}
@@ -55,7 +57,7 @@ class ListView extends React.Component {
   }
   
 	render() {
-		return (
+		return (console.log(this.props),
       <div id='list-view-container'>
         <h2>Markers</h2>
 

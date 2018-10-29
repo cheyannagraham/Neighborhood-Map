@@ -6,22 +6,34 @@ import ListView from './ListView.js'
 
 class Menu extends React.Component {
 
-    filterList = results => {
-
+    constructor(props) {
+        super(props);
+        this.listViewRef = React.createRef();
     }
 
-    showMarkerData = marker => {
-        this.setState({markerClicked : marker});
-
+    updateState = (data) => {
+        console.log(data,'menu');
+        this.setState(data)
     }
+
+    // filterList = results => {
+    //     //this.setState({markers:results})
+    //     //this.listViewRef.current.makeList(results);
+    //     // this.listViewRef.current.render('chey');
+    //     this.updateState(results)
+    // }
+
+    // showMarkerData = marker => {
+    //     this.setState({markerClicked : marker});
+    // }
 
     toggleView = () => {
         const sideMenu = document.getElementById('side-menu');
         sideMenu.className.includes('hide-menu') ?
         sideMenu.classList.remove('hide-menu') : 
         sideMenu.classList.add('hide-menu');
-
     }
+
 
     render() {
         return (
@@ -34,10 +46,11 @@ class Menu extends React.Component {
                 filterResults = {this.props.filterResults} />
     
                 <ListView 
-                markers = {this.props.markers} 
+                markers = {(this.state && this.state.markers) || []} 
                 updateAppState = {this.props.updateAppState} 
                 markerClicked = {(this.state && this.state.markerClicked) || ''} 
-                handleClick = {this.props.handleClick} />
+                handleClick = {this.props.handleClick} 
+                ref = {this.listViewRef} />
     
             </div>
     

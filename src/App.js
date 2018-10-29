@@ -17,9 +17,13 @@ class App extends Component {
   }
 
   updateState = data => {
+    console.log('app',data);
+    
     data.businessData ?
     this.mapRef.current.makeMarkers(data.businessData) :
     this.setState(data);
+
+    data.markers && this.menuRef.current.updateState(data)
     //markerclicked {}, businessdatat {}, markers {}
   } 
 
@@ -27,8 +31,7 @@ class App extends Component {
     let markers = (this.state.markers || []).filter(marker => marker.title.toLowerCase().includes(search.toLowerCase()));
 
     this.mapRef.current.showMarkers(markers);
-
-    this.menuRef.current.filterList(markers);
+    this.menuRef.current.updateState({markers : markers});
   }
   
 
@@ -38,7 +41,7 @@ class App extends Component {
 
   handleClick = (marker) => {
     this.mapRef.current.animate(marker);
-    this.menuRef.current.showMarkerData(marker);
+    this.menuRef.current.updateState({markerClicked : marker});
 
   }
   
@@ -60,7 +63,7 @@ class App extends Component {
             markers = {this.state.markers} 
             markerClicked = {this.state.markerClicked} 
             handleClick = {this.handleClick}
-            filterResults = {this.filterResults} 
+            filterResults = {this.filterResults}
             ref = {this.menuRef} />
 
 
