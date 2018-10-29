@@ -19,6 +19,7 @@ class App extends Component {
     // data.businessData && this(data.businessData);
     // data.markerClicked && this.setState(data.markerClicked);
     // data.markers && 
+    console.log('data')
     data.businessData ?
     this.mapRef.current.makeMarkers(data.businessData) :
     this.setState(data);
