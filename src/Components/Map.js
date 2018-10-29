@@ -32,7 +32,7 @@ class Map extends React.Component{
 
       //this event will fire when the tiles for them 
       // map finish loading finished and then load the markers
-      window.google.maps.event.addListenerOnce(map,'tilesloaded',this.makeMarkers);
+      // window.google.maps.event.addListenerOnce(map,'tilesloaded',this.makeMarkers);
       
       let infoWindow = new window.google.maps.InfoWindow();
 
@@ -130,11 +130,11 @@ class Map extends React.Component{
 
   render() {
     return ( 
-        this.props.mapError ?
-         <div>{this.props.MapError}</div> :
-         <div>
-           {this.showMarkers()}
-         </div>
+      <div>
+        {this.props.mapError ?
+         this.props.MapError :
+          this.showMarkers()}
+      </div>
     );
   }        
 }
