@@ -93,6 +93,14 @@ ul,ol {
 }
 
 .clicked {
+  background: aliceblue;
+}
+
+.list-title:hover {
+  font-weight: bold;
+}
+
+.clicked .list-title  {
   font-weight: bold;
 }
 

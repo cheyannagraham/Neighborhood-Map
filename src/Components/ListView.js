@@ -45,7 +45,7 @@ class ListView extends React.Component {
               role='button' key = {marker.id}                
               className = {`marker-list-item ${className}`}
               onClick = {() => {this.props.handleClick(marker)}} >
-                {marker.title}
+                <span className='list-title'>{marker.title}</span >
                 {display}              
             </li>
           )                                  
