@@ -123,6 +123,11 @@ class Map extends React.Component{
     this.state.infoWindow.setContent(display);
     this.state.infoWindow.open(this.state.map,marker);
   }
+
+  setWidth = () => {
+    const map = document.getElementById('map');
+    this.props.navHidden ? map && map.classList.remove('shrink-map') : map.classList.add('shrink-map');
+  }
   
 
   render() {
@@ -130,7 +135,10 @@ class Map extends React.Component{
       <div>
         {this.props.mapError ?
          this.props.MapError :
-          this.showMarkers()}
+          this.showMarkers()
+        }
+          {/* {this.setWidth()} */}
+
       </div>
     );
   }        

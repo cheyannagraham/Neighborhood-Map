@@ -42,6 +42,7 @@ class App extends Component {
           <Header navClick = {this.handleNavClick} />
           
           <Map 
+          //navHidden = {this.state.hidden} 
           mapError = {this.props.mapError} 
           updateAppState = {this.updateState}
           handleClick = {this.handleClick} 
