@@ -122,7 +122,6 @@ class Map extends React.Component{
 
   fillInfoWindow = (marker) => {
     //FIX undefined values
-    console.log(marker.rating);
     let display = (`
       <div id = "info-window" >
         <ul id="info-window-list">

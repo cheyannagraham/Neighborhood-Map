@@ -142,3 +142,8 @@ ul,ol {
   width: 48px;
   height:48px;
 }
+/* ---------------------------- */
+
+:focus {
+  border : 2px red solid;
+}

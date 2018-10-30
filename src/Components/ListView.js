@@ -8,16 +8,16 @@ class ListView extends React.Component {
     return (
     <div>
       <ol id='module-list'>
-        <li>{marker.address}</li>
-        <li>{marker.phone}</li>
+        <li tabIndex='0' >{marker.address}</li>
+        <li tabIndex='0' >{marker.phone}</li>
         
-        <li>
+        <li tabIndex='0' >
           <a href={marker.website}>
             <img className="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
           </a>
         </li>
         
-        <li>
+        <li tabIndex='0' >
           <div>
             {(marker.photos || []).map(photo => 
               (<img  key={photo} className='business-photo' src={photo} alt={marker.title} />))}            
@@ -45,7 +45,8 @@ class ListView extends React.Component {
 
           return (
 
-            <li                    
+            <li
+            tabIndex='0'                   
               role='button' key = {marker.id}                
               className = {`marker-list-item ${className}`}
               onClick = {() => {this.props.handleClick(marker)}} >
