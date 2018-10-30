@@ -81,13 +81,16 @@ ul,ol {
   padding: 10px;
 }
 
-.marker-list-item {
+.marker-button {
   border-bottom: .5px solid black;
   padding: 5px;
   cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
 }
 
-.marker-list-item:last-child {
+.marker-button:last-child {
   border: none;
 }
 

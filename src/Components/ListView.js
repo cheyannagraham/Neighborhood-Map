@@ -8,8 +8,8 @@ class ListView extends React.Component {
     return (
     <div>
       <ol id='module-list'>
-        <li tabIndex='0' >{marker.address}</li>
-        <li tabIndex='0' >{marker.phone}</li>
+        <li tabIndex='0' aria-label='address'>{marker.address}</li>
+        <li tabIndex='0' aria-label='phone'>{marker.phone}</li>
         
         <li tabIndex='0' >
           <a href={marker.website}>
@@ -20,7 +20,7 @@ class ListView extends React.Component {
         <li tabIndex='0' >
           <div>
             {(marker.photos || []).map(photo => 
-              (<img  key={photo} className='business-photo' src={photo} alt={marker.title} />))}            
+              (<img  key={photo} className='business-photo' src={photo} alt='business photo' />))}            
           </div>
         </li>
       </ol>
@@ -45,14 +45,19 @@ class ListView extends React.Component {
 
           return (
 
-            <li
+            <button
             tabIndex='0'                   
-              role='button' key = {marker.id}                
-              className = {`marker-list-item ${className}`}
-              onClick = {() => {this.props.handleClick(marker)}} >
-                <span className='list-title'>{marker.title}</span >
+            key = {marker.id}                
+            className = {`marker-button ${className}`}
+            onClick = {() => {this.props.handleClick(marker)}}
+            //onSubmit = {() => {this.props.handleClick(marker)}}
+            >
+              
+              <span className='list-title'> 
+                {marker.title}
+              </span>
                 {display}              
-            </li>
+            </button>
           )                                  
         })}
       </ol>
@@ -64,7 +69,7 @@ class ListView extends React.Component {
 	render() {
 		return (
       <div id='list-view-container'>
-        <h2 tabIndex='0'>Markers</h2>
+        <h2 tabIndex='0       '>Markers</h2>
 
         {this.props.markers && this.props.markers.length > 0 
         ? this.makeList() : <p>No Results</p>}
