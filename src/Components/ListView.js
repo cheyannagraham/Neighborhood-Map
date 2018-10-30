@@ -23,6 +23,12 @@ class ListView extends React.Component {
               (<img  key={photo} className='business-photo' src={photo} alt='business' />))}            
           </div>
         </li>
+
+        <li>
+          <button id='more-info' className='more-info' onClick={this.props.manageFocus}>
+              MoreInfo
+          </button> 
+        </li>
       </ol>
     </div>
     )
@@ -55,7 +61,8 @@ class ListView extends React.Component {
                 {marker.title}
               </button>
               
-                {display}              
+                {display} 
+            
             </li>
           )                                  
         })}
