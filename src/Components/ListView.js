@@ -20,7 +20,7 @@ class ListView extends React.Component {
         <li tabIndex='0' >
           <div>
             {(marker.photos || []).map(photo => 
-              (<img  key={photo} className='business-photo' src={photo} alt='business photo' />))}            
+              (<img  key={photo} className='business-photo' src={photo} alt='business' />))}            
           </div>
         </li>
       </ol>
@@ -45,19 +45,20 @@ class ListView extends React.Component {
 
           return (
 
-            <button
+            <li
             tabIndex='0'                   
+            role='button' 
             key = {marker.id}                
-            className = {`marker-button ${className}`}
-            onClick = {() => {this.props.handleClick(marker)}}
-            //onSubmit = {() => {this.props.handleClick(marker)}}
-            >
-              
-              <span className='list-title'> 
+            className = {`marker-list-item ${className}`}>
+
+              <button 
+              className='marker-button list-title'
+              onClick = {() => {this.props.handleClick(marker)}}>          
                 {marker.title}
-              </span>
+              </button>
+              
                 {display}              
-            </button>
+            </li>
           )                                  
         })}
       </ol>
@@ -69,7 +70,7 @@ class ListView extends React.Component {
 	render() {
 		return (
       <div id='list-view-container'>
-        <h2 tabIndex='0       '>Markers</h2>
+        <h2 tabIndex='0'>Markers</h2>
 
         {this.props.markers && this.props.markers.length > 0 
         ? this.makeList() : <p>No Results</p>}
