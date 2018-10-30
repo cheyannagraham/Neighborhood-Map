@@ -136,7 +136,7 @@ class Map extends React.Component{
           </li>
           
           <li>
-            <a href={marker.website}>
+            <a href=${marker.website}>
               <img class="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
             </a>            
           </li>

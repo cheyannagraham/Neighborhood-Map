@@ -18,12 +18,6 @@ class ListView extends React.Component {
         <li tabIndex='0' aria-label='phone'>{marker.phone}</li>
         
         <li tabIndex='0' >
-          <a href={marker.website}>
-            <img className="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
-          </a>
-        </li>
-        
-        <li tabIndex='0' >
           <div>
             {(marker.photos || []).map(photo => 
               (<img  key={photo} className='business-photo' src={photo} alt='business' />))}            
@@ -34,6 +28,12 @@ class ListView extends React.Component {
           <button id='more-info' className='more-info' onClick={this.manageFocus}>
               MoreInfo
           </button> 
+        </li>
+
+        <li >
+          <a href={marker.website}>
+            <img className="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
+          </a>
         </li>
       </ol>
     </div>
