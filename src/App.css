@@ -6,6 +6,7 @@
 html, body {
   height : 100%;
   width : 100%;
+  font-size:1em;
 }
 
 #root {
@@ -50,8 +51,6 @@ html, body {
 
 
 #side-menu {
-  width: 60%;
-  max-width: 350px;
   overflow-y: scroll;
 }
 

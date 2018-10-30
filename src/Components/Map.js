@@ -99,7 +99,7 @@ class Map extends React.Component{
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
     marker.setAnimation(window.google.maps.Animation.null);
 
-    this.fillInfoWindow(marker)
+    this.fillInfoWindow(marker);
   }
 
   fillInfoWindow = (marker) => {
@@ -108,7 +108,6 @@ class Map extends React.Component{
       <div id = "marker-content" >
         <ul id="info-window-list">
           <li><h3>${marker.title}</h3></li>
-          <li><image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'></li>
           <li>Rating: ${marker.rating} (${marker.reviewCount})</li>
           <li>Price: ${marker.price || ''}</li> 
           <li id='open-status'>${marker.hours && marker.hours[0].is_open_now ? 'Open now' : 'Closed'} </li>       
@@ -118,6 +117,8 @@ class Map extends React.Component{
     this.state.infoWindow.setContent(display);
     this.state.infoWindow.open(this.state.map,marker);
   }
+//  <li><image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'></li>
+
  
 
   render() {
