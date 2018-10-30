@@ -17,7 +17,11 @@ class ListView extends React.Component {
         </li>
         <li>{marker.address}</li>
         <li>{marker.phone}</li>
-        <li><a href={marker.website}>Visit</a></li>
+        <li>
+          <a href={marker.website}>
+            <img className="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
+          </a>
+        </li>
       </ol>
     </div>
     )
