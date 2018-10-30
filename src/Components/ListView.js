@@ -5,7 +5,7 @@ import React from 'react';
 class ListView extends React.Component {
 //change to stateless component
 
-  manageFocus = () => {
+  focusInfoWindow = () => {
     document.getElementById('info-window').focus();
   }
 
@@ -25,7 +25,7 @@ class ListView extends React.Component {
         </li>
 
         <li>
-          <button id='more-info' className='more-info' onClick={this.manageFocus}>
+          <button id='more-info' className='more-info' onClick={this.focusInfoWindow}>
               MoreInfo
           </button> 
         </li>
