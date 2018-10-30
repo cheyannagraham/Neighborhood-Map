@@ -103,17 +103,61 @@ class Map extends React.Component{
     this.fillInfoWindow(marker);
   }
 
+  getRatingImage = rating => {
+    let filename = '';
+    rating === 0 ? filename = "small_0" :
+    rating === 1 ? filename = "small_1" :
+    rating === 1.5 ? filename = "small_1_half" :
+    rating === 2 ? filename = "small_2" :
+    rating === 2.5 ? filename = "small_2_half" :
+    rating === 3 ? filename = "small_3" :
+    rating === 3.5 ? filename = "small_3_half" :
+    rating === 4 ? filename = "small_4" :
+    rating === 4.5 ? filename = "small_4_half" :
+    rating === 5 ? filename = "small_5" :
+    filename = "small_0";
+
+    return (`images/${filename}.png`);
+  }
+
   fillInfoWindow = (marker) => {
     //FIX undefined values
+    console.log(marker.rating);
     let display = (`
       <div id = "info-window" >
         <ul id="info-window-list">
-          <li><h3>${marker.title}</h3></li>
-          <li><image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'></li>
-          <li>Rating: ${marker.rating} (${marker.reviewCount})</li>
-          <li>Price: ${marker.price || ''}</li> 
-          <li id='open-status'>${marker.hours && marker.hours[0].is_open_now ? 'Open now' : 'Closed'} </li>       
+          <li>
+            <h3>${marker.title}</h3>
+          </li>
+          
+          <li>
+            <image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'>
+          </li>
+          
+          <li>
+            
+          </li>
+          
+          <li> 
+              <img class='yelp-rating-logo' 
+              src=${marker.rating &&this.getRatingImage(marker.rating)} 
+              alt='rating-logo' />
+                ${marker.rating} (${marker.reviewCount})
+          </li>
+          
+          <li>
+            Price: ${marker.price || ''}
+          </li> 
+          
+          <li id='open-status'>
+            ${marker.hours && marker.hours[0].is_open_now ? 'Open now' : 'Closed'} 
+          </li>
+          
+          <li>
+            <img class="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
+          </li>
         </ul>
+        
       </div>`)
 
     this.state.infoWindow.setContent(display);

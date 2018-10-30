@@ -134,5 +134,10 @@ ul,ol {
 #info-window {
   width:100%;
   max-width: 200px;
-  max-height: 250px;
+  max-height: 275px;
+}
+
+.yelp-logo {
+  width: 48px;
+  height:48px;
 }
