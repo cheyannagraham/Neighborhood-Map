@@ -76,7 +76,6 @@ class Map extends React.Component{
       marker.setMap(null);
     })
   } 
-
  
   handleClick = (marker) => {
     this.props.handleClick(marker);
@@ -111,7 +110,7 @@ class Map extends React.Component{
   fillInfoWindow = (marker) => {
     //FIX undefined values
     let display = (`
-      <div id = "info-window" >
+      <div tabindex='0' aria-label="info-window" id = "info-window" >
         <ul id="info-window-list">
           <li>
             <h3>${marker.title}</h3>
@@ -121,18 +120,18 @@ class Map extends React.Component{
             <image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'>
           </li>
                     
-          <li> 
+          <li tabindex='0'> 
               <img class='yelp-rating-logo' 
-              src=${marker.rating &&this.getRatingImage(marker.rating)} 
+              src=${marker.rating && this.getRatingImage(marker.rating)} 
               alt='rating-logo' />
                 ${marker.rating} (${marker.reviewCount})
           </li>
           
-          <li>
+          <li tabindex='0'>
             Price: ${marker.price || ''}
           </li> 
           
-          <li id='open-status'>
+          <li tabindex ='0' id='open-status'>
             ${marker.hours && marker.hours[0].is_open_now ? 'Open now' : 'Closed'} 
           </li>
           
@@ -161,3 +160,4 @@ class Map extends React.Component{
 }
 
 export default Map
+// a11y infoWindow
