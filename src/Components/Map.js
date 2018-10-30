@@ -26,7 +26,8 @@ class Map extends React.Component{
           lat:41.263849,
           lng:-74.382206
         },
-        zoom : 12
+        zoom : 12,
+        disableDefaultUI: true
       });
 
       //this event will fire when the tiles for them 
