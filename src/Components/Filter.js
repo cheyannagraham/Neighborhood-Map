@@ -5,7 +5,8 @@ function Filter(props) {
 
     return (
         <div id='filter-results-container'>
-            <h2>Filter Results</h2>
+            <h2 tabIndex='0'>Filter Results</h2>
+
             <input 
                 type='text' 
                 onChange = { (e) => {props.filterResults(e.target.value)}} />
