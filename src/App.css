@@ -81,17 +81,22 @@ ul,ol {
   padding: 10px;
 }
 
-.marker-button {
+.marker-list-item {
   border-bottom: .5px solid black;
   padding: 5px;
   cursor: pointer;
-  background: none;
-  border: none;
   width: 100%;
 }
 
-.marker-button:last-child {
+.marker-list-item:last-child {
   border: none;
+}
+
+.marker-button {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 10px;
 }
 
 .clicked {
@@ -104,6 +109,7 @@ ul,ol {
 
 .clicked .list-title  {
   font-weight: bold;
+  font-size: large;
 }
 
 #module-list {
