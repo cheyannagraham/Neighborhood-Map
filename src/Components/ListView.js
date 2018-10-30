@@ -47,7 +47,6 @@ class ListView extends React.Component {
 
             <li
             tabIndex='0'                   
-            role='button' 
             key = {marker.id}                
             className = {`marker-list-item ${className}`}>
 
