@@ -13,7 +13,7 @@ class Map extends React.Component{
     //Check if library loaded
     if(window.google.maps)
     {
-      // const header = document.getElementById('app-header');
+
       const div = document.createElement('div');
       div.id = 'map';
 
@@ -30,10 +30,7 @@ class Map extends React.Component{
         disableDefaultUI: true
       });
 
-      //this event will fire when the tiles for them 
-      // map finish loading finished and then load the markers
-      // window.google.maps.event.addListenerOnce(map,'tilesloaded',this.makeMarkers);
-      
+  
       let infoWindow = new window.google.maps.InfoWindow();
 
       this.setState({map : map, infoWindow : infoWindow})
@@ -80,17 +77,7 @@ class Map extends React.Component{
     })
   } 
 
-  getStreetView = () => {
-    return new window.google.maps.StreetViewPanorama(document.getElementById('street-view'),{
-      position : this.state.markerClicked.position,
-      pov : {
-        heading : 34,
-        pitch : 10
-      }
-    });
-  }
-
-  
+ 
   handleClick = (marker) => {
     this.props.handleClick(marker);
   }
@@ -174,7 +161,3 @@ class Map extends React.Component{
 }
 
 export default Map
-
-//style
-// replace streetview w photos & hours
-//fix bug on targets
