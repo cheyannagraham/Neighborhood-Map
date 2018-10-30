@@ -105,9 +105,10 @@ class Map extends React.Component{
   fillInfoWindow = (marker) => {
     //FIX undefined values
     let display = (`
-      <div id = "marker-content" >
+      <div id = "info-window" >
         <ul id="info-window-list">
           <li><h3>${marker.title}</h3></li>
+          <li><image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'></li>
           <li>Rating: ${marker.rating} (${marker.reviewCount})</li>
           <li>Price: ${marker.price || ''}</li> 
           <li id='open-status'>${marker.hours && marker.hours[0].is_open_now ? 'Open now' : 'Closed'} </li>       
@@ -117,7 +118,6 @@ class Map extends React.Component{
     this.state.infoWindow.setContent(display);
     this.state.infoWindow.open(this.state.map,marker);
   }
-//  <li><image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'></li>
 
  
 
