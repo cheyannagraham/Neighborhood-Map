@@ -43,13 +43,15 @@ class Search extends React.Component {
       
     return ( 
       <div id='search-container'>
-        <h2>Search</h2>
+        <h2 tabIndex='0'>Search</h2>
         
-        <label className='label'>Keyword</label>
-        <input defaultValue='Coffee' type='text' onChange = {(e) => this.handleChange(e.target.value,'keyword')} />
-         
-        <label className='label'>Location</label>
-        <input defaultValue='NY'type='text' onChange = {(e) => this.handleChange(e.target.value,'location')} /> 
+        <label className='label'>Keyword
+          <input defaultValue='Coffee' type='text' onChange = {(e) => this.handleChange(e.target.value,'keyword')} />
+        </label> 
+
+        <label className='label'>Location
+          <input defaultValue='NY'type='text' onChange = {(e) => this.handleChange(e.target.value,'location')} /> 
+        </label>
       </div>
         
     )
