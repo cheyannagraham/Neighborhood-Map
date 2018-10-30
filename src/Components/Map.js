@@ -148,6 +148,10 @@ class Map extends React.Component{
     this.state.infoWindow.open(this.state.map,marker);
   }
 
+  manageFocus = () => {
+    
+  }
+
  
 
   render() {

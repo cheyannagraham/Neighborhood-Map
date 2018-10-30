@@ -7,6 +7,13 @@ class ListView extends React.Component {
 
   focusInfoWindow = () => {
     document.getElementById('info-window').focus();
+    
+    document.addEventListener('keydown',e => {
+      console.log(e.key);
+      document.activeElement.title === 'Close' && e.key === 'Tab' && 
+      document.getElementById('info-window').focus();
+
+    })
   }
 
 
