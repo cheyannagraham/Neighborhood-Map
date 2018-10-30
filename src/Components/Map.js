@@ -53,6 +53,7 @@ class Map extends React.Component{
       return mark;
     });
     this.props.updateAppState({markers: markers});
+
   }
 
   showMarkers = (markers = this.props.markers || []) => {

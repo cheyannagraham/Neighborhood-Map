@@ -15,7 +15,6 @@ class Menu extends React.Component {
         this.setState(data)
     }
 
-
     toggleView = () => {
         const sideMenu = document.getElementById('side-menu');
         sideMenu.className.includes('hide-menu') ?

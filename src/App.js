@@ -17,13 +17,23 @@ class App extends Component {
   }
 
   updateState = data => {
-    data.error && console.log('myerror',data);
-    
-    data.businessData ?
-    this.mapRef.current.makeMarkers(data.businessData) :
-    this.setState(data);
+    if(data.error) {
+      this.setState({markers : []}); 
+      this.menuRef.current.updateState({markers: []});
 
-    data.markers && this.menuRef.current.updateState(data)
+    }
+    else {
+      data.businessData ?
+      this.mapRef.current.makeMarkers(data.businessData) :
+      this.setState(data);
+      
+      //this will update the state of <Menu> which will in 
+      // turn trigger a rerender and will show the updated markers
+      // w/o rerendering the map
+      data.markers && this.menuRef.current.updateState(data)
+
+    }
+
     //markerclicked {}, businessdatat {}, markers {}
   } 
 

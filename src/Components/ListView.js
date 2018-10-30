@@ -17,7 +17,6 @@ class ListView extends React.Component {
         </li>
         <li>{marker.address}</li>
         <li>{marker.phone}</li>
-        {/* <li>{marker.hours}</li> */}
         <li><a href={marker.website}>Visit</a></li>
       </ol>
     </div>
