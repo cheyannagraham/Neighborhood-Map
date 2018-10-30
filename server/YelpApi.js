@@ -47,7 +47,8 @@ app.post('/', (req, res) => {
 		.then(resp => {
 			res.send(resp);
 		})		
-	})	
+	})
+	.catch(error => res.send(error));	
 });
 
 

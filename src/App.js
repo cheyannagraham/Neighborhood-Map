@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   updateState = data => {
+    data.error && console.log('myerror',data);
     
     data.businessData ?
     this.mapRef.current.makeMarkers(data.businessData) :
