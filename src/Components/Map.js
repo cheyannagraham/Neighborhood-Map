@@ -113,7 +113,7 @@ class Map extends React.Component{
       <div tabindex='0' aria-label="info-window" id = "info-window" >
         <ul id="info-window-list">
           <li>
-            <h3>${marker.title}</h3>
+            <h3 tabindex='0'>${marker.title}</h3>
           </li>
           
           <li>
