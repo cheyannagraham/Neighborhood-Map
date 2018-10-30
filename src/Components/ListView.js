@@ -3,6 +3,12 @@ import React from 'react';
 
 
 class ListView extends React.Component {
+//change to stateless component
+
+  manageFocus = () => {
+    document.getElementById('info-window').focus();
+  }
+
 
   modDisplay = (marker) => {
     return (
@@ -25,7 +31,7 @@ class ListView extends React.Component {
         </li>
 
         <li>
-          <button id='more-info' className='more-info' onClick={this.props.manageFocus}>
+          <button id='more-info' className='more-info' onClick={this.manageFocus}>
               MoreInfo
           </button> 
         </li>
