@@ -8,19 +8,20 @@ class ListView extends React.Component {
     return (
     <div>
       <ol id='module-list'>
+        <li>{marker.address}</li>
+        <li>{marker.phone}</li>
+        
+        <li>
+          <a href={marker.website}>
+            <img className="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
+          </a>
+        </li>
+        
         <li>
           <div>
             {(marker.photos || []).map(photo => 
               (<img  key={photo} className='business-photo' src={photo} alt={marker.title} />))}            
           </div>
-
-        </li>
-        <li>{marker.address}</li>
-        <li>{marker.phone}</li>
-        <li>
-          <a href={marker.website}>
-            <img className="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
-          </a>
         </li>
       </ol>
     </div>

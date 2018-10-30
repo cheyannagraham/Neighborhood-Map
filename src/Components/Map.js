@@ -133,11 +133,7 @@ class Map extends React.Component{
           <li>
             <image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'>
           </li>
-          
-          <li>
-            
-          </li>
-          
+                    
           <li> 
               <img class='yelp-rating-logo' 
               src=${marker.rating &&this.getRatingImage(marker.rating)} 
@@ -154,7 +150,9 @@ class Map extends React.Component{
           </li>
           
           <li>
-            <img class="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
+            <a href={marker.website}>
+              <img class="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
+            </a>            
           </li>
         </ul>
         
