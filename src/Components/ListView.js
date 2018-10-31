@@ -5,14 +5,15 @@ import React from 'react';
 class ListView extends React.Component {
 //change to stateless component
 
+  // trap focus in infoWindow
   focusInfoWindow = () => {
+    document.getElementById('info-window') && 
     document.getElementById('info-window-title').focus();
-      let shift = false;
-      //infowindowtitle
+
+    let shift = false;
     
     document.addEventListener('keydown',e => {
       if(e.key === 'Shift') shift = true;
-      //console.log(document.activeElement)
       
       if(document.activeElement.title === 'Close' && e.key === 'Tab'){
         if(shift)
@@ -20,7 +21,6 @@ class ListView extends React.Component {
           document.getElementById('info-window-logo').focus();
         }  else {
           document.getElementById('info-window').focus();
-
         } 
       }
 
@@ -28,15 +28,8 @@ class ListView extends React.Component {
         if(shift)
         {
           document.querySelector("button[title='Close']").focus();
-        }  
-        // else {
-        //   document.getElementById('info-window').focus();
-
-        // } 
-      }
-         
- 
-
+        }   
+      }     
     });
 
     document.addEventListener('keyup', e => {

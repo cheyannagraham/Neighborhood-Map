@@ -16,6 +16,8 @@ class Map extends React.Component{
 
       const div = document.createElement('div');
       div.id = 'map';
+      div.setAttribute('aria-label','Map');
+      div.setAttribute('role','application');
 
       document.getElementById('main').append(div);
       
