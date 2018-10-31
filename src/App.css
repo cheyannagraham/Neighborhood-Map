@@ -80,7 +80,7 @@ ul,ol {
 }
 
 .marker-list-item {
-  border-bottom: .5px solid black;
+  border-bottom: 1px solid black;
   padding: 5px 0 5px 0;
   cursor: pointer;
   width: 100%;
