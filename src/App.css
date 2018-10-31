@@ -167,5 +167,9 @@ ul,ol {
 /* ---------------------------- */
 
 :focus {
-  border : 2px red solid;
+  /* border : 2px red solid; */
+}
+
+h2 {
+  padding: 5px 0 15px 0;
 }
