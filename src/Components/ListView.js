@@ -6,14 +6,34 @@ class ListView extends React.Component {
 //change to stateless component
 
   focusInfoWindow = () => {
-    document.getElementById('info-window').focus();
+    document.getElementById('info-window-title').focus();
+      let shift = false;
+      //infowindowtitle
     
     document.addEventListener('keydown',e => {
-      console.log(e.key);
-      document.activeElement.title === 'Close' && e.key === 'Tab' && 
-      document.getElementById('info-window').focus();
+      if(e.key === 'Shift') shift = true;
+      //console.log(document.activeElement)
+      
+      if(document.activeElement.title === 'Close' && e.key === 'Tab'){
+        if(shift)
+        {
+          document.getElementById('info-window-logo').focus();
+        }  else {
+          document.getElementById('info-window').focus();
 
-    })
+        } 
+      }
+        // if(shift) {
+        //   document.getElementById('info-window-logo').focus();
+          
+ 
+
+    });
+
+    document.addEventListener('keyup', e => {
+      if(e.key === 'Shift') shift = false;
+    });
+    
   }
 
 

@@ -110,33 +110,33 @@ class Map extends React.Component{
   fillInfoWindow = (marker) => {
     //FIX undefined values
     let display = (`
-      <div tabindex='0' aria-label="info-window" id = "info-window" >
+      <div tabindex="0" aria-label="info-window" id = "info-window" >
         <ul id="info-window-list">
           <li>
-            <h3 tabindex='0'>${marker.title}</h3>
+            <h3 id="info-window-title" tabindex="0">${marker.title}</h3>
           </li>
           
           <li>
-            <image class = 'avatar' src = '${marker.avatar}' alt = '${marker.title} image'>
+            <image class = "avatar" src = "${marker.avatar}" alt = "${marker.title} image">
           </li>
                     
-          <li tabindex='0'> 
-              <img class='yelp-rating-logo' 
+          <li tabindex="0"> 
+              <img class="yelp-rating-logo" 
               src=${marker.rating && this.getRatingImage(marker.rating)} 
-              alt='rating-logo' />
+              alt="rating-logo" />
                 ${marker.rating} (${marker.reviewCount})
           </li>
           
-          <li tabindex='0'>
-            Price: ${marker.price || ''}
+          <li tabindex="0">
+            Price: ${marker.price || ""}
           </li> 
           
-          <li tabindex ='0' id='open-status'>
-            ${marker.hours && marker.hours[0].is_open_now ? 'Open now' : 'Closed'} 
+          <li tabindex ="0" id="open-status">
+            ${marker.hours && marker.hours[0].is_open_now ? "Open now" : "Closed"} 
           </li>
           
-          <li>
-            <a href=${marker.website}>
+          <li tabindex="0">
+            <a id="info-window-logo" href=${marker.website}>
               <img class="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
             </a>            
           </li>
