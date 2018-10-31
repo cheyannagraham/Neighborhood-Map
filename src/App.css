@@ -81,7 +81,7 @@ ul,ol {
 
 .marker-list-item {
   border-bottom: .5px solid black;
-  padding: 5px;
+  padding: 5px 0 5px 0;
   cursor: pointer;
   width: 100%;
 }
@@ -167,5 +167,5 @@ h2 {
 }
 
 input {
-  margin: 10px;
+  margin: 0 10px 0 5px;
 }
