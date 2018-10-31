@@ -63,9 +63,7 @@ html, body {
   padding: 10px;
 }
 
-.label {
-  padding: 10px;
-}
+
 
 #filter-results-container {
   padding: 10px;
@@ -86,7 +84,6 @@ ul,ol {
   padding: 5px;
   cursor: pointer;
   width: 100%;
-
 }
 
 .marker-list-item:last-child {
@@ -99,7 +96,6 @@ ul,ol {
   width: 100%;
   padding: 10px;
   text-align:left;
-
 }
 
 .clicked {
@@ -168,4 +164,8 @@ ul,ol {
 
 h2 {
   padding: 5px 0 15px 0;
+}
+
+input {
+  margin: 10px;
 }
