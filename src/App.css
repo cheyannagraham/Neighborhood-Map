@@ -86,6 +86,7 @@ ul,ol {
   padding: 5px;
   cursor: pointer;
   width: 100%;
+
 }
 
 .marker-list-item:last-child {
@@ -97,6 +98,8 @@ ul,ol {
   border: none;
   width: 100%;
   padding: 10px;
+  text-align:left;
+
 }
 
 .clicked {
