@@ -103,7 +103,7 @@ ul,ol {
 }
 
 .clicked {
-  background: aliceblue;
+  background: #d0d8d8;
 }
 
 .list-title:hover {
@@ -113,10 +113,13 @@ ul,ol {
 .clicked .list-title  {
   font-weight: bold;
   font-size: large;
+  text-align: center;
 }
+
 
 #module-list {
   font-size:small;
+  text-align: center;
 }
 
 .business-photo {
