@@ -60,7 +60,7 @@ class App extends Component {
       <div id='app'>
         <Header navClick = {this.handleNavClick} />
 
-        <div id='main'>
+        <main id='main'>
           <Map 
           mapError = {this.props.mapError} 
           updateAppState = {this.updateState}
@@ -74,7 +74,7 @@ class App extends Component {
           filterResults = {this.filterResults}
           ref = {this.menuRef} />
 
-        </div> 
+        </main> 
 
       </div>
       
