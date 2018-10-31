@@ -6,8 +6,8 @@
     #side-menu {
         min-width: 70vw;
     }
-}
 
+}
 @media screen and (min-width:400px) {
     html {
         font-size : 1em;
