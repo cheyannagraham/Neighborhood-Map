@@ -23,9 +23,18 @@ class ListView extends React.Component {
 
         } 
       }
-        // if(shift) {
-        //   document.getElementById('info-window-logo').focus();
-          
+
+      if(document.activeElement.id === 'info-window-title' && e.key === 'Tab'){
+        if(shift)
+        {
+          document.querySelector("button[title='Close']").focus();
+        }  
+        // else {
+        //   document.getElementById('info-window').focus();
+
+        // } 
+      }
+         
  
 
     });
