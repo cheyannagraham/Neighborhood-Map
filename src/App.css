@@ -52,7 +52,7 @@ html, body {
 
 #side-menu {
   overflow-y: scroll;
-  max-width: 325px;
+  max-width: 380px;
 }
 
 .hide-menu {
