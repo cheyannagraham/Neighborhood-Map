@@ -123,6 +123,14 @@ ul,ol {
   min-width: 100px;
   padding: 5px; 
 }
+
+#more-info-button {
+  border:none;
+  background: none;
+  text-decoration: underline;
+  width: 100%;
+  cursor: pointer;
+}
 /* ---------MAP-------- */
 
 #map {
