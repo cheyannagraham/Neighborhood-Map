@@ -40,12 +40,9 @@ class Menu extends React.Component {
                 handleClick = {this.props.handleClick} 
                 ref = {this.listViewRef} />
     
-            </div>
-    
+            </div>    
         )
-
-    }
-    
+    }    
 }
 
 export default Menu

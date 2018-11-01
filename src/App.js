@@ -30,11 +30,8 @@ class App extends Component {
       //this will update the state of <Menu> which will in 
       // turn trigger a rerender and will show the updated markers
       // w/o rerendering the map
-      data.markers && this.menuRef.current.updateState(data)
-
+      data.markers && this.menuRef.current.updateState(data);
     }
-
-    //markerclicked {}, businessdatat {}, markers {}
   } 
 
   filterResults = (search) => {

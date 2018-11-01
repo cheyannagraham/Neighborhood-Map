@@ -102,7 +102,6 @@ class ListView extends React.Component {
           )                                  
         })}
       </ol>
-
       
     ) 
   }

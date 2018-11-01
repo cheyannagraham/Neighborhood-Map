@@ -150,12 +150,6 @@ class Map extends React.Component{
     this.state.infoWindow.open(this.state.map,marker);
   }
 
-  manageFocus = () => {
-    
-  }
-
- 
-
   render() {
     return (
       <div>
@@ -166,4 +160,3 @@ class Map extends React.Component{
 }
 
 export default Map
-// a11y infoWindow

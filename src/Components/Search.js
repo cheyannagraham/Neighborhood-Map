@@ -46,11 +46,17 @@ class Search extends React.Component {
         <h2 tabIndex='0'>Search</h2>
         
         <label className='label'>Keyword
-          <input defaultValue='Coffee' type='text' onChange = {(e) => this.handleChange(e.target.value,'keyword')} />
+          <input 
+          defaultValue='Coffee' 
+          type='text' 
+          onChange = {(e) => this.handleChange(e.target.value,'keyword')} />
         </label> 
 
         <label className='label'>Location
-          <input defaultValue='NY'type='text' onChange = {(e) => this.handleChange(e.target.value,'location')} /> 
+          <input 
+          defaultValue='NY' 
+          type='text' 
+          onChange = {(e) => this.handleChange(e.target.value,'location')} /> 
         </label>
       </div>
         

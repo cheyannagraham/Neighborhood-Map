@@ -12,6 +12,9 @@ const OPTIONS = {
 	}
 } 
 
+// This node file file fetches the data from 
+// the yelp api and returns it back to the app
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -22,7 +25,7 @@ app.post('/', (req, res) => {
 	fetch(`https://api.yelp.com/v3/businesses/search?term=${req.body.keyword}&location=${req.body.location}&radius=20000`,OPTIONS)
 	.then(resp => resp.json())
 	.then(resp => {
-		let businessesFound = resp.businesses.filter((bus,index) => index < 5 );
+		let businessesFound = resp.businesses.filter((bus,index) => index < 10 );
 				
 		markers = businessesFound.map(bus => 
 
@@ -50,7 +53,6 @@ app.post('/', (req, res) => {
 	})
 	.catch(error => res.send(error));	
 });
-
 
 
 const getBusinessInfo = (businesses) => {
