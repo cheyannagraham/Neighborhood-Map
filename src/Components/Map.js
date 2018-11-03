@@ -9,14 +9,15 @@ class Map extends React.Component{
   }   
 
   componentDidMount(){
-    if(window.google.maps){
 
-      const div = document.createElement('div');
-      div.id = 'map';
-      div.setAttribute('aria-label','Map');
-      div.setAttribute('role','application');
+    const div = document.createElement('div');
+    div.id = 'map';
+    div.setAttribute('aria-label','Map');
+    div.setAttribute('role','application');
 
-      document.getElementById('main').append(div);
+    document.getElementById('main').append(div);
+
+    if(!this.props.mapError && window.google.maps){
       
       let map = new window.google.maps.Map(
       document.querySelector('#map'),
@@ -31,7 +32,12 @@ class Map extends React.Component{
   
         let infoWindow = new window.google.maps.InfoWindow();
         this.setState({map : map, infoWindow : infoWindow})
-      }   
+      } 
+      
+      else {
+        div.setAttribute('class','map-error')
+        div.append(this.props.mapError);
+      }
 
   }
   
@@ -52,20 +58,24 @@ class Map extends React.Component{
   }
 
   showMarkers = (markers = this.props.markers || []) => {
-    //for filter results
-    this.hideMarkers()
-    
-    let bounds = new window.google.maps.LatLngBounds();
 
-    (markers).forEach(marker => {
-      bounds.extend(marker.position);
-      marker.setMap(this.state.map);
-    })
+    if(!this.props.mapError && window.google.maps)
+    {
+      //for filter results
+      this.hideMarkers()          
+      let bounds = new window.google.maps.LatLngBounds();
 
-    if(markers.length > 0) {
-      this.state.map.fitBounds(bounds);      
-      markers.length === 1 && this.state.map.setZoom(12);
+      (markers).forEach(marker => {
+        bounds.extend(marker.position);
+        marker.setMap(this.state.map);
+      })
+
+      if(markers.length > 0) {
+        this.state.map.fitBounds(bounds);      
+        markers.length === 1 && this.state.map.setZoom(12);
+      }
     }
+    
   }
 
   hideMarkers = () => {
@@ -79,11 +89,12 @@ class Map extends React.Component{
   }
 
   animate = marker => {
-
-    marker.setAnimation(window.google.maps.Animation.BOUNCE);
-    marker.setAnimation(window.google.maps.Animation.null);
-
-    this.fillInfoWindow(marker);
+    if(!this.props.mapError) {
+      marker.setAnimation(window.google.maps.Animation.BOUNCE);
+      marker.setAnimation(window.google.maps.Animation.null);
+  
+      this.fillInfoWindow(marker);
+    }
   }
 
   getRatingImage = rating => {
@@ -147,7 +158,7 @@ class Map extends React.Component{
   render() {
     return (
       <div>
-        {this.props.mapError ? <div>this.props.mapError </div>: this.showMarkers()}
+        {!this.props.mapError && this.showMarkers()}
       </div>
     )
   }        

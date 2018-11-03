@@ -9,7 +9,7 @@ window.initMap = function() {
     let mapError;
 
     if(!window.google.maps){
-        mapError = "Error, Google Maps Not Loaded";
+        mapError = 'Error, Google Maps Not Loaded';
     }
 
     ReactDOM.render(<App mapError = {mapError}/>, document.getElementById('root'));
