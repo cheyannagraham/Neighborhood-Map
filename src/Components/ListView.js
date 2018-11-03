@@ -53,7 +53,7 @@ class ListView extends React.Component {
 
         <li>
           <button id='more-info-button' aria-label='more info' onClick={(e) => {this.focusInfoWindow(e)}}>
-              
+              Tab to InfoWindow
           </button> 
         </li>
 

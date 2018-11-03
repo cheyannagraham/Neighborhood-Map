@@ -130,7 +130,15 @@ ul,ol {
   background: none;
   text-decoration: underline;
   cursor: pointer;
+  position: absolute;
+  left: 10000px;
 }
+
+#more-info-button:focus {
+  position:relative;
+  left: 0px;
+}
+
 /* ---------MAP-------- */
 
 #map {
