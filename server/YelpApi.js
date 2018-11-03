@@ -23,22 +23,22 @@ app.post('/', (req, res) => {
 	.then(resp => {
 		let businessesFound = resp.businesses.filter((bus,index) => index < 10 );
 				
-		markers = businessesFound.map(bus => 
+		markers = businessesFound.map(business => 
 
 			({
-				id : bus.id,
+				id : business.id,
 				position : {
-					lat : bus.coordinates.latitude,
-					lng : bus.coordinates.longitude
+					lat : business.coordinates.latitude,
+					lng : business.coordinates.longitude
 				},
-				address : bus.location.display_address.join(' '),
-				title : bus.name,
-				rating : bus.rating,
-				price : bus.price,
-				reviewCount : bus.review_count,
-				avatar : bus.image_url,
-				phone : bus.display_phone,
-				website : bus.url
+				address : business.location.display_address.join(' '),
+				title : business.name,
+				rating : business.rating,
+				price : business.price,
+				reviewCount : business.review_count,
+				avatar : business.image_url,
+				phone : business.display_phone,
+				website : business.url
 			})		
 		);
 
@@ -53,21 +53,14 @@ app.post('/', (req, res) => {
 
 const getBusinessInfo = (businesses) => {
 
-	return Promise.all(businesses.map(bus => {
+	return Promise.all(businesses.map(business => {
 
-		return fetch(`https://api.yelp.com/v3/businesses/${bus.id}`,
-		{
-			method : 'GET',
-			headers : {
-				Authorization : `bearer ${KEY}`
-			}
-
-		})
+		return fetch(`https://api.yelp.com/v3/businesses/${business.id}`, OPTIONS)
 		.then(result => result.json())
 		.then(resp => {
-			bus.hours = resp.hours;
-			bus.photos = resp.photos;
-			return bus;
+			business.hours = resp.hours;
+			business.photos = resp.photos;
+			return business;
 		});
 	}))
 	.then(resp => resp)
