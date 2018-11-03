@@ -23,11 +23,9 @@ class Search extends React.Component {
       })
     })
     .then(resp => resp.json())
-    //send data to app to send to map
     .then(resp => this.props.updateAppState({businessData: resp}))
     .catch(error => this.props.updateAppState({error:error}));
   }
-
 
   handleChange = (input,field) => {
     this.setState({[field] : input})
@@ -45,14 +43,14 @@ class Search extends React.Component {
       <div id='search-container'>
         <h2 tabIndex='0'>Search</h2>
         
-        <label className='label'>Keyword
+        <label className='label'> Keyword
           <input 
           defaultValue='Coffee' 
           type='text' 
           onChange = {(e) => this.handleChange(e.target.value,'keyword')} />
         </label> 
 
-        <label className='label'>Location
+        <label className='label'> Location
           <input 
           defaultValue='NY' 
           type='text' 

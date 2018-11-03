@@ -5,7 +5,6 @@ import React from 'react';
 class ListView extends React.Component {
 //change to stateless component
 
-  // trap focus in infoWindow
   focusInfoWindow = () => {
     document.getElementById('info-window') && 
     document.getElementById('info-window-title').focus();
@@ -34,8 +33,7 @@ class ListView extends React.Component {
 
     document.addEventListener('keyup', e => {
       if(e.key === 'Shift') shift = false;
-    });
-    
+    });    
   }
 
 
@@ -64,11 +62,11 @@ class ListView extends React.Component {
             <img className="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
           </a>
         </li>
+
       </ol>
     </div>
     )
   }
-
 
   makeList = () => {
 
@@ -78,14 +76,12 @@ class ListView extends React.Component {
           let className = '';
           let display = '';
 
-          //toggle clicked class if marker clicked
           if(this.props.markerClicked && marker.id === this.props.markerClicked.id) {            
             className = 'clicked';							
             display = this.modDisplay(marker);
           }
 
           return (
-
             <li
             key = {marker.id}                
             className = {`marker-list-item ${className}`}>
@@ -96,7 +92,7 @@ class ListView extends React.Component {
                 {marker.title}
               </button>
               
-                {display} 
+              {display} 
             
             </li>
           )                                  

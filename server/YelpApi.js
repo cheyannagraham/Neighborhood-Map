@@ -12,12 +12,8 @@ const OPTIONS = {
 	}
 } 
 
-// This node file file fetches the data from 
-// the yelp api and returns it back to the app
-
 app.use(cors());
 app.use(bodyParser.json());
-
 
 app.post('/', (req, res) => {
 	let markers;
@@ -57,7 +53,6 @@ app.post('/', (req, res) => {
 
 const getBusinessInfo = (businesses) => {
 
-	//get businesses photos & hours
 	return Promise.all(businesses.map(bus => {
 
 		return fetch(`https://api.yelp.com/v3/businesses/${bus.id}`,
@@ -78,6 +73,5 @@ const getBusinessInfo = (businesses) => {
 	.then(resp => resp)
 	.catch(error => error);
 }
-
 
 app.listen(3002);

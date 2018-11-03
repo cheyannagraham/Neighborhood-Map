@@ -10,33 +10,32 @@ class Map extends React.Component{
 
   componentDidMount(){
 
-    //Check if library loaded
-    if(window.google.maps)
-    {
-
       const div = document.createElement('div');
       div.id = 'map';
       div.setAttribute('aria-label','Map');
       div.setAttribute('role','application');
 
       document.getElementById('main').append(div);
+
+      if(window.google.maps){
       
-      let map = new window.google.maps.Map(
-      document.querySelector('#map'),
-      {
-        center : {
-          lat:41.263849,
-          lng:-74.382206
-        },
-        zoom : 12,
-        disableDefaultUI: true
-      });
-
+        let map = new window.google.maps.Map(
+        document.querySelector('#map'),
+        {
+          center : {
+            lat:41.263849,
+            lng:-74.382206
+          },
+          zoom : 12,
+          disableDefaultUI: true
+        });
   
-      let infoWindow = new window.google.maps.InfoWindow();
-
-      this.setState({map : map, infoWindow : infoWindow})
-    }    
+        let infoWindow = new window.google.maps.InfoWindow();
+        this.setState({map : map, infoWindow : infoWindow})
+      }   
+      else {
+        div.append(<p>{this.props.mapError}</p>)
+    } 
 
   }
   
@@ -85,7 +84,6 @@ class Map extends React.Component{
 
   animate = marker => {
 
-    //animation
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
     marker.setAnimation(window.google.maps.Animation.null);
 
