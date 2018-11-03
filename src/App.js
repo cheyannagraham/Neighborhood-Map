@@ -10,8 +10,7 @@ import Menu from './Components/Menu';
 class App extends Component {
   constructor(props) {
     super(props);
-    //set nav window to hidden on initial load
-    this.state = {hidden: true};
+    this.state = {};
     this.mapRef = React.createRef();
     this.menuRef = React.createRef();
   }
