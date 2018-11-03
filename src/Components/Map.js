@@ -9,6 +9,7 @@ class Map extends React.Component{
   }   
 
   componentDidMount(){
+    if(window.google.maps){
 
       const div = document.createElement('div');
       div.id = 'map';
@@ -16,26 +17,21 @@ class Map extends React.Component{
       div.setAttribute('role','application');
 
       document.getElementById('main').append(div);
-
-      if(window.google.maps){
       
-        let map = new window.google.maps.Map(
-        document.querySelector('#map'),
-        {
-          center : {
-            lat:41.263849,
-            lng:-74.382206
-          },
-          zoom : 12,
-          disableDefaultUI: true
-        });
+      let map = new window.google.maps.Map(
+      document.querySelector('#map'),
+      {
+        center : {
+          lat:41.263849,
+          lng:-74.382206
+        },
+        zoom : 12,
+        disableDefaultUI: true
+      });
   
         let infoWindow = new window.google.maps.InfoWindow();
         this.setState({map : map, infoWindow : infoWindow})
       }   
-      else {
-        div.append(<p>{this.props.mapError}</p>)
-    } 
 
   }
   
@@ -151,7 +147,7 @@ class Map extends React.Component{
   render() {
     return (
       <div>
-        {this.showMarkers()}
+        {this.props.mapError ? <div>this.props.mapError </div>: this.showMarkers()}
       </div>
     )
   }        
