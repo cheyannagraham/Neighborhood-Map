@@ -5,9 +5,14 @@ import React from 'react';
 class ListView extends React.Component {
 //change to stateless component
 
-  focusInfoWindow = () => {
+  focusInfoWindow = (e) => {
+    const previousElement = e.target;
     document.getElementById('info-window') && 
     document.getElementById('info-window-title').focus();
+
+    document.querySelector("button[title='Close']").addEventListener('click', () => {
+      previousElement.focus();
+    })
 
     let shift = false;
     
