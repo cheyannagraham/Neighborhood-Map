@@ -7,10 +7,13 @@ class ListView extends React.Component {
 
   focusInfoWindow = (e) => {
     const previousElement = e.target;
+    const closeButton = document.querySelector("button[title='Close']");
+
+    //make sure info window is open before giving focus
     document.getElementById('info-window') && 
     document.getElementById('info-window-title').focus();
 
-    document.querySelector("button[title='Close']").addEventListener('click', () => {
+    closeButton.addEventListener('click', () => {
       previousElement.focus();
     })
 
@@ -31,7 +34,7 @@ class ListView extends React.Component {
       if(document.activeElement.id === 'info-window-title' && e.key === 'Tab'){
         if(shift)
         {
-          document.querySelector("button[title='Close']").focus();
+          closeButton.focus();
         }   
       }     
     });
