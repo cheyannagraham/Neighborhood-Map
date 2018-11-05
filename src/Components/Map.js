@@ -117,7 +117,8 @@ class Map extends React.Component{
   fillInfoWindow = (marker) => {
     let display = (`
       <div tabindex="0" aria-label="info-window" id = "info-window" >
-        <ul id="info-window-list">
+        
+       <ul id="info-window-list">
           <li>
             <h3 id="info-window-title" tabindex="0">${marker.title}</h3>
           </li>
