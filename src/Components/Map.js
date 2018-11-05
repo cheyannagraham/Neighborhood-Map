@@ -61,7 +61,7 @@ class Map extends React.Component{
 
     if(!this.props.mapError && window.google.maps)
     {
-      //for filter results
+      //hide markers when results are filtered
       this.hideMarkers()          
       let bounds = new window.google.maps.LatLngBounds();
 
@@ -115,7 +115,6 @@ class Map extends React.Component{
   }
 
   fillInfoWindow = (marker) => {
-    //FIX undefined values
     let display = (`
       <div tabindex="0" aria-label="info-window" id = "info-window" >
         <ul id="info-window-list">
