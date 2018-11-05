@@ -1,16 +1,20 @@
 import React from 'react';
 
 
-
 class ListView extends React.Component {
 //change to stateless component
 
+// This function traps the tabbing while inside the infoWindow. 
+// This only works if tabbed into infoWindow
   focusInfoWindow = (e) => {
     const previousElement = e.target;
+    const closeInfoWindow = document.querySelector("button[title='Close']")
+
     document.getElementById('info-window') && 
     document.getElementById('info-window-title').focus();
 
-    document.querySelector("button[title='Close']").addEventListener('click', () => {
+
+    closeInfoWindow.addEventListener('click', () => {
       previousElement.focus();
     })
 
@@ -31,7 +35,7 @@ class ListView extends React.Component {
       if(document.activeElement.id === 'info-window-title' && e.key === 'Tab'){
         if(shift)
         {
-          document.querySelector("button[title='Close']").focus();
+          closeInfoWindow.focus();
         }   
       }     
     });
@@ -46,25 +50,43 @@ class ListView extends React.Component {
     return (
     <div>
       <ol id='module-list'>
-        <li tabIndex='0' aria-label='address'>{marker.address}</li>
-        <li tabIndex='0' aria-label='phone'>{marker.phone}</li>
+        <li 
+        tabIndex='0' 
+        aria-label='address'>
+          {marker.address}
+        </li>
+        
+        <li 
+        tabIndex='0' 
+        aria-label='phone'>
+          {marker.phone}
+        </li>
         
         <li tabIndex='0' >
           <div>
             {(marker.photos || []).map(photo => 
-              (<img  key={photo} className='business-photo' src={photo} alt='business' />))}            
+              (<img  
+              key={photo} 
+              className='business-photo' 
+              src={photo} 
+              alt='business' />))}            
           </div>
         </li>
 
         <li>
-          <button id='more-info-button' onClick={(e) => {this.focusInfoWindow(e)}}>
+          <button 
+          id='more-info-button' 
+          onClick={(e) => {this.focusInfoWindow(e)}}>
               Tab to InfoWindow
           </button> 
         </li>
 
         <li >
           <a href={marker.website}>
-            <img className="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
+            <img 
+            className="yelp-logo" 
+            src = "images/Yelp_trademark_rgb.png" 
+            alt="logo"/>
           </a>
         </li>
 
