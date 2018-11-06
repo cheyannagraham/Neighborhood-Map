@@ -8,19 +8,22 @@ class Search extends React.Component {
 
   componentDidMount(){
     // this.getData('coffee','NY');
+
   }
 
   getData = (keyword='',location='') => {
-    fetch('http://localhost:3002',
+
+    fetch(`http://localhost:3002/search?keyword=${keyword}&location=${location}`,
     {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'content-type' : 'application/json'
-      },
-      body : JSON.stringify({
-        keyword: keyword,
-        location: location
-      })
+      }
+      //,
+      // body : JSON.stringify({
+        // keyword: keyword,
+        // location: location
+      // })
     })
     .then(resp => resp.json())
     .then(resp => this.props.updateAppState({businessData: resp}))
@@ -33,7 +36,7 @@ class Search extends React.Component {
     let keyword = field === 'keyword' ? input : this.state.keyword;
     let location = field === 'location' ? input : this.state.location;
 
-    keyword && location && this.getData(keyword,location);      
+    keyword && location && this.getData(keyword,location);  
   } 
 
 

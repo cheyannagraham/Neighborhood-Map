@@ -15,10 +15,11 @@ const OPTIONS = {
 app.use(cors());
 app.use(bodyParser.json());
 
-app.post('/', (req, res) => {
+app.get('/*', (req, res) => {
 	let markers;
+	console.log(typeof req.query)
 
-	fetch(`https://api.yelp.com/v3/businesses/search?term=${req.body.keyword}&location=${req.body.location}&radius=20000`,OPTIONS)
+	fetch(`https://api.yelp.com/v3/businesses/search?term=${req.query.keyword}&location=${req.query.location}&radius=20000`,OPTIONS)
 	.then(resp => resp.json())
 	.then(resp => {
 		let businessesFound = resp.businesses.filter((bus,index) => index < 10 );

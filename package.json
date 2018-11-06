@@ -12,7 +12,7 @@
     "react-scripts": "2.0.4"
   },
   "scripts": {
-    "start": "node server/yelpapi | react-scripts start",
+    "start": "react-scripts start | nodemon server/yelpapi",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

@@ -4,7 +4,7 @@ self.addEventListener('fetch',event => {
     }
 
     else if(event.request.url.includes('http')) {
-        console.log(event.request.url);
+        // console.log(event.request.url);
         event.respondWith(
             //cache static files
             caches.match(event.request.url)
