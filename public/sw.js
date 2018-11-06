@@ -18,25 +18,18 @@ self.addEventListener('activate', event  => {
                 "https://maps.gstatic.com/mapfiles/api-3/images/google4_hdpi.png"
             ])
         })
-    )
-
-
-
+    );
 })
-
-let urls = [];
 
 
 self.addEventListener('fetch',event => {
-    console.log(event.request.url)
 
     if(event.request.url.includes('maps.googleapis.com') || event.request.method !== 'GET') {
         return
     }
 
     else if(event.request.url.includes('http')) {
-        urls.push(event.request.url);
-        console.log(urls)
+
         event.respondWith(
             caches.match(event.request.url)
             .then(response => {
