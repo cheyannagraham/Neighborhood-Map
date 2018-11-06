@@ -1,5 +1,6 @@
 
 self.addEventListener('install', event  => {
+    console.log('sw installed');
     event.waitUntil(
         caches.open('Neighborhood-Map')
         .then(cache => {
@@ -19,34 +20,43 @@ self.addEventListener('install', event  => {
                 "https://maps.gstatic.com/mapfiles/api-3/images/google4_hdpi.png"
             ])
         })
+        .then(() => {
+            console.log("Cache Added");
+        })
+        .catch(error => {
+            console.log('Error encounterd during caching.', error);
+        })
     );
 });
 
 
 self.addEventListener('fetch',event => {
+    console.log("fetch intercepted");
 
     if(event.request.url.includes('maps.googleapis.com') || event.request.method !== 'GET') {
         return
     }
 
     else if(event.request.url.includes('http')) {
-        if(navigator.onLine){
-            event.respondWith(
-                caches.match(event.request.url)
-                .then(response => {
-                    if(response){
-                        return response
-                    }
+        event.respondWith(
+            caches.match(event.request.url)
+            .then(response => {
+                if(response){
+                    return response
+                }
+                
+                else if(navigator.onLine) {
+
                     return caches.open('Neighborhood-Map')
                     .then(cache => {
                         return cache.add(event.request.url)
                         .then(() => {
                             return cache.match(event.request.url);
                         });
-                    });            
-                })
-            )
-        }   
+                    });   
+                }         
+            })
+        )
     }
     
 });
