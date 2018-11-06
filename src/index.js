@@ -25,4 +25,8 @@ window.addEventListener('offline',event => {
     console.log('No internet connection!')
     document.getElementById("offline").classList.remove('hide');
 })
+window.addEventListener('online',event => {
+    console.log('Connection Restored!')
+    document.getElementById("offline").classList.add('hide');
+})
 
