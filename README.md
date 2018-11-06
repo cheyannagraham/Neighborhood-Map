@@ -8,8 +8,9 @@ Neighborhood Map is a simple single-page app that finds places using keywords an
 ## Install
 1. Clone/Download the repository
 2. `npm install`
-3.  `npm run startapp` to run build production
-4.  `npm start` to run in developer mode
+3.  `npm run startapp` to run build production. Served @ localhost:5000
+4.  `npm start` to run in developer mode. Served @ localhost:3000
+
 
 ## Using The App
 
