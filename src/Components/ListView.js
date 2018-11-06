@@ -1,7 +1,6 @@
 import React from 'react';
 
 class ListView extends React.Component {
-//change to stateless component
 
 // This function traps the tabbing while inside the infoWindow. 
 // This only works if tabbed into infoWindow
@@ -45,7 +44,7 @@ class ListView extends React.Component {
     });    
   }
 
-
+//this info is displayed in the side-menu
   modDisplay = (marker) => {
     return (
     <div>
@@ -95,6 +94,7 @@ class ListView extends React.Component {
     )
   }
 
+  //Create list of marker items
   makeList = () => {
 
     return (

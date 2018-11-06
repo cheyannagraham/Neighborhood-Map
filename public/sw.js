@@ -30,23 +30,23 @@ self.addEventListener('fetch',event => {
     }
 
     else if(event.request.url.includes('http')) {
-
-        event.respondWith(
-            caches.match(event.request.url)
-            .then(response => {
-                if(response){
-                    return response
-                }
-                return caches.open('Neighborhood-Map')
-                .then(cache => {
-                    return cache.add(event.request.url)
-                    .then(() => {
-                        return cache.match(event.request.url);
-                    });
-                });            
-            })
-        )
-
+        if(navigator.onLine){
+            event.respondWith(
+                caches.match(event.request.url)
+                .then(response => {
+                    if(response){
+                        return response
+                    }
+                    return caches.open('Neighborhood-Map')
+                    .then(cache => {
+                        return cache.add(event.request.url)
+                        .then(() => {
+                            return cache.match(event.request.url);
+                        });
+                    });            
+                })
+            )
+        }   
     }
     
 });
