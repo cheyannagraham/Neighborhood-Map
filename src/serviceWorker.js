@@ -30,6 +30,7 @@ export function register(config) {
     }
 
     window.addEventListener('load', () => {
+      // ----------------REGISTER CUSTOM SW!----------------
       const swUrl = `${process.env.PUBLIC_URL}/sw.js`;
 
       if (isLocalhost) {
