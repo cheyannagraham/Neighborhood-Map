@@ -7,7 +7,7 @@ class Search extends React.Component {
   }
 
   componentDidMount(){
-    this.getData('coffee','NY');
+    // this.getData('coffee','NY');
   }
 
   getData = (keyword='',location='') => {
