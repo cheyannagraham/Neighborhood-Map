@@ -21,6 +21,7 @@ if(navigator.serviceWorker) {
     })
 }
 
+// notify user of internet connection
 window.addEventListener('offline',event => {
     console.log('No internet connection!')
     document.getElementById("offline").classList.remove('hide');
