@@ -24,7 +24,7 @@ app.get('/*', (req, res) => {
 	fetch(`https://api.yelp.com/v3/businesses/search?term=${req.query.keyword}&location=${req.query.location}&radius=20000`,OPTIONS)
 	.then(resp => resp.json())
 	.then(resp => {
-		let businessesFound = resp.businesses.filter((bus,index) => index < 7 );
+		let businessesFound = resp.businesses.filter((bus,index) => index < 5 );
 				
 		markers = businessesFound.map(business => 
 
