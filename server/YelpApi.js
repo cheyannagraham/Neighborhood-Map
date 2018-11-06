@@ -12,7 +12,9 @@ const OPTIONS = {
 	}
 } 
 
-
+// This server accepts GET requests from 
+// localhost and makes GET requests to yelp. 
+// The response is sent back to the app
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -22,7 +24,7 @@ app.get('/*', (req, res) => {
 	fetch(`https://api.yelp.com/v3/businesses/search?term=${req.query.keyword}&location=${req.query.location}&radius=20000`,OPTIONS)
 	.then(resp => resp.json())
 	.then(resp => {
-		let businessesFound = resp.businesses.filter((bus,index) => index < 10 );
+		let businessesFound = resp.businesses.filter((bus,index) => index < 7 );
 				
 		markers = businessesFound.map(business => 
 
