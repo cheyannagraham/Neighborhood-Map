@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import * as serviceWorker from './serviceWorker.js';
 
 
 window.initMap = function() {
@@ -15,11 +16,13 @@ window.initMap = function() {
 }
 
 
-if(navigator.serviceWorker) {
-    window.addEventListener('load', event => {
-        navigator.serviceWorker.register("sw.js");
-    })
-}
+// if(navigator.serviceWorker) {
+//     window.addEventListener('load', event => {
+//         navigator.serviceWorker.register("sw.js");
+//     })
+// }
+
+serviceWorker.register();
 
 // notify user of internet connection
 window.addEventListener('offline',event => {
