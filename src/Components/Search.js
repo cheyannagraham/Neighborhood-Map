@@ -12,6 +12,9 @@ class Search extends React.Component {
 
   }
 
+  // This function creates a query string from the search results and makes a GET request to a local server.
+  // The local server will request the data from the Yelp API and return it here. Once the response is recieved,
+  // It will be sent back to <App /> to update the app state
   getData = (keyword='',location='') => {
 
     fetch(`http://localhost:3002/search?keyword=${keyword}&location=${location}`,
