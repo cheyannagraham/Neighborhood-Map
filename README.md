@@ -10,7 +10,6 @@ Neighborhood Map is a simple single-page app that finds places using keywords an
 2. `npm install`
 3.  `npm run startapp` to run build production
 4.  `npm start` to run in developer mode
-*NOTE: You will need your own keys (free of course) to access API data.*
 
 ## Using The App
 
