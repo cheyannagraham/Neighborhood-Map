@@ -17,15 +17,15 @@ class Menu extends React.Component {
 
     toggleView = () => {
         const sideMenu = document.getElementById('side-menu');
-        sideMenu.className.includes('hide-menu') ?
-        sideMenu.classList.remove('hide-menu') : 
-        sideMenu.classList.add('hide-menu');
+        sideMenu.className.includes('hide') ?
+        sideMenu.classList.remove('hide') : 
+        sideMenu.classList.add('hide');
     }
 
 
     render() {
         return (
-            <div id='side-menu' className = {this.props.navHidden ? 'hide-menu' : ''}>
+            <div id='side-menu' className = {this.props.navHidden ? 'hide' : ''}>
     
                 <Search 
                 updateAppState = {this.props.updateAppState} />

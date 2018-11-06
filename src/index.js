@@ -12,7 +12,6 @@ window.initMap = function() {
     }
 
     ReactDOM.render(<App mapError = {mapError}/>, document.getElementById('root'));
-
 }
 
 
@@ -21,3 +20,9 @@ if(navigator.serviceWorker) {
         navigator.serviceWorker.register("sw.js");
     })
 }
+
+window.addEventListener('offline',event => {
+    console.log('No internet connection!')
+    document.getElementById("offline").classList.remove('hide');
+})
+

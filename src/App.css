@@ -18,6 +18,12 @@ html, body {
   height: 100%;
   width: 100%;
 }
+
+#offline {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+}
 /* ------------------ Header -------------------- */
 
 
@@ -54,7 +60,7 @@ html, body {
   max-width: 380px;
 }
 
-.hide-menu {
+.hide {
   display: none;
 }
 
