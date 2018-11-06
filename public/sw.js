@@ -1,10 +1,10 @@
 self.addEventListener('fetch',event => {
-    if(event.request.url.includes('maps.googleapis.com' || 'http://localhost:3002') || event.request.method !== 'GET') {
+    if(event.request.url.includes('maps.googleapis.com') || event.request.method !== 'GET') {
         return
     }
 
     else if(event.request.url.includes('http')) {
-        // console.log(event.request.url);
+        console.log(event.request.url);
         event.respondWith(
             //cache static files
             caches.match(event.request.url)

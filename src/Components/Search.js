@@ -15,15 +15,10 @@ class Search extends React.Component {
 
     fetch(`http://localhost:3002/search?keyword=${keyword}&location=${location}`,
     {
-      method: 'GET',
       headers: {
         'content-type' : 'application/json'
       }
-      //,
-      // body : JSON.stringify({
-        // keyword: keyword,
-        // location: location
-      // })
+
     })
     .then(resp => resp.json())
     .then(resp => this.props.updateAppState({businessData: resp}))
