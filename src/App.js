@@ -26,9 +26,6 @@ class App extends Component {
       this.mapRef.current.makeMarkers(data.businessData) :
       this.setState(data);
       
-      //this will update the state of <Menu> which will in 
-      // turn trigger a rerender and will show the updated markers
-      // w/o rerendering the map
       data.markers && this.menuRef.current.updateState(data);
     }
   } 

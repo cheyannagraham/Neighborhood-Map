@@ -17,7 +17,7 @@ window.initMap = function() {
 
 if(navigator.serviceWorker) {
     window.addEventListener('load', event => {
-        // navigator.serviceWorker.register("sw.js");
+        navigator.serviceWorker.register("sw.js");
     })
 }
 
