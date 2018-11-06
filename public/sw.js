@@ -3,12 +3,10 @@ self.addEventListener('fetch',event => {
         return
     }
 
-    else {
+    else if(event.request.url.includes('http')) {
         console.log(event.request.url);
         event.respondWith(
-            //find response in cache
-            //if its there, return it.
-            //if its not, add it, then return it from the cache
+            //cache static files
             caches.match(event.request.url)
             .then(response => {
                 if(response){
