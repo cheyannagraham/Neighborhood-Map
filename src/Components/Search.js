@@ -1,10 +1,6 @@
 import React from 'react'
 
 class Search extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {keyword: 'Coffee', location : 'NY'}
-  }
 
   componentDidMount(){
     // initial marker results
@@ -29,11 +25,10 @@ class Search extends React.Component {
     .catch(error => this.props.updateAppState({error:error}));
   }
 
-  handleChange = (input,field) => {
-    this.setState({[field] : input})
+  handleClick = () => {
 
-    let keyword = field === 'keyword' ? input : this.state.keyword;
-    let location = field === 'location' ? input : this.state.location;
+    let keyword = document.getElementById('keyword').value.trim();
+    let location = document.getElementById('location').value.trim();
 
     keyword && location && this.getData(keyword,location);  
   } 
@@ -46,18 +41,24 @@ class Search extends React.Component {
         <h2 tabIndex='0'>Search</h2>
         
         <label className='label'> Keyword
-          <input 
+          <input
           defaultValue='Coffee' 
-          type='text' 
-          onChange = {(e) => this.handleChange(e.target.value,'keyword')} />
+          type='text'
+          id='keyword' 
+          />
         </label> 
 
         <label className='label'> Location
           <input 
           defaultValue='NY' 
-          type='text' 
-          onChange = {(e) => this.handleChange(e.target.value,'location')} /> 
+          type='text'
+          id='location' 
+          /> 
         </label>
+
+        <button id='submit-search' onClick = {this.handleClick}>
+          Find!
+        </button> 
       </div>
         
     )
