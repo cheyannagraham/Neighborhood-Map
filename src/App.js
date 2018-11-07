@@ -19,6 +19,7 @@ class App extends Component {
     if(data.error) {
       this.setState({markers : []}); 
       this.menuRef.current.updateState({markers: []});
+      console.log(data.error)
 
     }
     else {

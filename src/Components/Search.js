@@ -21,7 +21,12 @@ class Search extends React.Component {
 
     })
     .then(resp => resp.json())
-    .then(resp => this.props.updateAppState({businessData: resp}))
+    .then(resp => {
+      if (resp.error){
+        window.alert(`YELP API ERROR: ${resp.error.code} : ${resp.error.description}`);
+      } 
+      else return this.props.updateAppState({businessData: resp})})
+    
     .catch(error => this.props.updateAppState({error:error}));
   }
 

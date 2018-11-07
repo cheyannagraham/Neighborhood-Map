@@ -24,32 +24,39 @@ app.get('/*', (req, res) => {
 	fetch(`https://api.yelp.com/v3/businesses/search?term=${req.query.keyword}&location=${req.query.location}&radius=20000`,OPTIONS)
 	.then(resp => resp.json())
 	.then(resp => {
-		//Use the first 5 results
-		let businessesFound = resp.businesses.filter((bus,index) => index < 5 );
-				
-		markers = businessesFound.map(business => 
-
-			({
-				id : business.id,
-				position : {
-					lat : business.coordinates.latitude,
-					lng : business.coordinates.longitude
-				},
-				address : business.location.display_address.join(' '),
-				title : business.name,
-				rating : business.rating,
-				price : business.price,
-				reviewCount : business.review_count,
-				avatar : business.image_url,
-				phone : business.display_phone,
-				website : business.url
-			})		
-		);
-
-		getBusinessInfo(markers)
-		.then(resp => {
+		if(resp.error) {
 			res.send(resp);
-		})		
+		} else {
+		
+			//Use the first 5 results
+			let businessesFound = (resp.businesses || []).filter((bus,index) => index < 5 );
+					
+			markers = businessesFound.map(business => 
+
+				({
+					id : business.id,
+					position : {
+						lat : business.coordinates.latitude,
+						lng : business.coordinates.longitude
+					},
+					address : business.location.display_address.join(' '),
+					title : business.name,
+					rating : business.rating,
+					price : business.price,
+					reviewCount : business.review_count,
+					avatar : business.image_url,
+					phone : business.display_phone,
+					website : business.url
+				})		
+			);
+
+			getBusinessInfo(markers)
+			.then(resp => {
+				res.send(resp);
+			})	
+
+
+		}
 	})
 	.catch(error => res.send(error));	
 });
