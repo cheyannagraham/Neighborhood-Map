@@ -37,7 +37,7 @@ class Map extends React.Component{
       
       if(this.props.mapError) {
         div.setAttribute('class','map-error')
-        div.append(this.props.mapError);
+        div.innerHTML = `<p>${this.props.mapError}</p>`;
       }
 
   }

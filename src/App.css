@@ -188,6 +188,13 @@ ul,ol {
   text-align: center;
   font-size: large;
   font-weight: bold;
+  background-color:lightgray;
+}
+
+.map-error p {
+  margin: auto;
+  padding: 20px;
+
 }
 /* ---------------------------- */
 
