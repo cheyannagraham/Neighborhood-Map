@@ -14,7 +14,7 @@ class App extends Component {
     this.mapRef = React.createRef();
     this.menuRef = React.createRef();
 
-    //close modal when modal button clicked
+    //add event listener to close modal when modal button clicked
     document.getElementById('info-modal-button').addEventListener ('click', event => {
       document.getElementById("info-modal").classList.add('hide');
       })
