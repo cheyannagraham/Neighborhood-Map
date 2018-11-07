@@ -82,6 +82,16 @@ ul,ol {
   padding: 10px;
 }
 
+#submit-search-button {
+  background: #288a8c;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: bold;
+  color: white;
+}
+
 .marker-list-item {
   border-bottom: 1px solid black;
   padding: 5px 0 5px 0;

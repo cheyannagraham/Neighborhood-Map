@@ -56,7 +56,7 @@ class Search extends React.Component {
           /> 
         </label>
 
-        <button id='submit-search' onClick = {this.handleClick}>
+        <button id='submit-search-button' onClick = {this.handleClick}>
           Find!
         </button> 
       </div>
