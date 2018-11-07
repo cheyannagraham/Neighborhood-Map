@@ -12,9 +12,6 @@ const OPTIONS = {
 	}
 } 
 
-// This server accepts GET requests from localhost and makes GET requests to yelp.
-// When the a response is recieved, it is formatted into an aray of objects then 
-//sent back to the app
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -28,7 +25,6 @@ app.get('/*', (req, res) => {
 			res.send(resp);
 		} else {
 		
-			//Use the first 5 results
 			let businessesFound = (resp.businesses || []).filter((bus,index) => index < 5 );
 					
 			markers = businessesFound.map(business => 

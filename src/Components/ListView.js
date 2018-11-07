@@ -1,12 +1,10 @@
 import React from 'react';
 
 
-// This component creates and renders the list shown in the side menu. 
-// Its also shows the extra info when a marker is clicked. 
+ 
 class ListView extends React.Component {
 
-// This function traps the tabbing while inside the infoWindow. 
-// This only works if tabbed into infoWindow
+// manage focus while inside infoWindow
   focusInfoWindow = (e) => {
     const previousElement = e.target;
     const closeInfoWindow = document.querySelector("button[title='Close']")
@@ -14,7 +12,6 @@ class ListView extends React.Component {
     //make sure info window is open before giving focus
     document.getElementById('info-window') && 
     document.getElementById('info-window').focus();
-
 
     closeInfoWindow.addEventListener('click', () => {
       previousElement.focus();
@@ -48,7 +45,8 @@ class ListView extends React.Component {
     });    
   }
 
-//this info is displayed in the side-menu
+
+  //this info is displayed in the side-menu
   modDisplay = (marker) => {
     return (
     <div id='module-list'>
