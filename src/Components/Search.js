@@ -13,7 +13,7 @@ class Search extends React.Component {
   // It will be sent back to <App /> to update the app state
   getData = (keyword='',location='') => {
 
-    fetch(`http://localhost:3002/search?keyword=${keyword}&location=${location}`,
+    fetch(`http://localhost:3002/search?keyword=${keyword.toLowerCase()}&location=${location.toLowerCase()}`,
     {
       headers: {
         'content-type' : 'application/json'
