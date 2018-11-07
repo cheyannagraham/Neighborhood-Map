@@ -206,3 +206,38 @@ h2 {
 input {
   margin: 5px 10px 5px 5px;
 }
+
+#info-modal {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  margin:auto;
+  background:white;
+  padding: 20px;
+  width: 40%;
+  font-size: small;
+  text-align: center;
+  max-width: 300px;
+  border-radius: 5px;
+  box-shadow: -1px 13px 46px -13px rgba(0,0,0,0.75);
+}
+
+#info-modal-header {
+  width: 100%;
+  padding: 5px;
+  border-bottom: .5px black solid;
+}
+
+#info-modal p {
+  padding: 10px;
+}
+
+#info-modal-button {
+  background: #0d7c64;
+  padding: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+}
