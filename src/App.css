@@ -149,7 +149,7 @@ ul,ol {
   text-decoration: underline;
   cursor: pointer;
   position: absolute;
-  left: 10000px;
+  right: 10000px;
 }
 
 #more-info-button:focus {
