@@ -27,8 +27,12 @@ class App extends Component {
     
     //show modal and insert content
     infoModal.classList.remove('hide');
-    infoModalContent.innerHTML = content;
-
+    let html = `
+      <h4 id='info-modal-header'>${content.header}</h4>
+      <p>${content.content}</p>`
+    
+      infoModalContent.innerHTML = html;
+            
     //move focus to inside info-modal
     infoModalButton.focus();
 

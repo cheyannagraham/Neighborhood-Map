@@ -22,8 +22,12 @@ window.initMap = function() {
 // catch authentication Error
 window.gm_authFailure = function() {
 
-    let content = `<h4>Google Maps API</h4>
-    <p>Authentication Error! Check Javascript console (Ctrl + Shift + I ) for more information.</p>`;
+    let content = 
+        {
+            header: 'Google Maps API',
+            content:'Authentication Error! Check Javascript console (Ctrl + Shift + I ) for more information.'
+        }
+    
     appRef.current.showInfoModal(content);
 
 }
