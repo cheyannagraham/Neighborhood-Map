@@ -3,15 +3,15 @@
 self.importScripts('service-worker.js');
 
 
-// // cache initial search results on install
-// self.addEventListener('install', event => {
-//     event.waitUntill(
-//         caches.open('Neighborhood-Map')
-//         .then(cache => {
-//             cache.add('http://localhost:3002/search?keyword=Coffee&location=NY' )
-//         })
-//     )
-// })
+// cache initial search results on install
+self.addEventListener('install', event => {
+    event.waitUntill(
+        caches.open('Neighborhood-Map')
+        .then(cache => {
+            cache.add('http://localhost:3002/search?keyword=Coffee&location=NY' )
+        })
+    )
+})
 
 
 //cach supsequent searches

@@ -4,7 +4,7 @@ class Search extends React.Component {
 
   componentDidMount(){
     // initial marker results
-    // this.getData('coffee','NY');
+    this.getData('coffee','NY');
 
   }
 
