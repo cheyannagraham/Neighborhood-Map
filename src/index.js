@@ -16,6 +16,12 @@ window.initMap = function() {
     ReactDOM.render(<App mapError = {mapError}/>, document.getElementById('root'));
 }
 
+// catch authentication Error
+window.gm_authFailure = function() {
+    window.alert('Authentication Error! Check Javascript console (Ctrl + Shift + I ) for more information.');
+
+}
+
 //register service worker
 serviceWorker.register();
 
