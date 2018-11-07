@@ -23,6 +23,9 @@ class App extends Component {
     //add event listener to close modal when modal button clicked
     infoModalButton.addEventListener ('click', event => {
       document.getElementById("info-modal").classList.add('hide');
+      infoModalButton.blur();
+      document.removeEventListener('keydown',noTab);
+
     });
     
     //show modal and insert content
@@ -37,12 +40,13 @@ class App extends Component {
     infoModalButton.focus();
 
     //trap modal focus
-    document.addEventListener('keydown',event => {
+    const noTab = event => {
       event.key === 'Tab' && event.preventDefault();
-    });
-
+    }
+    document.addEventListener('keydown',noTab);
   }
 
+  
   updateState = data => {
     if(data.error) {
       this.setState({markers : []}); 
