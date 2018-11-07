@@ -8,6 +8,7 @@ class Map extends React.Component{
     this.state = {}
   }   
 
+  //Once the component is mounted, create the map object and add it to created div
   componentDidMount(){
 
     const div = document.createElement('div');
