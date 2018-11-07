@@ -13,8 +13,6 @@ class App extends Component {
     this.state = {};
     this.mapRef = React.createRef();
     this.menuRef = React.createRef();
-
-
   }
 
   showInfoModal = content => {
@@ -29,12 +27,15 @@ class App extends Component {
     
     //show modal and insert content
     infoModal.classList.remove('hide');
-    infoModalContent.innerHTML = 
-      `<h4 id='info-modal-header'>YELP API</h4>
-      <p> ERROR: ${content.error.code} : ${content.error.description} </p>`;
+    infoModalContent.innerHTML = content;
 
     //move focus to inside info-modal
     infoModalButton.focus();
+
+    //trap modal focus
+    document.addEventListener('keydown',event => {
+      event.key === 'Tab' && event.preventDefault();
+    })
 
   }
 

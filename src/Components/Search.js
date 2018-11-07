@@ -23,7 +23,10 @@ class Search extends React.Component {
     .then(resp => resp.json())
     .then(resp => {
       if (resp.error){
-        this.props.showInfoModal(resp);
+        let content = 
+        `<h4 id='info-modal-header'>YELP API</h4>
+        <p> ERROR: ${resp.error.code} : ${resp.error.description} </p>`;
+        this.props.showInfoModal(content);
       } 
       else return this.props.updateAppState({businessData: resp})})
     
