@@ -42,6 +42,7 @@ class App extends Component {
     this.menuRef.current.toggleView();
   }
 
+  //this function hanndles the clicks on markers in the map and clicks in the listview
   handleClick = (marker) => {
     this.mapRef.current.animate(marker);
     this.menuRef.current.updateState({markerClicked : marker});
