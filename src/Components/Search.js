@@ -24,12 +24,12 @@ class Search extends React.Component {
     .then(resp => {
       if (resp.error){
         const infoModal = document.getElementById('info-modal');
+        const infoModalContent = document.getElementById('info-modal-content');
+        
         infoModal.classList.remove('hide');
-        infoModal.innerHTML = 
+        infoModalContent.innerHTML = 
           `<h4 id='info-modal-header'>YELP API</h4>
-          <p> ERROR: ${resp.error.code} : ${resp.error.description} </p>
-          <button id='info-modal-button'> Confirm </button>`;
-        // window.alert( ERROR: ${resp.error.code} : ${resp.error.description});
+          <p> ERROR: ${resp.error.code} : ${resp.error.description} </p>`;
       } 
       else return this.props.updateAppState({businessData: resp})})
     
