@@ -55,7 +55,7 @@ window.addEventListener('offline',event => {
     let content = 
     {
         header: 'Network',
-        content: 'NOTICE!: No Internet Connection Detected'
+        content: 'NOTICE! No Internet Connection Detected'
     }
     appRef.current.showInfoModal(content);
 });

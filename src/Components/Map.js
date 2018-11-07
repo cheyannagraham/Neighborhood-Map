@@ -35,26 +35,33 @@ class Map extends React.Component{
         this.setState({map : map, infoWindow : infoWindow})
       } 
       
-      else {
+      if(this.props.mapError) {
         div.setAttribute('class','map-error')
         div.append(this.props.mapError);
       }
 
   }
   
+  //this will add a click event to map markers if the map is available. 
+  // if its not available, it will just return the marker data
   makeMarkers = (businessData) => {
     this.hideMarkers();
+    let markers;
 
-    let markers = (businessData || []).map(marker => {
+    if(window.google && window.google.maps){
 
-      let mark = new window.google.maps.Marker(marker)
-      mark.addListener('click', () => {
-        this.handleClick(mark);
-      })
-
-      return mark;
-    });
-    this.props.updateAppState({markers: markers});
+      markers = (businessData || []).map(marker => {
+  
+        let mark = new window.google.maps.Marker(marker)
+        mark.addListener('click', () => {
+          this.handleClick(mark);
+        })
+  
+        return mark;
+      });
+    }
+    
+    this.props.updateAppState({markers: markers || businessData});
 
   }
 
@@ -155,9 +162,9 @@ class Map extends React.Component{
   }
 
   render() {
-    return (
+    return (console.log(!this.props.mapError),
       <div>
-        {!this.props.mapError && this.showMarkers()}
+        { (!this.props.mapError) && this.showMarkers()}
       </div>
     )
   }        
