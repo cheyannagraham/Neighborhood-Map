@@ -9,12 +9,16 @@ Neighborhood Map is a simple single-page app that finds places using keywords an
 1. Clone/Download the repository
 2. `npm install`
 3. `cd Neighborhood-Map`
-4. `npm run build` to build production code
-5. `npm run startapp` to serve production
-6. `npm start` to run in developer mode
 
-Production served @ localhost:5000
-Development served @ localhost:3000
+### Production
+1. `npm run build` to build production code
+2. `npm run startapp` to serve production
+3. Production served @ localhost:5000
+
+### Development
+
+1. `npm start` to run in developer mode
+2. Development served @ localhost:3000
 
 
 ## Using The App
