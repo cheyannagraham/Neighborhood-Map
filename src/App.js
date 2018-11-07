@@ -35,7 +35,7 @@ class App extends Component {
     //trap modal focus
     document.addEventListener('keydown',event => {
       event.key === 'Tab' && event.preventDefault();
-    })
+    });
 
   }
 

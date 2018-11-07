@@ -10,7 +10,6 @@ class Map extends React.Component{
 
   //Once the component is mounted, create the map object and add it to created div
   componentDidMount(){
-
     const div = document.createElement('div');
     div.id = 'map';
     div.setAttribute('aria-label','Map');
