@@ -50,17 +50,16 @@ class ListView extends React.Component {
 //this info is displayed in the side-menu
   modDisplay = (marker) => {
     return (
-    <div>
-      <ol id='module-list'>
-        <li> 
+    <div id='module-list'>
+        <p> 
           {marker.address}
-        </li>
+        </p>
         
-        <li> 
+        <p> 
           {marker.phone}
-        </li>
+        </p>
         
-        <li> 
+        <p> 
           <div>
             {(marker.photos || []).map(photo => 
               (<img  
@@ -69,26 +68,23 @@ class ListView extends React.Component {
               src={photo} 
               alt='business' />))}            
           </div>
-        </li>
+        </p>
 
-        <li>
           <button 
           id='more-info-button' 
           onClick={(e) => {this.focusInfoWindow(e)}}>
               Tab to InfoWindow
           </button> 
-        </li>
 
-        <li >
+        <p>
           <a href={marker.website}>
             <img 
             className="yelp-logo" 
             src = "images/Yelp_trademark_rgb.png" 
             alt="logo"/>
           </a>
-        </li>
+        </p>
 
-      </ol>
     </div>
     )
   }
