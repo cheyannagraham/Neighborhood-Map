@@ -69,11 +69,14 @@ class ListView extends React.Component {
             alt='business' />))}            
         </div>
 
+        {//show this button if the Google maps object is available
+
+        (window.google && window.google.maps) && 
         <button 
         id='more-info-button' 
         onClick={(e) => {this.focusInfoWindow(e)}}>
           Tab to InfoWindow
-        </button> 
+        </button>} 
 
       <p>
         <a href={marker.website}>
