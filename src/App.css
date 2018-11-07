@@ -66,12 +66,12 @@ html, body {
 }
 
 #search-container {
-  padding: 10px;
+  padding: 15px 10px;
   display: grid;
 }
 
 #filter-results-container {
-  padding: 10px;
+  padding: 15px 10px;
 }
 
 /* ---------- ListView --------------- */
@@ -80,8 +80,8 @@ ul,ol {
   list-style-type: none;
 }
 
-#list-view-container {
-  padding: 10px;
+#marker-list-container {
+  padding: 15px 10px;
 }
 
 #submit-search-button {

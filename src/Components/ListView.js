@@ -134,7 +134,7 @@ class ListView extends React.Component {
   
 	render() {
 		return (
-      <div id='list-view-container'>
+      <div id='marker-list-container'>
         <h2 tabIndex='0'>Markers</h2>
 
         {this.props.markers && this.props.markers.length > 0 
