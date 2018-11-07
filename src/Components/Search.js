@@ -38,7 +38,7 @@ class Search extends React.Component {
       
     return ( 
       <div id='search-container'>
-        <h2 tabIndex='0'>Search</h2>
+        <h2>Search</h2>
         
         <label className='label'> Keyword
           <input

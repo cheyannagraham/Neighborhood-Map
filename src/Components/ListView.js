@@ -52,19 +52,15 @@ class ListView extends React.Component {
     return (
     <div>
       <ol id='module-list'>
-        <li 
-        tabIndex='0' 
-        aria-label='address'>
+        <li> 
           {marker.address}
         </li>
         
-        <li 
-        tabIndex='0' 
-        aria-label='phone'>
+        <li> 
           {marker.phone}
         </li>
         
-        <li tabIndex='0' >
+        <li> 
           <div>
             {(marker.photos || []).map(photo => 
               (<img  
@@ -135,7 +131,7 @@ class ListView extends React.Component {
 	render() {
 		return (
       <div id='marker-list-container'>
-        <h2 tabIndex='0'>Markers</h2>
+        <h2>Markers</h2>
 
         {this.props.markers && this.props.markers.length > 0 
         ? this.makeList() : <p>No Results</p>}

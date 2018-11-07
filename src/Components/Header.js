@@ -5,10 +5,9 @@ function Header(props) {
 
     return (
         <header id='app-header'>
-            <h1 tabIndex='0'>Neighborhood Map</h1>
+            <h1>Neighborhood Map</h1>
         
-            <button 
-            aria-label= 'side-menu' 
+            <button  
             id='nav-button'
             onClick={props.navClick}>
                 &#9776;
