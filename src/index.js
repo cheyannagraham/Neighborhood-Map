@@ -36,3 +36,5 @@ window.addEventListener('online',event => {
     document.getElementById("offline").classList.add('hide');
 });
 
+
+
