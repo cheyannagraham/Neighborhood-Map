@@ -4,20 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker.js';
 
+
 let appRef;
 
-//This function is invoked in the 'index.html' script. 
-window.initMap = function() {
-    let mapError;
-
-    // Send error if map did not load.
-    if(!window.google.maps){
-        mapError = 'Error, Google Maps Not Loaded';
-    }
+window.initMap = function() { 
     appRef = React.createRef();
 
-    ReactDOM.render(<App mapError = {mapError} ref = {appRef} />, document.getElementById('root'));
+    ReactDOM.render(<App ref ={appRef} mapError={false} />, document.getElementById('root'));
 }
+
+
 
 // catch authentication Error
 window.gm_authFailure = function() {
@@ -32,19 +28,34 @@ window.gm_authFailure = function() {
 
 }
 
+
+//load app if script failed and send error to map component
+window.scriptFail = function() {
+    
+    appRef = React.createRef();   
+
+    ReactDOM.render(<App mapError = {'Google Maps API Unreachable'} ref = {appRef} />, document.getElementById('root'));
+    
+    // Send error if map did not load.
+    let content = 
+    {
+        header: 'Script Failed',
+        content:'Error, Google Maps API did not load because the script failed. Check Javascript console (Ctrl + Shift + I ) for more information.'
+    } 
+
+    appRef.current.showInfoModal(content);
+}
+
+
 //register service worker
 serviceWorker.register();
 
 // notify user when there is no internet connection
 window.addEventListener('offline',event => {
-    console.log('No internet connection!')
-    document.getElementById("offline").classList.remove('hide');
+    let content = 
+    {
+        header: 'Network',
+        content: 'NOTICE!: No Internet Connection Detected'
+    }
+    appRef.current.showInfoModal(content);
 });
-
-window.addEventListener('online',event => {
-    console.log('Connection Restored!')
-    document.getElementById("offline").classList.add('hide');
-});
-
-
-

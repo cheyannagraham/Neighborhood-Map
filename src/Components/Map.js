@@ -17,6 +17,7 @@ class Map extends React.Component{
 
     document.getElementById('main').append(div);
 
+    //make map if there was no error and the maps object is available
     if(!this.props.mapError && window.google.maps){
       
       let map = new window.google.maps.Map(
