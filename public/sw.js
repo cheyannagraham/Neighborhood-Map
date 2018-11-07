@@ -8,7 +8,7 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open('Neighborhood-Map')
         .then(cache => {
-            cache.add('http://localhost:3002/search?keyword=coffee&location=NY' )
+            cache.add('http://localhost:3002/search?keyword=coffee&location=ny' )
         })
     )
 })
