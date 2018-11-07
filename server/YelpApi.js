@@ -12,9 +12,9 @@ const OPTIONS = {
 	}
 } 
 
-// This server accepts GET requests from 
-// localhost and makes GET requests to yelp. 
-// The response is sent back to the app
+// This server accepts GET requests from localhost and makes GET requests to yelp.
+// When the a response is recieved, it is formatted into an aray of objects then 
+//sent back to the app
 app.use(cors());
 app.use(bodyParser.json());
 
