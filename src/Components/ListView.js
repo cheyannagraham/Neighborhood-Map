@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+// This component creates and renders the list shown in the side menu. 
+// Its also shows the extra info when a marker is clicked. 
 class ListView extends React.Component {
 
 // This function traps the tabbing while inside the infoWindow. 
