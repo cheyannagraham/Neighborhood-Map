@@ -13,7 +13,7 @@ class ListView extends React.Component {
 
     //make sure info window is open before giving focus
     document.getElementById('info-window') && 
-    document.getElementById('info-window-title').focus();
+    document.getElementById('info-window').focus();
 
 
     closeInfoWindow.addEventListener('click', () => {
@@ -26,6 +26,7 @@ class ListView extends React.Component {
       if(e.key === 'Shift') shift = true;
       
       if(document.activeElement.title === 'Close' && e.key === 'Tab'){
+        //if shift tab is pressed from the close button, go back to logo
         if(shift)
         {
           document.getElementById('info-window-logo').focus();
@@ -34,7 +35,7 @@ class ListView extends React.Component {
         } 
       }
 
-      if(document.activeElement.id === 'info-window-title' && e.key === 'Tab'){
+      if(document.activeElement.id === 'info-window' && e.key === 'Tab'){
         if(shift)
         {
           closeInfoWindow.focus();
@@ -59,7 +60,6 @@ class ListView extends React.Component {
         {marker.phone}
       </p>
       
-      <p> 
         <div>
           {(marker.photos || []).map(photo => 
             (<img  
@@ -68,12 +68,11 @@ class ListView extends React.Component {
             src={photo} 
             alt='business' />))}            
         </div>
-      </p>
 
         <button 
         id='more-info-button' 
         onClick={(e) => {this.focusInfoWindow(e)}}>
-            Tab to InfoWindow
+          Tab to InfoWindow
         </button> 
 
       <p>
@@ -119,8 +118,7 @@ class ListView extends React.Component {
             </li>
           )                                  
         })}
-      </ol>
-      
+      </ol>      
     ) 
   }
   
