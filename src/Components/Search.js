@@ -23,13 +23,7 @@ class Search extends React.Component {
     .then(resp => resp.json())
     .then(resp => {
       if (resp.error){
-        const infoModal = document.getElementById('info-modal');
-        const infoModalContent = document.getElementById('info-modal-content');
-        
-        infoModal.classList.remove('hide');
-        infoModalContent.innerHTML = 
-          `<h4 id='info-modal-header'>YELP API</h4>
-          <p> ERROR: ${resp.error.code} : ${resp.error.description} </p>`;
+        this.props.showInfoModal(resp);
       } 
       else return this.props.updateAppState({businessData: resp})})
     

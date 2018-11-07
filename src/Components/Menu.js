@@ -28,7 +28,8 @@ class Menu extends React.Component {
             <div id='side-menu' className = {this.props.navHidden ? 'hide' : ''}>
     
                 <Search 
-                updateAppState = {this.props.updateAppState} />
+                updateAppState = {this.props.updateAppState}
+                showInfoModal = {this.props.showInfoModal} />
     
                 <Filter 
                 filterResults = {this.props.filterResults} />

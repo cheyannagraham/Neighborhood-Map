@@ -14,10 +14,28 @@ class App extends Component {
     this.mapRef = React.createRef();
     this.menuRef = React.createRef();
 
+
+  }
+
+  showInfoModal = content => {
+    const infoModal = document.getElementById("info-modal");
+    const infoModalContent = document.getElementById('info-modal-content');
+    const infoModalButton = document.getElementById('info-modal-button');
+
     //add event listener to close modal when modal button clicked
-    document.getElementById('info-modal-button').addEventListener ('click', event => {
+    infoModalButton.addEventListener ('click', event => {
       document.getElementById("info-modal").classList.add('hide');
-      })
+    });
+    
+    //show modal and insert content
+    infoModal.classList.remove('hide');
+    infoModalContent.innerHTML = 
+      `<h4 id='info-modal-header'>YELP API</h4>
+      <p> ERROR: ${content.error.code} : ${content.error.description} </p>`;
+
+    //move focus to inside info-modal
+    infoModalButton.focus();
+
   }
 
   updateState = data => {
@@ -72,6 +90,7 @@ class App extends Component {
           updateAppState = {this.updateState} 
           handleClick = {this.handleClick}
           filterResults = {this.filterResults}
+          showInfoModal = {this.showInfoModal}
           ref = {this.menuRef} />
 
         </main> 
