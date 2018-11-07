@@ -9,7 +9,6 @@ Neighborhood Map is a simple single-page app that finds places using keywords an
 1. Clone/Download the repository
 2. `npm install`
 3. `cd Neighborhood-Map`
-4. `npm run build` to make build
 5. `npm run startapp` to serve production
 6. `npm start` to run in developer mode
 
@@ -27,7 +26,7 @@ Enter a valid keyword and Location.
     
 The results will appear in the list and as markers on the map.
 
-** Results will NOT fetch if 1 or both fields are empty! **
+_Results will NOT fetch if 1 or both fields are empty!_
 
 ### YelpApi.js
 This proxy server accepts the requests from <Search/> and sends them to the the Yelp Client and retrieves data. 
