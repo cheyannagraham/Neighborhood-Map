@@ -166,8 +166,8 @@ ul,ol {
 .avatar {
   min-width: 100px;
   min-height: 100px;
-  max-width: 225px;
-  max-height: 200px;
+  max-width: 15vw;
+  max-height: 15vw;
 }
 
 #open-status {
