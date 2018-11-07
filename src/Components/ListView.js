@@ -51,39 +51,39 @@ class ListView extends React.Component {
   modDisplay = (marker) => {
     return (
     <div id='module-list'>
-        <p> 
-          {marker.address}
-        </p>
-        
-        <p> 
-          {marker.phone}
-        </p>
-        
-        <p> 
-          <div>
-            {(marker.photos || []).map(photo => 
-              (<img  
-              key={photo} 
-              className='business-photo' 
-              src={photo} 
-              alt='business' />))}            
-          </div>
-        </p>
+      <p> 
+        {marker.address}
+      </p>
+      
+      <p> 
+        {marker.phone}
+      </p>
+      
+      <p> 
+        <div>
+          {(marker.photos || []).map(photo => 
+            (<img  
+            key={photo} 
+            className='business-photo' 
+            src={photo} 
+            alt='business' />))}            
+        </div>
+      </p>
 
-          <button 
-          id='more-info-button' 
-          onClick={(e) => {this.focusInfoWindow(e)}}>
-              Tab to InfoWindow
-          </button> 
+        <button 
+        id='more-info-button' 
+        onClick={(e) => {this.focusInfoWindow(e)}}>
+            Tab to InfoWindow
+        </button> 
 
-        <p>
-          <a href={marker.website}>
-            <img 
-            className="yelp-logo" 
-            src = "images/Yelp_trademark_rgb.png" 
-            alt="logo"/>
-          </a>
-        </p>
+      <p>
+        <a href={marker.website}>
+          <img 
+          className="yelp-logo" 
+          src = "images/Yelp_trademark_rgb.png" 
+          alt="logo"/>
+        </a>
+      </p>
 
     </div>
     )

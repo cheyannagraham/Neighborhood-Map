@@ -119,36 +119,34 @@ class Map extends React.Component{
     let display = (`
       <div tabindex="0" aria-label="info-window" id = "info-window" >
         
-       <ul id="info-window-list">
-          <li>
-            <h3 id="info-window-title" >${marker.title}</h3>
-          </li>
-          
-          <li>
-            <image class = "avatar" src = "${marker.avatar}" alt = "${marker.title} image">
-          </li>
-                    
-          <li > 
-              <img class="yelp-rating-logo" 
-              src=${marker.rating && this.getRatingImage(marker.rating)} 
-              alt="rating-logo" />
-                ${marker.rating} (${marker.reviewCount})
-          </li>
-          
-          <li>
-            Price: ${marker.price || ""}
-          </li> 
-          
-          <li id="open-status">
-            ${marker.hours && marker.hours[0].is_open_now ? "Open now" : "Closed"} 
-          </li>
-          
-          <li>
-            <a id="info-window-logo" href=${marker.website}>
-              <img class="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
-            </a>            
-          </li>
-        </ul>
+        <p>
+          <h3 id="info-window-title" >${marker.title}</h3>
+        </p>
+        
+        <p>
+          <image class = "avatar" src = "${marker.avatar}" alt = "${marker.title} image">
+        </p>
+                  
+        <p > 
+            <img class="yelp-rating-logo" 
+            src=${marker.rating && this.getRatingImage(marker.rating)} 
+            alt="rating-logo" />
+              ${marker.rating} (${marker.reviewCount})
+        </p>
+        
+        <p>
+          Price: ${marker.price || ""}
+        </p> 
+        
+        <p id="open-status">
+          ${marker.hours && marker.hours[0].is_open_now ? "Open now" : "Closed"} 
+        </p>
+        
+        <p>
+          <a id="info-window-logo" href=${marker.website}>
+            <img class="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
+          </a>            
+        </p>
         
       </div>`)
 
