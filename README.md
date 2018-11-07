@@ -27,6 +27,8 @@ Enter a valid keyword and Location.
     
 The results will appear in the list and as markers on the map.
 
+** Results will NOT fetch if 1 or both fields are empty! **
+
 ### YelpApi.js
 This proxy server accepts the requests from <Search/> and sends them to the the Yelp Client and retrieves data. 
 
