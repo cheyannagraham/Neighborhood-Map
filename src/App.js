@@ -13,6 +13,23 @@ class App extends Component {
     this.state = {};
     this.mapRef = React.createRef();
     this.menuRef = React.createRef();
+
+    this.trapfocus();
+  }
+
+  trapfocus = () => {
+    const infoModal = document.getElementById("info-modal");
+    const infoModalButton = document.getElementById('info-modal-button');
+
+    document.addEventListener('keydown', event => {
+      
+      if(!infoModal.classList.contains('hide')) {
+        event.key === 'Tab' && event.preventDefault();
+          //keep focus inside info-modal if its open
+          infoModalButton.focus();
+      }
+    });
+
   }
 
   showInfoModal = content => {
@@ -26,29 +43,15 @@ class App extends Component {
       <h4 id='info-modal-header'>${content.header}</h4>
       <p id='info-modal-content-p'>${content.content}</p>`
     
-    infoModalContent.innerHTML = html;
-    
-    //move focus to inside info-modal
-      infoModalButton.focus();
+    infoModalContent.innerHTML = html;   
+
 
     //add event listener to close modal when modal button clicked
     infoModalButton.addEventListener ('click', event => {
       document.getElementById("info-modal").classList.add('hide');
-      removeKeydownEvent();
     });
 
-    // trap modal focus
-      const noTab = event => {
-        event.key === 'Tab' && event.preventDefault();
-      }
 
-      document.addEventListener('keydown', event => {
-        noTab(event);
-      });
-
-    const removeKeydownEvent = () => {
-      document.removeEventListener('keydown',noTab);
-    } 
     
     infoModal.setAttribute('role','alertdialog');
 
@@ -104,6 +107,7 @@ class App extends Component {
           ref = {this.mapRef} />
           
           <Menu
+          role='menu'
           updateAppState = {this.updateState} 
           handleClick = {this.handleClick}
           filterResults = {this.filterResults}
