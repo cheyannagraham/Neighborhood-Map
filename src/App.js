@@ -19,6 +19,8 @@ class App extends Component {
     const infoModal = document.getElementById("info-modal");
     const infoModalContent = document.getElementById('info-modal-content');
     const infoModalButton = document.getElementById('info-modal-button');
+    
+    infoModal.setAttribute('role','alertdialog');
 
     //add event listener to close modal when modal button clicked
     infoModalButton.addEventListener ('click', event => {
@@ -32,7 +34,7 @@ class App extends Component {
     infoModal.classList.remove('hide');
     let html = `
       <h4 id='info-modal-header'>${content.header}</h4>
-      <p>${content.content}</p>`
+      <p id='info-modal-content-p'>${content.content}</p>`
     
       infoModalContent.innerHTML = html;
             
