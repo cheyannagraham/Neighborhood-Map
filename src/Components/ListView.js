@@ -49,14 +49,14 @@ class ListView extends React.Component {
   //this info is displayed in the side-menu
   modDisplay = (marker) => {
     return (
-    <div id='module-list'>
-      <p> 
+    <ul id='module-list' aria-label={`${marker.title} information`}>
+      <li> 
         {marker.address}
-      </p>
+      </li>
       
-      <p> 
+      <li> 
         {marker.phone}
-      </p>
+      </li>
       
         <div>
           {(marker.photos || []).map(photo => 
@@ -76,16 +76,16 @@ class ListView extends React.Component {
           Tab to InfoWindow
         </button>} 
 
-      <p>
+      <li>
         <a href={marker.website}>
           <img 
           className="yelp-logo" 
           src = "images/Yelp_trademark_rgb.png" 
           alt="Yelp logo"/>
         </a>
-      </p>
+      </li>
 
-    </div>
+    </ul>
     )
   }
 
@@ -93,7 +93,7 @@ class ListView extends React.Component {
   makeList = () => {
 
     return (
-      <ol id='marker-list'>
+      <ul id='marker-list' aria-label = 'marker-list'>
         {(this.props.markers || []).map(marker => {
           let className = '';
           let display = '';
@@ -104,7 +104,7 @@ class ListView extends React.Component {
           }
 
           return (
-            <li
+            <li 
             key = {marker.id}                
             className = {`marker-list-item ${className}`}>
 
@@ -119,7 +119,7 @@ class ListView extends React.Component {
             </li>
           )                                  
         })}
-      </ol>      
+      </ul>      
     ) 
   }
   

@@ -50,8 +50,7 @@ class App extends Component {
     infoModalButton.addEventListener ('click', event => {
       document.getElementById("info-modal").classList.add('hide');
     });
-
-
+    
     
     infoModal.setAttribute('role','alertdialog');
 
