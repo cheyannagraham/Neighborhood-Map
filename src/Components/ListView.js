@@ -64,7 +64,7 @@ class ListView extends React.Component {
             key={photo} 
             className='business-photo' 
             src={photo} 
-            alt='business' />))}            
+            alt={`${marker.title}`} />))}            
         </div>
 
         {//show this button if the Google maps object is available
@@ -81,7 +81,7 @@ class ListView extends React.Component {
           <img 
           className="yelp-logo" 
           src = "images/Yelp_trademark_rgb.png" 
-          alt="logo"/>
+          alt="Yelp logo"/>
         </a>
       </p>
 

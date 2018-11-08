@@ -137,7 +137,7 @@ class Map extends React.Component{
         <p > 
             <img class="yelp-rating-logo" 
             src=${marker.rating && this.getRatingImage(marker.rating)} 
-            alt="rating-logo" />
+            alt="yelp rating-logo" />
               ${marker.rating} (${marker.reviewCount})
         </p>
         
@@ -151,7 +151,7 @@ class Map extends React.Component{
         
         <p>
           <a id="info-window-logo" href=${marker.website}>
-            <img class="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="logo"/>
+            <img class="yelp-logo" src = "images/Yelp_trademark_rgb.png" alt="Yelp logo"/>
           </a>            
         </p>
         
