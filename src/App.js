@@ -19,33 +19,39 @@ class App extends Component {
     const infoModal = document.getElementById("info-modal");
     const infoModalContent = document.getElementById('info-modal-content');
     const infoModalButton = document.getElementById('info-modal-button');
-    
-    infoModal.setAttribute('role','alertdialog');
 
-    //add event listener to close modal when modal button clicked
-    infoModalButton.addEventListener ('click', event => {
-      document.getElementById("info-modal").classList.add('hide');
-      infoModalButton.blur();
-      document.removeEventListener('keydown',noTab);
-
-    });
-    
     //show modal and insert content
     infoModal.classList.remove('hide');
     let html = `
       <h4 id='info-modal-header'>${content.header}</h4>
       <p id='info-modal-content-p'>${content.content}</p>`
     
-      infoModalContent.innerHTML = html;
-            
+    infoModalContent.innerHTML = html;
+    
     //move focus to inside info-modal
-    infoModalButton.focus();
+      infoModalButton.focus();
 
-    //trap modal focus
-    const noTab = event => {
-      event.key === 'Tab' && event.preventDefault();
-    }
-    document.addEventListener('keydown',noTab);
+    //add event listener to close modal when modal button clicked
+    infoModalButton.addEventListener ('click', event => {
+      document.getElementById("info-modal").classList.add('hide');
+      removeKeydownEvent();
+    });
+
+    // trap modal focus
+      const noTab = event => {
+        event.key === 'Tab' && event.preventDefault();
+      }
+
+      document.addEventListener('keydown', event => {
+        noTab(event);
+      });
+
+    const removeKeydownEvent = () => {
+      document.removeEventListener('keydown',noTab);
+    } 
+    
+    infoModal.setAttribute('role','alertdialog');
+
   }
 
   
