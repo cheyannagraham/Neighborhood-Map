@@ -48,7 +48,7 @@ class Search extends React.Component {
   render(){
       
     return ( 
-      <div id='search-container'>
+      <div id='search-container' role='search'>
         <h2>Search</h2>
         
         <label className='label'> Keyword
