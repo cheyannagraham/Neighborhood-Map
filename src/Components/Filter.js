@@ -5,9 +5,9 @@ function Filter(props) {
 
     return (
         <div id='filter-results-container'>
-            <h2>Filter Results</h2>
+            <h2 id='filter-results-header'>Filter Results</h2>
 
-            <input
+            <input aria-labelledby='filter-results-header'
                 type='text' 
                 onChange = { (e) => {props.filterResults(e.target.value)}} />
         </div> 
