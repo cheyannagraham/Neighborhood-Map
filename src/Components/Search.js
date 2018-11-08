@@ -27,10 +27,10 @@ class Search extends React.Component {
           header:'YELP API',
           content: `ERROR: ${resp.error.code} : ${resp.error.description}` 
         }
-
         
         this.props.showInfoModal(content);
       } 
+      
       else return this.props.updateAppState({businessData: resp})})
     
     .catch(error => this.props.updateAppState({error:error}));

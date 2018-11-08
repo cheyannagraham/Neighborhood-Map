@@ -162,7 +162,7 @@ class Map extends React.Component{
   }
 
   render() {
-    return (console.log(!this.props.mapError),
+    return (
       <div>
         { (!this.props.mapError) && this.showMarkers()}
       </div>
