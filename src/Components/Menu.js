@@ -25,7 +25,7 @@ class Menu extends React.Component {
 
     render() {
         return (
-            <div id='side-menu' className = {this.props.navHidden ? 'hide' : ''}>
+            <div id='side-menu' aria-label='side-menu' className = {this.props.navHidden ? 'hide' : ''}>
     
                 <Search 
                 updateAppState = {this.props.updateAppState}
