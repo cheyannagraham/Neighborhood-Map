@@ -49,7 +49,7 @@ class ListView extends React.Component {
   //this info is displayed in the side-menu
   modDisplay = (marker) => {
     return (
-    <ul id='module-list' aria-label={`${marker.title} information`}>
+    <ul id='module-list' aria-labelledby={marker.title}>
       <li> 
         {marker.address}
       </li>
@@ -93,7 +93,7 @@ class ListView extends React.Component {
   makeList = () => {
 
     return (
-      <ul id='marker-list' aria-label = 'marker-list'>
+      <ul id='marker-list' aria-labelledby='marker-list-header'>
         {(this.props.markers || []).map(marker => {
           let className = '';
           let display = '';
@@ -106,17 +106,17 @@ class ListView extends React.Component {
           return (
             <li 
             key = {marker.id}                
-            className = {`marker-list-item ${className}`}>
+            className = {`marker-list-item ${className}`}
+            id = {marker.title}>
 
               <button 
               className='marker-button list-title'
               onClick = {() => {this.props.handleClick(marker)}}>          
                 {marker.title}
-              </button>
-              
-              {display} 
-            
+              </button>             
+              {display}             
             </li>
+
           )                                  
         })}
       </ul>      
@@ -126,7 +126,7 @@ class ListView extends React.Component {
 	render() {
 		return (
       <div id='marker-list-container'>
-        <h2>Markers</h2>
+        <h2 id='marker-list-header'>Markers</h2>
 
         {this.props.markers && this.props.markers.length > 0 
         ? this.makeList() : <p>No Results</p>}
