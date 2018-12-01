@@ -50,7 +50,7 @@ This custom service worker caches search results from Yelp API
 * [Yelp Fusion API](https://www.yelp.com/fusion)
 * [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial)
 
-_NOTE: Google Map API key only works for localhost_
+_NOTE: Google Map API key only works for localhost:3000 & 5000_
 
 ### Dependencies
 * [React](https://reactjs.org/)
