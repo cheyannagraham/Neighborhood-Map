@@ -22,6 +22,8 @@ Neighborhood Map is a simple single-page app that finds places using keywords an
 
 
 ## Using The App
+### Keys
+To use this app, you need a Yelp Fusion API key and a Google Maps API key
 
 ### Search
 Enter a valid keyword and Location.
@@ -49,8 +51,6 @@ This custom service worker caches search results from Yelp API
 ## API
 * [Yelp Fusion API](https://www.yelp.com/fusion)
 * [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial)
-
-_NOTE: Google Map API key only works for localhost:3000 & 5000_
 
 ### Dependencies
 * [React](https://reactjs.org/)
